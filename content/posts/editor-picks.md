@@ -1,6 +1,6 @@
 ---
 type: 'post'
-title: 'Amber do make up fo U'
+title: 'Amber Rose Makeup Artistry'
 author: 'Jane Doe'
 category: 'makeup'
 date: '2018-01-04'

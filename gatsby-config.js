@@ -6,11 +6,10 @@ module.exports = {
       { to: '/blog', name: 'blog' }
     ],
     title: 'Shining Light',
-    description: 'Tyra is a fast, feminine, and chic Gatsby.js theme.',
-    siteUrl: 'https://tyra-starter.netlify.com',
-    homepageHeader: 'Welcome to Your New Blog',
-    homepageAbout:
-      'Tyra is a modern, sleek and feminine Gatsby.js theme. Easily create a beautiful and fast blog and draw attention to your stellar content.',
+    description: '',
+    siteUrl: 'www.shininglightmua.com',
+    homepageHeader: 'Welcome Shining Light by Amber Rose',
+    homepageAbout: '',
     mailChimpUrl: 'https://mailchimp.com',
     mailChimpToken: 'MAILCHIMP TOKEN HERE',
     pinterest: '', // YOUR PINTEREST PROFILE HERE
