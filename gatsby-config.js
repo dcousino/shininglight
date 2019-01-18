@@ -7,7 +7,7 @@ module.exports = {
     ],
     title: 'Shining Light',
     description: '',
-    siteUrl: 'www.shininglightmua.com',
+    siteUrl: 'https://www.shininglightmua.com',
     homepageHeader: 'Welcome Shining Light by Amber Rose',
     homepageAbout: '',
     mailChimpUrl: 'https://mailchimp.com',
