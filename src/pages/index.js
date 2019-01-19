@@ -9,8 +9,7 @@ import Slide from 'react-reveal/Slide';
 import Card from '../homepage/components/card';
 // import Services from '../homepage/components/services';
 export default ({ data }) => {
-  console.log(data);
-  let post = data.featuredPost.edges[0].node;
+  const post = data.featuredPost.edges[0].node;
 
   return (
     <Layout>

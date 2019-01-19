@@ -6,15 +6,19 @@ module.exports = {
       // { to: '/blog', name: 'blog' }
     ],
     title: 'Shining Light',
-    description: '',
+    subTitle: 'By Amber Rose',
+    description:
+      'Shining Light makeup artist, serving the Maryland and Northern Virgina/DMA area for Wedding, Mitzvahs, Proms, Bridal Trials, and other Special Events. Specializing in hair, lashes, blowouts, airbrush, updos, photoshoots, boudoir, and professional certified, tailored beauty consultations.',
     siteUrl: 'https://www.shininglightmua.com',
     homepageHeader: 'Welcome Shining Light by Amber Rose',
-    homepageAbout: 'Blah Blah',
+    homepageAbout:
+      'Helping your inner light shine brighter by enhancing your natural beauty.',
     mailChimpUrl: 'https://mailchimp.com',
     mailChimpToken: 'MAILCHIMP TOKEN HERE',
     pinterest: '', // YOUR PINTEREST PROFILE HERE
     facebook: '', // YOUR FACEBOOK PROFILE HERE
-    twitter: '' // YOUR TWITTER PROFILE HERE
+    twitter: '', // YOUR TWITTER PROFILE HERE.
+    instagram: 'https://www.instagram.com/shininglight_mua/'
   },
   plugins: [
     'gatsby-plugin-sitemap',
@@ -113,7 +117,7 @@ module.exports = {
         anonymize: true,
         respectDNT: true,
         exclude: ['/success'],
-        cookieDomain: 'tyra-starter.netlify.com'
+        cookieDomain: 'shininglightmua.com'
       }
     }
   ]
