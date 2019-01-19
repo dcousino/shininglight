@@ -2,14 +2,14 @@ module.exports = {
   siteMetadata: {
     navbarLinks: [
       { to: '/makeup', name: 'Makeup' },
-      { to: '/lifestyle', name: 'Lifestyle' },
-      { to: '/blog', name: 'blog' }
+      { to: '/hair', name: 'Hair' }
+      // { to: '/blog', name: 'blog' }
     ],
     title: 'Shining Light',
     description: '',
     siteUrl: 'https://www.shininglightmua.com',
     homepageHeader: 'Welcome Shining Light by Amber Rose',
-    homepageAbout: '',
+    homepageAbout: 'Blah Blah',
     mailChimpUrl: 'https://mailchimp.com',
     mailChimpToken: 'MAILCHIMP TOKEN HERE',
     pinterest: '', // YOUR PINTEREST PROFILE HERE
@@ -101,7 +101,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Karla', 'Playfair Display', 'Lora']
+          families: ['Cormorant', 'Rochester']
         }
       }
     },

@@ -1,5 +1,5 @@
-Tyra - Feminine Blog Powered by Gatsby
-=====
+# Tyra - Feminine Blog Powered by Gatsby
+
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-green.svg)](https://shields.io/) [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://shields.io/)
 
 Tyra is a Gatsby starter that focuses on legibility and a clean, feminine design with 2010 influences. Technically, the goals for Tyra are having a "plug and play" blog, with great SEO, tooling, and integrations all included.
@@ -14,7 +14,7 @@ The first step with using Tyra is customizing your metadata in `gatsby-config.js
 siteMetadata: {
   navbarLinks: [
     {to: "/makeup", name: "Makeup"},
-    {to: "/lifestyle", name: "Lifestyle"},
+    {to: "/hair", name: "Hair"},
     {to: "/blog", name: "blog"},
   ],
   title: "", // The name of your blog
@@ -44,16 +44,14 @@ Tyra uses markdown for writing blog posts, and follows a simple template for add
 
 ```markdown
 ---
-
-type: "post"
-title: "My Awesome Post Title"
-author: "My Name"
-category: "My Category"
-date: "2019-01-05"
-slug: "/my-awesome-post"
-postImage: "./img/myimage.jpg"
-metaDescription: "This is my first awesome and cool post!!!"
-
+type: 'post'
+title: 'My Awesome Post Title'
+author: 'My Name'
+category: 'My Category'
+date: '2019-01-05'
+slug: '/my-awesome-post'
+postImage: './img/myimage.jpg'
+metaDescription: 'This is my first awesome and cool post!!!'
 ---
 
 You can write your post here using markdown! Link to images in the `img` folder using this syntax:
@@ -69,6 +67,6 @@ Tyra is licensed under the terms of the MIT License.
 
 ## Thanks and Mentions
 
-* The [GatsbyJS](https://www.gatsbyjs.org/) Team for creating an amazing platform.
-* [Netlify](https://www.netlify.com/) for making static site hosting even easier.
-* [Unsplash](https://unsplash.com/) and the Free Photography Community.
+- The [GatsbyJS](https://www.gatsbyjs.org/) Team for creating an amazing platform.
+- [Netlify](https://www.netlify.com/) for making static site hosting even easier.
+- [Unsplash](https://unsplash.com/) and the Free Photography Community.

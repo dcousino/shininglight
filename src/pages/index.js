@@ -1,45 +1,58 @@
-import React from "react"
+import React from 'react';
 import Layout from '../common/layouts';
 import { graphql } from 'gatsby';
 import Hero from '../homepage/components/hero';
-import Card from '../homepage/components/card';
 import About from '../homepage/components/about';
 import Bio from '../homepage/components/bio';
 import Seo from '../common/seo';
-
+import Slide from 'react-reveal/Slide';
+import Card from '../homepage/components/card';
+// import Services from '../homepage/components/services';
 export default ({ data }) => {
+  console.log(data);
   let post = data.featuredPost.edges[0].node;
+
   return (
     <Layout>
       <Seo
-        title={"Home Page"}
-        description={data.site.siteMetadata.description} />
-      <Hero
-        title={post.frontmatter.title}
-        image={post.frontmatter.postImage.childImageSharp.fluid}
-        to={post.frontmatter.slug}
-        description={post.frontmatter.description} />
-      <div className="flex flex-wrap center mw9 justify-around pb3">
-        {data.cards.edges.map(({node}) => (
-          <Card
-            title={node.frontmatter.title}
-            image={node.frontmatter.postImage.childImageSharp.fluid}
-            to={node.frontmatter.slug}
-            description={node.frontmatter.description} />
-        ))}
-      </div>
+        title={'Home Page'}
+        description={data.site.siteMetadata.description}
+      />
+      <Slide left>
+        <Hero
+          title={post.frontmatter.title}
+          image={post.frontmatter.postImage.childImageSharp.fluid}
+          to={post.frontmatter.slug}
+          description={post.frontmatter.description}
+        />
+      </Slide>
+      {/* <Services /> */}
       <About />
       <Bio />
+
+      <div className="flex flex-wrap center mw9 justify-around pb3">
+        {data.cards.edges.map(({ node }) => (
+          <Slide key={node.frontmatter.slug} left ssrFadeout>
+            <Card
+              key={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              image={node.frontmatter.postImage.childImageSharp.fluid}
+              to={node.frontmatter.slug}
+              description={node.frontmatter.description}
+            />
+          </Slide>
+        ))}
+      </div>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
     featuredPost: allMarkdownRemark(
-      limit: 1,
-      sort: {order: DESC, fields: frontmatter___date},
-      filter: {frontmatter: {type: {eq: "post"}}}) {
+      limit: 1
+      filter: { frontmatter: { category: { eq: "main" } } }
+    ) {
       edges {
         node {
           frontmatter {
@@ -58,10 +71,11 @@ export const query = graphql`
       }
     }
     cards: allMarkdownRemark(
-      skip: 1,
-      limit: 3,
-      sort: {order: DESC, fields: frontmatter___date},
-      filter: {frontmatter: {type: {eq: "post"}}}) {
+      skip: 1
+      limit: 3
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { type: { eq: "post" } } }
+    ) {
       edges {
         node {
           frontmatter {
@@ -85,4 +99,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

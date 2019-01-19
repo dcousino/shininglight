@@ -5,14 +5,13 @@ import Footer from '../components/footer.js';
 import 'tachyons';
 import '../styles/custom.tachyons.css';
 
-
-export default (props) => (
+export default props => (
   <React.Fragment>
     <Helmet>
-      <body className="bg-near-white mid-gray" />
+      <body className="bg-body mid-gray" />
     </Helmet>
     <Navbar />
     {props.children}
     <Footer />
   </React.Fragment>
-)
+);

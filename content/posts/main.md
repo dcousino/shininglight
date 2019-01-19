@@ -1,12 +1,12 @@
 ---
 type: 'post'
-title: 'Amber Rose Makeup Artistry'
-author: 'Jane Doe'
-category: 'makeup'
-date: '2018-01-04'
-slug: '/editors-picks'
+title: 'Makeup Artistry By Amber Rose'
+author: 'Amber Rose'
+category: 'main'
+date: '2019-01-17'
+slug: '/main'
 postImage: './img/flatlay.jpg'
-metaDescription: "We went over the best new products and tried them all. Here's what's hot and what's not!"
+metaDescription: 'Brightening the world through the enhancement of natural beauty.'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id varius velit. Nullam convallis finibus nisl nec fringilla. Morbi venenatis quam id luctus varius. Mauris quis eros in turpis blandit dapibus. Donec vestibulum cursus tincidunt. Proin laoreet diam ante, at convallis tellus gravida et. Fusce ac varius nulla. Curabitur eget elit aliquam, porta urna at, lacinia velit.
