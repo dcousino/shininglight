@@ -9,6 +9,9 @@ export default props => (
         site {
           siteMetadata {
             title
+            themeColor
+            location
+            googleVerification
           }
         }
       }
@@ -23,9 +26,11 @@ export default props => (
         <meta name="description" content={props.description} />
         <meta
           name="google-site-verification"
-          content="jjLeJQ6EIkucjV5K77jmoARg9uwNhGk00a91V0PdO2U"
+          content={data.site.siteMetadata.googleVerification}
         />
-        :
+        <meta name="theme-color" content={data.site.siteMetadata.themeColor} />
+        <meta name="location" content={data.site.siteMetadata.location} />
+        <meta name="robots" content="index,follow" />
       </Helmet>
     )}
   />

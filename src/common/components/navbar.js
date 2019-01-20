@@ -50,30 +50,35 @@ export default class Navbar extends React.Component {
               </div>
               <nav className="bt bb nav-serif tc center">
                 <a
+                  aria-label="Home"
                   className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue pa3 dib ph4-l"
                   href="/"
                 >
                   Home
                 </a>
                 <a
+                  aria-label="Hair"
                   className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue pa3 dib ph4-l"
                   href="/hair"
                 >
                   Hair
                 </a>
                 <a
+                  aria-label="Makeup"
                   className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue pa3 dib ph4-l"
                   href="/makeup"
                 >
                   Makeup
                 </a>
                 <a
+                  aria-label="About"
                   className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue dib pa3 ph4-l"
                   href="/about"
                 >
                   About
                 </a>
                 <a
+                  aria-label="Contact"
                   className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue pa3 dib ph4-l"
                   href="/contact"
                 >

@@ -14,11 +14,11 @@ export default () => (
       }
     `}
     render={data => (
-      <div className="bg-main flex flex-column justify-center items-center pa2 pv5">
+      <div className="flex flex-column justify-center items-center pa2 pv5">
         <h1 className="fw1 rochester db f2 tc">
           {data.site.siteMetadata.homepageHeader}
         </h1>
-        <p className="f4 serif mw7 serif tc lh-copy">
+        <p className="f4 serif mw7 tc lh-copy">
           {data.site.siteMetadata.homepageAbout}
         </p>
         <Link

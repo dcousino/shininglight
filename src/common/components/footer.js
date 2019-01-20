@@ -28,13 +28,25 @@ export default () => (
             </span>
             <hr />
             <div className="w-100 flex justify-around items-center pv2">
-              <a className="near-white" href={data.site.siteMetadata.facebook}>
+              <a
+                aria-label="facebook"
+                className="near-white"
+                href={data.site.siteMetadata.facebook}
+              >
                 <FaFacebookF />
               </a>
-              <a className="near-white" href={data.site.siteMetadata.pinterest}>
+              <a
+                aria-label="pinterest"
+                className="near-white"
+                href={data.site.siteMetadata.pinterest}
+              >
                 <FaPinterestP />
               </a>
-              <a className="near-white" href={data.site.siteMetadata.instagram}>
+              <a
+                aria-label="instagram"
+                className="near-white"
+                href={data.site.siteMetadata.instagram}
+              >
                 <FaInstagram />
               </a>
             </div>
@@ -44,6 +56,7 @@ export default () => (
               WRITING BY {data.site.siteMetadata.siteTitle}
             </span>
             <Link
+              aria-label="blog"
               to="/blog"
               className="near-white sans-serif f5 tracked pv1 db"
             >
@@ -55,12 +68,14 @@ export default () => (
               MORE ON {data.site.siteMetadata.siteTitle}
             </span>
             <Link
+              aria-label="about"
               to="/about"
               className="near-white sans-serif f5 tracked pv1 db"
             >
               ABOUT US
             </Link>
             <a
+              aria-label="mailchimp"
               href={data.site.siteMetadata.mailChimpUrl}
               className="near-white sans-serif f5 tracked pv1 db"
             >
@@ -72,6 +87,7 @@ export default () => (
           <div className="w-100 bb b--mid-gray mv3" />
           <div className="flex w-100 mw6 items-center justify-center justify-start-ns">
             <a
+              aria-label="sitemap"
               href="/sitemap.xml"
               className="silver sans-serif f5 tracked pv1 db mh1"
             >

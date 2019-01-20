@@ -4,11 +4,11 @@ import Img from 'gatsby-image';
 import 'tachyons';
 
 export default () => (
-  <div className="pv5 pa2 flex flex-wrap mw9 center justify-around items-center">
+  <div className="bg-main pv5 pa2 flex flex-wrap mw9 center justify-around items-center">
     <StaticQuery
       query={graphql`
         query {
-          image: file(relativePath: { eq: "img/author.jpg" }) {
+          image: file(relativePath: { eq: "img/amber.jpg" }) {
             childImageSharp {
               fluid(maxWidth: 1080) {
                 ...GatsbyImageSharpFluid

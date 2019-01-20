@@ -7,7 +7,7 @@ import Bio from '../homepage/components/bio';
 import Seo from '../common/seo';
 import Slide from 'react-reveal/Slide';
 import Card from '../homepage/components/card';
-// import Services from '../homepage/components/services';
+import Services from '../homepage/components/services';
 export default ({ data }) => {
   const post = data.featuredPost.edges[0].node;
 
@@ -25,7 +25,7 @@ export default ({ data }) => {
           description={post.frontmatter.description}
         />
       </Slide>
-      {/* <Services /> */}
+      <Services />
       <About />
       <Bio />
 

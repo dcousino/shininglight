@@ -3,10 +3,13 @@ module.exports = {
     navbarLinks: [
       { to: '/makeup', name: 'Makeup' },
       { to: '/hair', name: 'Hair' }
-      // { to: '/blog', name: 'blog' }
     ],
     title: 'Shining Light',
+    location: 'Maryland',
     subTitle: 'By Amber Rose',
+    navLogo: 'static/logo.png',
+    themeColor: '#aaf0e9',
+    googleVerification: 'jjLeJQ6EIkucjV5K77jmoARg9uwNhGk00a91V0PdO2U',
     description:
       'Shining Light makeup artist, serving the Maryland and Northern Virgina/DMA area for Wedding, Mitzvahs, Proms, Bridal Trials, and other Special Events. Specializing in hair, lashes, blowouts, airbrush, updos, photoshoots, boudoir, and professional certified, tailored beauty consultations.',
     siteUrl: 'https://www.shininglightmua.com',
@@ -16,7 +19,8 @@ module.exports = {
     mailChimpUrl: 'https://mailchimp.com',
     mailChimpToken: 'MAILCHIMP TOKEN HERE',
     pinterest: '', // YOUR PINTEREST PROFILE HERE
-    facebook: '', // YOUR FACEBOOK PROFILE HERE
+    facebook:
+      'https://www.facebook.com/pages/category/Beauty--Cosmetic---Personal-Care/Shining-Light-Makeup-Artistry-by-Amber-Rose-408992882872777/',
     twitter: '', // YOUR TWITTER PROFILE HERE.
     instagram: 'https://www.instagram.com/shininglight_mua/'
   },
@@ -25,6 +29,25 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'ShiningLight',
+        short_name: 'ShiningLight',
+        start_url: '/',
+        background_color: '#aaf0e9',
+        theme_color: '#aaf0e9',
+        display: 'minimal-ui',
+        icon: 'static/logo.png' // This path is relative to the root of the site.
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
+      }
+    },
     {
       resolve: 'gatsby-plugin-feed',
       options: {
