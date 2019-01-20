@@ -9,21 +9,28 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        molly: file(relativePath: { eq: "img/molly.webp" }) {
+        molly: file(relativePath: { eq: "img/molly.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 400) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        becca: file(relativePath: { eq: "img/becca.webp" }) {
+        becca: file(relativePath: { eq: "img/becca.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 400) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        bride3: file(relativePath: { eq: "img/bride3.webp" }) {
+        bride3: file(relativePath: { eq: "img/bride3.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        bride4: file(relativePath: { eq: "img/bridal_aisle.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 400) {
               ...GatsbyImageSharpFluid
@@ -59,8 +66,8 @@ export default props => (
           <div className="w-25 mh1">
             <Img
               className="img"
-              fluid={data.bride3.childImageSharp.fluid}
-              alt="bride3"
+              fluid={data.bride4.childImageSharp.fluid}
+              alt="bride4"
             />
           </div>
         </div>

@@ -20,7 +20,10 @@ export default () => (
       }
     `}
     render={data => (
-      <footer className="pa2 bg-dark-gray near-white pv5">
+      <footer
+        // style={{ position: 'relative', bottom: 0, left: 0, right: 0 }}
+        className="pa2 bg-dark-gray near-white pv5"
+      >
         <div className="flex flex-wrap justify-around w-100 mw9 center mb5">
           <div className="w-100 mw5 mb4">
             <span className="display f2">
@@ -89,7 +92,7 @@ export default () => (
             <a
               aria-label="sitemap"
               href="/sitemap.xml"
-              className="silver sans-serif f5 tracked pv1 db mh1"
+              className="near-white sans-serif f5 tracked pv1 db mh1"
             >
               SITEMAP
             </a>

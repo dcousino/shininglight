@@ -147,6 +147,10 @@
   margin-left: auto;
 }
 
+/* header {
+  z-index: 99;
+  margin-bottom: 200px;
+} */
 .bg-animate,
 .bg-animate:hover,
 .bg-animate:focus {
