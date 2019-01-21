@@ -8,8 +8,20 @@ import Seo from '../common/seo';
 import Slide from 'react-reveal/Slide';
 import Card from '../homepage/components/card';
 import Services from '../homepage/components/services';
+
 export default ({ data }) => {
   const post = data.featuredPost.edges[0].node;
+  const cards = data.cards.edges.map(({ node }) => (
+    <Slide key={node.frontmatter.slug} left ssrFadeout>
+      <Card
+        key={node.frontmatter.slug}
+        title={node.frontmatter.title}
+        image={node.frontmatter.postImage.childImageSharp.fluid}
+        to={node.frontmatter.slug}
+        description={node.frontmatter.description}
+      />
+    </Slide>
+  ));
 
   return (
     <Layout>
@@ -30,17 +42,7 @@ export default ({ data }) => {
       <Bio />
 
       <div className="flex flex-wrap center mw9 justify-around pb3">
-        {data.cards.edges.map(({ node }) => (
-          <Slide key={node.frontmatter.slug} left ssrFadeout>
-            <Card
-              key={node.frontmatter.slug}
-              title={node.frontmatter.title}
-              image={node.frontmatter.postImage.childImageSharp.fluid}
-              to={node.frontmatter.slug}
-              description={node.frontmatter.description}
-            />
-          </Slide>
-        ))}
+        {cards}
       </div>
     </Layout>
   );

@@ -15,31 +15,20 @@ export default () => (
               }
             }
           }
-          copy: markdownRemark(frontmatter: { name: { eq: "homepage__bio" } }) {
-            html
-            frontmatter {
-              title
-            }
-          }
         }
       `}
       render={data => (
         <React.Fragment>
           <Img
             fluid={data.image.childImageSharp.fluid}
-            alt="The Author"
+            alt="Contact Me"
             className="w-100 mw6"
           />
           <div className="w-100 pa2 mw6 mv4">
             <span className="db f2 rochester dark-gray">
               {data.copy.frontmatter.title}
             </span>
-            <Reveal effect="fadeInUp">
-              <div
-                className="lh-copy f5 serif mt4"
-                dangerouslySetInnerHTML={{ __html: data.copy.html }}
-              />
-            </Reveal>
+            <Reveal effect="fadeInUp" />
           </div>
         </React.Fragment>
       )}

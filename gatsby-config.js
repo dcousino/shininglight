@@ -16,8 +16,9 @@ module.exports = {
     homepageHeader: 'Welcome Shining Light by Amber Rose',
     homepageAbout:
       'Helping your inner light shine brighter by enhancing your natural beauty.',
-    mailChimpUrl: 'https://mailchimp.com',
-    mailChimpToken: 'MAILCHIMP TOKEN HERE',
+    mailChimpUrl:
+      'https://shininglightmua.us20.list-manage.com/subscribe/post?u=561b4c6111eec057d5afc6621&amp;id=01d7ca4e89',
+    mailChimpToken: 'b_561b4c6111eec057d5afc6621_01d7ca4e89',
     pinterest: '', // YOUR PINTEREST PROFILE HERE
     facebook:
       'https://www.facebook.com/pages/category/Beauty--Cosmetic---Personal-Care/Shining-Light-Makeup-Artistry-by-Amber-Rose-408992882872777/',
@@ -141,6 +142,12 @@ module.exports = {
         respectDNT: true,
         exclude: ['/success'],
         cookieDomain: 'shininglightmua.com'
+      }
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `shininglight_mua`
       }
     }
   ]
