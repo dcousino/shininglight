@@ -8,6 +8,9 @@ import Seo from '../common/seo';
 import Slide from 'react-reveal/Slide';
 import Card from '../homepage/components/card';
 import Services from '../homepage/components/services';
+import config from 'react-reveal/globals';
+
+config({ ssrFadeout: true });
 
 export default ({ data }) => {
   const post = data.featuredPost.edges[0].node;
@@ -29,14 +32,14 @@ export default ({ data }) => {
         title={'Home Page'}
         description={data.site.siteMetadata.description}
       />
-      <Slide left>
-        <Hero
-          title={post.frontmatter.title}
-          image={post.frontmatter.postImage.childImageSharp.fluid}
-          to={post.frontmatter.slug}
-          description={post.frontmatter.description}
-        />
-      </Slide>
+
+      <Hero
+        title={post.frontmatter.title}
+        image={post.frontmatter.postImage.childImageSharp.fluid}
+        to={post.frontmatter.slug}
+        description={post.frontmatter.description}
+      />
+
       <Services />
       <About />
       <Bio />

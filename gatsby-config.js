@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
     navbarLinks: [
+      { to: '/', name: 'Home' },
       { to: '/makeup', name: 'Makeup' },
-      { to: '/hair', name: 'Hair' }
+      { to: '/hair', name: 'Hair' },
+      { to: '/about', name: 'About' },
+      { to: '/contact', name: 'Contact' }
     ],
     title: 'Shining Light',
     location: 'Maryland',
@@ -142,12 +145,6 @@ module.exports = {
         respectDNT: true,
         exclude: ['/success'],
         cookieDomain: 'shininglightmua.com'
-      }
-    },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `shininglight_mua`
       }
     }
   ]

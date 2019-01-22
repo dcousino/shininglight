@@ -1,14 +1,12 @@
 ---
-
-type: "post"
-title: "Three Eye Makeup Looks for Five Minute Mornings"
-author: "Jane Doe"
-category: "makeup"
-date: "2018-01-03"
-slug: "/lazy-morning-looks"
-postImage: "./img/eyeshadow.jpg"
+type: 'post'
+title: 'Three Eye Makeup Looks for Five Minute Mornings'
+author: 'Jane Doe'
+category: 'makeup'
+date: '2018-01-03'
+slug: '/makeup'
+postImage: './img/eyeshadow.jpg'
 metaDescription: "Lazy Day? Here's three essential eye makeup techniques to hang on to."
-
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id varius velit. Nullam convallis finibus nisl nec fringilla. Morbi venenatis quam id luctus varius. Mauris quis eros in turpis blandit dapibus. Donec vestibulum cursus tincidunt. Proin laoreet diam ante, at convallis tellus gravida et. Fusce ac varius nulla. Curabitur eget elit aliquam, porta urna at, lacinia velit.
@@ -33,11 +31,11 @@ Vestibulum vitae neque a velit efficitur tempor eget eu urna. Praesent et purus 
 
 Let's try adding some links. Have you looked at the template author's [github lately](https://github.com/madelyneriksen)? She's always creating new stuff.
 
-Of course, we can also *emphasize* text with the **tools** markdown gives us.
+Of course, we can also _emphasize_ text with the **tools** markdown gives us.
 
-* There's some sweet features to markdown
-* Like Lists
-* and more lists
+- There's some sweet features to markdown
+- Like Lists
+- and more lists
 
 ```
 Prismjs isn't included
@@ -57,4 +55,4 @@ In vel augue enim. Maecenas in magna ac risus egestas imperdiet. Vivamus consequ
 
 Vestibulum non feugiat diam, sit amet convallis nisl. Etiam a nunc eget velit tincidunt rhoncus. Phasellus ut euismod nisi. Morbi erat arcu, viverra ut feugiat sit amet, mollis id enim. Quisque venenatis ultricies odio eu mattis. Fusce vel placerat lacus, fermentum fringilla neque. Nam enim lectus, consequat id augue eget, laoreet pulvinar dolor.
 
-Vivamus a lacus ante. Morbi sed ex est. Nulla tempor risus eu hendrerit efficitur. Sed porta convallis sapien, eu porttitor augue eleifend eget. Suspendisse lorem turpis, elementum non neque tempus, pellentesque laoreet est. Suspendisse rhoncus justo ac scelerisque placerat. Donec ligula mi, luctus in scelerisque eu, lobortis vitae tellus. Aliquam eget tempus augue, egestas hendrerit est. Vivamus egestas nulla nec mi fermentum porta. Integer commodo nibh tristique nulla vehicula, id ultricies neque dictum. Fusce ut egestas diam. Aliquam at dolor efficitur nulla malesuada consequat ac ut ipsum. 
+Vivamus a lacus ante. Morbi sed ex est. Nulla tempor risus eu hendrerit efficitur. Sed porta convallis sapien, eu porttitor augue eleifend eget. Suspendisse lorem turpis, elementum non neque tempus, pellentesque laoreet est. Suspendisse rhoncus justo ac scelerisque placerat. Donec ligula mi, luctus in scelerisque eu, lobortis vitae tellus. Aliquam eget tempus augue, egestas hendrerit est. Vivamus egestas nulla nec mi fermentum porta. Integer commodo nibh tristique nulla vehicula, id ultricies neque dictum. Fusce ut egestas diam. Aliquam at dolor efficitur nulla malesuada consequat ac ut ipsum.
