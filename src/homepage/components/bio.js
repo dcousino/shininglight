@@ -36,7 +36,7 @@ export default () => (
             </span>
             <Reveal effect="fadeInUp">
               <div
-                className="lh-copy f5 serif mt4"
+                className="lh-copy f4 serif mt4"
                 dangerouslySetInnerHTML={{ __html: data.copy.html }}
               />
             </Reveal>

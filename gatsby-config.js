@@ -1,3 +1,7 @@
+require('dotenv').config();
+
+const { ACCESS_TOKEN, SPACE_ID } = process.env;
+
 module.exports = {
   siteMetadata: {
     navbarLinks: [
@@ -145,6 +149,13 @@ module.exports = {
         respectDNT: true,
         exclude: ['/success'],
         cookieDomain: 'shininglightmua.com'
+      }
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: SPACE_ID,
+        accessToken: ACCESS_TOKEN
       }
     }
   ]
