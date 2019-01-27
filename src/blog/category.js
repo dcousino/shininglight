@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby';
 import Breadcrumbs from './components/breadcrumbs';
 import Preview from './components/post-preview.js';
 import Seo from '../common/seo';
-import 'tachyons';
 
 export default class BlogIndex extends React.Component {
   render() {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import { FaPinterestP, FaFacebookF, FaInstagram } from 'react-icons/fa';
-import 'tachyons';
 
 export default () => (
   <StaticQuery

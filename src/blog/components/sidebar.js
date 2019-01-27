@@ -2,7 +2,6 @@ import React from 'react';
 import { FaPinterestP, FaFacebookF } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
 import { StaticQuery, graphql } from 'gatsby';
-import 'tachyons';
 
 export default props => {
   let { desc, img, location } = props;

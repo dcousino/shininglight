@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import 'tachyons';
 
 export default props => (
   <div className="bg-main ph2 pv5 flex flex-column justify-center items-center">

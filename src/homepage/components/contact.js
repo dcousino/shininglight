@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import 'tachyons';
+
 import Reveal from 'react-reveal/Reveal';
 export default () => (
   <div className="bg-main pv5 pa2 flex flex-wrap mw9 center justify-around items-center">

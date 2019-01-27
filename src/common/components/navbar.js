@@ -1,69 +1,89 @@
-import React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
-import '../styles/custom.tachyons.css';
-import './navbar.css';
+import React, { Fragment } from 'react';
+import Headroom from 'react-headroom';
+import { Flex, Image } from 'rebass';
+import styled from 'styled-components';
+import { SectionLinks } from 'react-scroll-section';
+import Fade from 'react-reveal/Fade';
+import RouteLink from './routeLink';
+import Logo from '../../../content/img/logo.png';
 
-export default class Navbar extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      // Null rather than false to check for initialization
-      menuToggle: null
-    };
-    this.toggleMenu = this.toggleMenu.bind(this);
+const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
+
+const HeaderContainer = styled(Headroom)`
+  .headroom--pinned {
+    background: ${props => props.theme.colors.primaryDark};
   }
 
-  toggleMenu(event) {
-    this.setState({
-      menuToggle: !this.state.menuToggle
-    });
-  }
+  position: absolute;
+  width: 100%;
+  min-height: 85px;
+`;
 
-  render() {
-    return (
-      <StaticQuery
-        query={graphql`
-          query {
-            site {
-              siteMetadata {
-                navbarLinks {
-                  to
-                  name
-                }
-                siteTitle: title
-                siteSubTitle: subTitle
-                mailChimpUrl
-              }
-            }
+const formatLinks = allLinks =>
+  Object.entries(allLinks).reduce(
+    (acc, [key, value]) => {
+      const isHome = key === 'home';
+      return isHome
+        ? {
+            ...acc,
+            home: value
           }
-        `}
-        render={data => (
-          <React.Fragment>
-            <header className="bg-white black-80 tc">
-              <div className="bg-main pv4">
-                <h1 className="mt2 mb0 f1 rochester">
-                  {data.site.siteMetadata.siteTitle}
-                </h1>
-                <h2 className="mt2 mb0 nav-sub serif fw4 ttu tracked">
-                  {data.site.siteMetadata.siteSubTitle}
-                </h2>
-              </div>
-              <nav className="bt bb nav-serif tc center">
-                {data.site.siteMetadata.navbarLinks.map(link => (
-                  <Link
-                    key={link.name}
-                    aria-label={link.name}
-                    className="f6 f5-l link bg-animate black-80 hover-bg-lightest-blue pa3 dib ph4-l"
-                    to={link.to}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </nav>
-            </header>
-          </React.Fragment>
-        )}
-      />
-    );
-  }
-}
+        : {
+            ...acc,
+            links: [...acc.links, { name: capitalize(key), value }]
+          };
+    },
+    { links: [], home: null }
+  );
+
+const Header = () => {
+  console.log(Logo);
+  return (
+    <HeaderContainer>
+      <Fade top>
+        <Flex
+          flexWrap="wrap"
+          justifyContent="space-between"
+          alignItems="center"
+          p={3}
+        >
+          <SectionLinks>
+            {({ allLinks }) => {
+              const { home, links } = formatLinks(allLinks);
+
+              const homeLink = home && (
+                <Image
+                  src={Logo}
+                  width="50px"
+                  alt="Portfolio Logo"
+                  onClick={home.onClick}
+                  style={{
+                    cursor: 'pointer'
+                  }}
+                />
+              );
+              const navLinks = links.map(({ name, value }) => (
+                <RouteLink
+                  key={name}
+                  onClick={value.onClick}
+                  selected={value.selected}
+                >
+                  {name}
+                </RouteLink>
+              ));
+
+              return (
+                <Fragment>
+                  {homeLink}
+                  <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
+                </Fragment>
+              );
+            }}
+          </SectionLinks>
+        </Flex>
+      </Fade>
+    </HeaderContainer>
+  );
+};
+
+export default Header;
