@@ -1,22 +1,23 @@
 module.exports = {
   siteMetadata: {
     navbarLinks: [
-      {to: "/makeup", name: "Makeup"},
-      {to: "/lifestyle", name: "Lifestyle"},
-      {to: "/blog", name: "blog"},
+      { to: '/services', name: 'Services' },
+      { to: '/portfolio', name: 'Porfolio' },
+      { to: '/contact', name: 'Contact' }
     ],
-    title: "TYRA",
-    description: "Tyra is a fast, feminine, and chic Gatsby.js theme.",
-    siteUrl: "https://tyra-starter.netlify.com",
-    homepageHeader: "Welcome to Your New Blog",
-    homepageAbout: "Tyra is a modern, sleek and feminine Gatsby.js theme. Easily create a beautiful and fast blog and draw attention to your stellar content.",
-    mailChimpUrl: "https://mailchimp.com",
-    mailChimpToken: "MAILCHIMP TOKEN HERE",
-    youtube: "", // YOUR YOUTUBE PROFILE HERE
-    github: "", // YOUR GITHUB PROFILE HERE 
-    pinterest: "", // YOUR PINTEREST PROFILE HERE
-    facebook: "", // YOUR FACEBOOK PROFILE HERE
-    twitter: "", // YOUR TWITTER PROFILE HERE
+    title: 'Shining Light',
+    description: 'Tyra is a fast, feminine, and chic Gatsby.js theme.',
+    siteUrl: 'https://shininglightmua.com',
+    homepageHeader: 'Welcome to Your New Blog',
+    homepageAbout:
+      'Tyra is a modern, sleek and feminine Gatsby.js theme. Easily create a beautiful and fast blog and draw attention to your stellar content.',
+    mailChimpUrl: 'https://mailchimp.com',
+    mailChimpToken: 'MAILCHIMP TOKEN HERE',
+    youtube: '', // YOUR YOUTUBE PROFILE HERE
+    github: '', // YOUR GITHUB PROFILE HERE
+    pinterest: '', // YOUR PINTEREST PROFILE HERE
+    facebook: '', // YOUR FACEBOOK PROFILE HERE
+    twitter: '' // YOUR TWITTER PROFILE HERE
   },
   plugins: [
     'gatsby-plugin-sitemap',
@@ -47,9 +48,9 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
+                  custom_elements: [{ 'content:encoded': edge.node.html }]
+                });
+              });
             },
             query: `
             {
@@ -72,18 +73,18 @@ module.exports = {
               }
             }
           `,
-            output: "/rss.xml",
-            title: "Gatsby RSS Feed",
-          },
-        ],
-      },
+            output: '/rss.xml',
+            title: 'Gatsby RSS Feed'
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content`,
-        name: 'content',
-      },
+        name: 'content'
+      }
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -93,30 +94,30 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1400,
-            },
-          },
-        ],
+              maxWidth: 1400
+            }
+          }
+        ]
       }
     },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Karla', 'Playfair Display', 'Lora']
+          families: ['Cormorant', 'Rochester']
         }
       }
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: "",
+        trackingId: '',
         head: false,
         anonymize: true,
         respectDNT: true,
         exclude: ['/success'],
-        cookieDomain: "tyra-starter.netlify.com",
+        cookieDomain: 'shininglightmua.com'
       }
     }
   ]
-}
+};
