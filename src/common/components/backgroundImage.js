@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import styled from 'styled-components';
-
 import BackgroundImage from 'gatsby-background-image';
 
 const BackgroundSection = ({ className }) => (
@@ -18,14 +17,12 @@ const BackgroundSection = ({ className }) => (
       }
     `}
     render={data => {
-      // Set ImageData.
       const imageData = data.desktop.childImageSharp.fluid;
       return (
         <BackgroundImage
           Tag="section"
           className={className}
           fluid={imageData}
-          backgroundColor={`#040e18`}
         />
       );
     }}
@@ -35,8 +32,8 @@ const BackgroundSection = ({ className }) => (
 const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
   height: 100vh;
-  background-position: bottom center;
-  background-repeat: repeat-y;
+  background-position: top center;
+  background-repeat: repeat-x;
   background-size: cover;
   @media (max-width: 768px) {
     height: 60vh;

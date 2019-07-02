@@ -3,13 +3,34 @@ import { StaticQuery, graphql, Link } from 'gatsby';
 import { FiMenu } from 'react-icons/fi';
 import styled from 'styled-components';
 import '../styles/custom.tachyons.css';
-
+import Img from 'gatsby-image';
 const MainLink = styled(Link)`
+  color: ${props => props.theme.colors.primary};
   font-family: 'Cormorant';
+  line-height: 0.75em;
+  text-align: right;
+
+  /* display: block; */
+`;
+const SubText = styled.span`
+  font-size: 0.75em;
+  font-family: 'Sacramento';
+  color: #555;
 `;
 
 const Nav = styled.div`
-  background-color: ${props => props.theme.colors.primary};
+  position: relative;
+  background: ${props => props.theme.colors.offwhite};
+  /* filter: alpha(opacity=80);
+  opacity: 0.8;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  padding: 0;
+  margin: 0; */
 `;
 
 const MultiLink = props => {
@@ -84,11 +105,24 @@ export default class Navbar extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      // Null rather than false to check for initialization
-      menuToggle: null
+      menuToggle: null,
+      bgColor: 'transparent'
     };
     this.toggleMenu = this.toggleMenu.bind(this);
   }
+
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.handleScroll);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleScroll);
+  };
+
+  handleScroll = event => {
+    let scrollTop = event.srcElement.body.scrollTop,
+      itemTranslate = Math.min(0, scrollTop / 3 - 60);
+  };
 
   toggleMenu(event) {
     this.setState({
@@ -97,10 +131,18 @@ export default class Navbar extends React.Component {
   }
 
   render() {
+    const { bgColor } = this.state;
     return (
       <StaticQuery
         query={graphql`
           query {
+            image: file(relativePath: { eq: "img/logo.png" }) {
+              childImageSharp {
+                fluid(maxWidth: 1080) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             site {
               siteMetadata {
                 navbarLinks {
@@ -116,19 +158,22 @@ export default class Navbar extends React.Component {
         render={data => (
           <React.Fragment>
             <Nav
+              bgColor={bgColor}
               className="flex w-100 vh-7 pv3 flex z-max justify-between items-center top-0"
-              style={{ position: 'sticky' }}
             >
-              <div className="w-100 mw8 flex justify-between justify-around-l items-center ph4 pa2-ns">
+              <div className="w-100 mw8 flex justify-between justify-around items-center ph4 pa2-ns">
                 <button
-                  className="ttu tracked white f4 no-underline bn bg-transparent pointer"
+                  className="ttu tracked self-start black f4 no-underline bn bg-transparent pointer"
                   onClick={this.toggleMenu}
                 >
                   <FiMenu />
                 </button>
-                <MainLink to="/" className="white f3 no-underline">
+                <MainLink to="/" className=" f3 no-underline">
                   {data.site.siteMetadata.siteTitle}
+                  <br />
+                  <SubText>Beauty Design</SubText>
                 </MainLink>
+
                 <Link
                   to="/"
                   className="sans-serif ttu white f5 no-underline dn dib-l"
