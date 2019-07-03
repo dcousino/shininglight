@@ -10,7 +10,7 @@ module.exports = {
   primarySemiTrans: 'hsla(174, 70%, 70%, 0.8)',
   primaryDark: '#1da598',
 
-  secondary: '#ffeb00',
+  secondary: '#f3c3e1',
   secondaryLight: '#ffeb00',
   secondaryVeryLight: '#fff0ed',
 

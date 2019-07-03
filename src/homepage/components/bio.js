@@ -6,6 +6,13 @@ import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
 
 const Image = styled(Img)`
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
   min-width: 450px;
   @media (max-width: 450px) {
     min-width: 320px;
@@ -22,7 +29,7 @@ const OnSiteWrapper = styled.div`
   border-radius: 6px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
     0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  margin: -40px auto;
+  margin: -20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
