@@ -24,7 +24,7 @@ const Nav = styled.div`
   width: 100%;
   margin: 0;
 `;
-const ToggleButton = styled.button`
+const ToggleButton = styled.div`
   font-size: 2em;
   color: ${props => props.theme.colors.primary};
   @media screen and (min-width: 700px) {

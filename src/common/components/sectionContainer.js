@@ -12,9 +12,8 @@ const SectionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 0.5rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding: 0.2rem;
+  padding-top: 3rem;
   align-items: center;
 `;
 

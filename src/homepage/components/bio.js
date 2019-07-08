@@ -54,7 +54,7 @@ export default () => (
 
           <Fade right>
             <div className="w-100 pa2 mw6 mv4">
-              <span className="db f2 display near-white">
+              <span className="db f2 display tc near-white">
                 {data.copy.frontmatter.title}
               </span>
               <div

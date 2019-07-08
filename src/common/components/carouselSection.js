@@ -7,7 +7,6 @@ import Img from 'gatsby-image';
 const CarouselSection = styled.div`
   margin-left: 'auto !important';
   margin-right: 'auto !important';
-
   overflow: hidden;
 `;
 
@@ -33,8 +32,8 @@ export default () => {
               id
               name
               childImageSharp {
-                fluid(maxWidth: 600, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                fluid {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -43,13 +42,15 @@ export default () => {
       }
     `
   );
+  console.log(allFile);
+
   return (
     <CarouselSection>
       <Carousel {...settings}>
         {allFile.edges.map(({ node }) => (
           <Img
             className="slick-image"
-            fluid={node.childImageSharp.fluid}
+            sizes={{ ...node.childImageSharp.fluid, aspectRatio: 5.5 / 3 }}
             key={node.id}
             alt={node.name.replace(/-/g, ' ')}
           />
