@@ -141,7 +141,7 @@ button.slick-arrow.slick-next {
 .slick-prev::before {
   content: '\f053';
   font-weight: 600;
-  font-family: Font Awesome\5 Free;
+  font-family: Font awesome\5 Free;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -159,7 +159,7 @@ button.slick-arrow.slick-next {
 .slick-next::before {
   content: '\f054';
   font-weight: 600;
-  font-family: Font Awesome\5 Free;
+  font-family: Font awesome\5 Free;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -237,11 +237,11 @@ button.slick-arrow.slick-next {
 }
 
 .serif {
-  font-family: 'Lora', serif !important;
+  font-family: 'Cormorant', serif !important;
 }
 
 .display {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Sacramento', serif;
 }
 
 .h0 {

@@ -8,9 +8,9 @@ module.exports = {
     title: 'Shining Light',
     description: 'Tyra is a fast, feminine, and chic Gatsby.js theme.',
     siteUrl: 'https://shininglightmua.com',
-    homepageHeader: 'Welcome to Your New Blog',
+    homepageHeader: 'Beauty with Purpose',
     homepageAbout:
-      'Tyra is a modern, sleek and feminine Gatsby.js theme. Easily create a beautiful and fast blog and draw attention to your stellar content.',
+      'Tyra is a modern, a and feminine Gatsby.js theme. Easily create a beautiful and fast blog and draw attention to your stellar content.',
     mailChimpUrl: 'https://mailchimp.com',
     mailChimpToken: 'MAILCHIMP TOKEN HERE',
     youtube: '', // YOUR YOUTUBE PROFILE HERE

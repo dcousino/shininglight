@@ -10,11 +10,15 @@ const SectionContainer = styled.div`
     0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   margin: -20px auto;
   display: flex;
+  line-height: 1.5em;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 0.2rem;
-  padding-top: 3rem;
+  padding-top: 1rem;
   align-items: center;
+  h1 {
+    margin: 0.3em 0;
+  }
 `;
 
 export default SectionContainer;

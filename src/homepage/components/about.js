@@ -16,18 +16,18 @@ export default () => (
         }
       `}
       render={data => (
-        <div className="flex flex-column justify-center items-center pa2 pv5">
+        <div className="flex flex-column justify-center items-center pa2 pv1">
           <h1 className="fw1 display db near-white f2 tc">
             {data.site.siteMetadata.homepageHeader}
           </h1>
-          <p className="f4 serif mw7 tc lh-copy near-white">
+          <p className="f5 serif mw7 mt1 lh-copy near-gray">
             {data.site.siteMetadata.homepageAbout}
           </p>
           <Link
             to="/about"
-            className="mt3 db no-underline ph5 pv3 sans-serif near-white bg-dark-gray ttu tracked b hover-bg-mid-gray"
+            className="mt2 db no-underline ph5 pv3 sans-serif near-white bg-dark-gray ttu tracked b hover-bg-mid-gray"
           >
-            About Amber Rose
+            Contact Me
           </Link>
         </div>
       )}

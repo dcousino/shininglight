@@ -58,7 +58,7 @@ export default () => (
                 {data.copy.frontmatter.title}
               </span>
               <div
-                className="lh-copy f5 serif mt4 near-white"
+                className="lh-copy f5 serif mt2 near-gray"
                 dangerouslySetInnerHTML={{ __html: data.copy.html }}
               />
             </div>
