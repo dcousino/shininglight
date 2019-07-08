@@ -6,7 +6,6 @@ import config from 'react-reveal/globals';
 import colors from '../../../colors';
 import HoniladScript from './fonts/HoniladScript-Regular.ttf';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
 import 'tachyons';
 import '../styles/custom.tachyons.css';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MultiLink } from './links';
+import { OtherLink } from './links';
 import { Link } from 'gatsby';
 const SliderMenu = props => {
   let extraClasses;
@@ -18,23 +18,24 @@ const SliderMenu = props => {
       <Link
         to="/"
         className={
-          'display ttu tracked dark-gray f3 no-underline menu__item pv5' +
+          'display ttu tracked white f3 no-underline menu__item pv5' +
           extraClasses
         }
       >
         {props.siteTitle}
       </Link>
+
       {props.extraLinks.map(navLink => (
-        <MultiLink
+        <OtherLink
+          minmax="(min-width: 700px)"
           key={navLink.to}
           to={navLink.to}
           className={
-            'sans-serif ttu mid-gray f5 no-underline menu__item pv3' +
-            extraClasses
+            'sans-serif ttu mid-gray f5 no-underline  pv3' + extraClasses
           }
         >
           {navLink.name}
-        </MultiLink>
+        </OtherLink>
       ))}
       <Link
         to="/about"

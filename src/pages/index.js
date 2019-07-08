@@ -1,26 +1,35 @@
 import React from 'react';
 import Layout from '../common/layouts';
 import { graphql } from 'gatsby';
-import Hero from '../homepage/components/hero';
 import Bio from '../homepage/components/bio';
+import About from '../homepage/components/about';
 import Seo from '../common/seo';
+import BackgroundSection from '../common/components/backgroundImage';
+import CarouselSection from '../common/components/carouselSection';
+
 export default ({ data }) => {
-  let post = data.featuredPost.edges[0].node;
   return (
-    <Layout img={data.heroImage.childImageSharp.fluid}>
+    <Layout>
       <Seo
         title={'Home Page'}
         description={data.site.siteMetadata.description}
       />
-      <Hero
+      <BackgroundSection img={data.heroImage.childImageSharp.fluid} />
+      <Bio />
+      {/* <Hero
         title={post.frontmatter.title}
         image={data.heroImage.childImageSharp.fluid}
         mobileImage={data.heroImagemobile.childImageSharp.fluid}
         to={post.frontmatter.slug}
         description={post.frontmatter.description}
         logo={data.logo.childImageSharp.fluid}
+      /> */}
+
+      <CarouselSection
+        imgs={[data.aboutSection.childImageSharp, data.makeup.childImageSharp]}
       />
-      <Bio />
+      <About />
+      <BackgroundSection img={data.makeup.childImageSharp.fluid} />
     </Layout>
   );
 };
@@ -56,14 +65,14 @@ export const query = graphql`
         }
       }
     }
-    heroImagemobile: file(relativePath: { eq: "img/becca-mobile.jpg" }) {
+    aboutSection: file(relativePath: { eq: "img/about-section.jpg" }) {
       childImageSharp {
         fluid(maxHeight: 1000, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    logo: file(relativePath: { eq: "img/logo.png" }) {
+    makeup: file(relativePath: { eq: "img/makeup.jpg" }) {
       childImageSharp {
         fluid(maxHeight: 1300, maxWidth: 1920) {
           ...GatsbyImageSharpFluid

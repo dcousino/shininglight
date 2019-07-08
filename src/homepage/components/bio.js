@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import 'tachyons';
 import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
-
+import SectionContainer from '../../common/components/sectionContainer';
 const Image = styled(Img)`
   transition: all 0.2s ease-in-out;
   &:hover {
@@ -21,25 +21,9 @@ const Image = styled(Img)`
     min-width: 250px;
   }
 `;
-const OnSiteWrapper = styled.div`
-  z-index: 999;
-  position: relative;
-  background: ${props => props.theme.colors.primary};
-  width: 90%;
-  border-radius: 6px;
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
-    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  margin: -20px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0.5rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  align-items: center;
-`;
+
 export default () => (
-  <OnSiteWrapper>
+  <SectionContainer>
     <StaticQuery
       query={graphql`
         query {
@@ -74,7 +58,7 @@ export default () => (
                 {data.copy.frontmatter.title}
               </span>
               <div
-                className="lh-copy f5 serif mt4 white"
+                className="lh-copy f5 serif mt4 near-white"
                 dangerouslySetInnerHTML={{ __html: data.copy.html }}
               />
             </div>
@@ -82,5 +66,5 @@ export default () => (
         </React.Fragment>
       )}
     />
-  </OnSiteWrapper>
+  </SectionContainer>
 );

@@ -4,7 +4,7 @@ import { FiMenu } from 'react-icons/fi';
 import styled from 'styled-components';
 import '../styles/custom.tachyons.css';
 import SliderMenu from './sliderMenu';
-import { MultiLinkWrapper, OtherLink, MainLink } from './links';
+import { OtherLink, MainLink } from './links';
 
 const SubText = styled.span`
   font-size: 0.75em;
@@ -18,13 +18,15 @@ const Nav = styled.div`
   background: ${props => props.theme.colors.offwhite};
   filter: alpha(opacity=80);
   opacity: 0.8;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   margin: 0;
 `;
 const ToggleButton = styled.button`
+  font-size: 2em;
+  color: ${props => props.theme.colors.primary};
   @media screen and (min-width: 700px) {
     display: none;
   }
@@ -78,10 +80,7 @@ export default class Navbar extends React.Component {
               className="flex w-100 vh-7 pv3 flex z-max justify-between items-center top-0"
             >
               <div className="w-100 mw8 flex justify-between items-center ph4 pa2-ns">
-                <ToggleButton
-                  className="ttu tracked self-start black f4 no-underline bn bg-transparent pointer"
-                  onClick={this.toggleMenu}
-                >
+                <ToggleButton onClick={this.toggleMenu}>
                   <FiMenu />
                 </ToggleButton>
                 <MainLink to="/" className=" f3 no-underline">
@@ -90,11 +89,17 @@ export default class Navbar extends React.Component {
                   <SubText>Beauty Design</SubText>
                 </MainLink>
 
-                <OtherLink to="/">Home</OtherLink>
+                <OtherLink minmax="(max-width: 700px)" to="/">
+                  Home
+                </OtherLink>
                 {data.site.siteMetadata.navbarLinks.map(navLink => (
-                  <MultiLinkWrapper key={navLink.to} to={navLink.to}>
+                  <OtherLink
+                    minmax="(max-width: 700px)"
+                    key={navLink.to}
+                    to={navLink.to}
+                  >
                     {navLink.name}
-                  </MultiLinkWrapper>
+                  </OtherLink>
                 ))}
               </div>
             </Nav>

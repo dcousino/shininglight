@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
@@ -14,35 +13,7 @@ export const OtherLink = styled(Link)`
   color: ${props => props.theme.colors.primary};
   font-family: 'Cormorant';
   text-decoration: none;
-  @media screen and (max-width: 700px) {
-    display: none;
-  }
-`;
-
-export const MultiLink = props => {
-  const internal = /^\/(?!\/)/.test(props.to);
-  let result;
-  if (internal) {
-    result = (
-      <OtherLink to={props.to} className={props.className}>
-        {props.children}
-      </OtherLink>
-    );
-  } else {
-    result = (
-      <a href={props.to} className={props.className}>
-        {props.children}
-      </a>
-    );
-  }
-  return result;
-};
-export const MultiLinkWrapper = styled(MultiLink)`
-  color: ${props => props.theme.colors.primary};
-  font-family: 'Cormorant';
-  font-size: 1.2em;
-  text-decoration: none;
-  @media screen and (max-width: 700px) {
+  @media ${props => props.minmax} {
     display: none;
   }
 `;
