@@ -50,11 +50,17 @@ const TextArea = styled.textarea`
 export default () => (
   <div>
     <Title>Contact Me</Title>
-    <Form method="post" action="#" data-netlify="true" name="contact">
-      <input type="hidden" name="contact-form" value="contact-form" />
+    <Form
+      method="post"
+      action="#"
+      data-netlify="true"
+      data-netlify-recaptcha="true"
+    >
+      <input type="hidden" name="contact-form" value="contact" />
       <Input type="text" name="name" placeholder="Name" />
       <Input type="email" name="email" placeholder="Email" />
       <TextArea placeholder="Message" name="message" cols="30" rows="10" />
+      <div data-netlify-recaptcha="true" />
       <Button type="submit">Submit</Button>
     </Form>
   </div>
