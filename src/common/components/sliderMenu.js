@@ -11,14 +11,14 @@ const SliderMenu = props => {
   return (
     <div
       className={
-        'flex flex-column justify-center items-center bg-washed-red fixed top z-max w-100 ease' +
+        'flex flex-column justify-start items-center bg-washed-red fixed top z-max w-100 ease' +
         (props.active ? ' vh-93' : ' h0')
       }
     >
       <Link
         to="/"
         className={
-          'display ttu tracked white f3 no-underline menu__item pv5' +
+          'display tracked mid-gray f2 no-underline menu__item pv5' +
           extraClasses
         }
       >

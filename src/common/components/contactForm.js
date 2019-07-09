@@ -55,6 +55,7 @@ export default () => (
       action="#"
       data-netlify="true"
       data-netlify-recaptcha="true"
+      data-netlify-honeypot="bot-field"
     >
       <input type="hidden" name="contact-form" value="contact" />
       <Input type="text" name="name" placeholder="Name" />

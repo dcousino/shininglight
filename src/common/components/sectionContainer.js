@@ -13,8 +13,8 @@ const SectionContainer = styled.div`
   line-height: 1.5em;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 0.2rem;
-  padding-top: 1rem;
+  padding: 1.2rem 0.2rem;
+
   align-items: center;
   h1 {
     margin: 0.3em 0;
