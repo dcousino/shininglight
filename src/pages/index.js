@@ -25,9 +25,7 @@ export default ({ data }) => {
         logo={data.logo.childImageSharp.fluid}
       /> */}
 
-      <CarouselSection
-        imgs={[data.aboutSection.childImageSharp, data.makeup.childImageSharp]}
-      />
+      <CarouselSection />
       <About />
       <BackgroundSection img={data.makeup.childImageSharp.fluid} />
     </Layout>
@@ -59,13 +57,6 @@ export const query = graphql`
       }
     }
     heroImage: file(relativePath: { eq: "img/becca.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 1000, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    aboutSection: file(relativePath: { eq: "img/about-section.jpg" }) {
       childImageSharp {
         fluid(maxHeight: 1000, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
