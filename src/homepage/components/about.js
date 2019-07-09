@@ -36,7 +36,7 @@ export default () => {
             >
               Contact Me
             </button>
-            {/* <ContactForm /> */}
+            <ContactForm />
             <Modal open={open} onClose={onCloseModal} center>
               <ContactForm />
             </Modal>
