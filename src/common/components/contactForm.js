@@ -51,7 +51,7 @@ export default () => (
   <div>
     <Title>Contact Me</Title>
     <Form method="post" action="#" data-netlify="true" name="contact">
-      <Input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="contact-form" value="contact-form" />
       <Input type="text" name="name" placeholder="Name" />
       <Input type="email" name="email" placeholder="Email" />
       <TextArea placeholder="Message" name="message" cols="30" rows="10" />
