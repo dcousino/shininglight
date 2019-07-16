@@ -6,7 +6,7 @@ import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
 import SectionContainer from '../../common/components/sectionContainer';
 const Image = styled(Img)`
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
   &:hover {
     transform: scale(1.1);
   }

@@ -12,7 +12,7 @@ const BackgroundSection = props => (
 
 const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
-  height: 100vh;
+  height: ${props => props.height || '100'}vh;
   background-position: top center;
   background-repeat: repeat-x;
   background-size: cover;

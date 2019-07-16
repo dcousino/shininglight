@@ -5,10 +5,9 @@ import {
   FaFacebookF,
   FaTwitter,
   FaYoutube,
-  FaGithub
+  FaInstagram
 } from 'react-icons/fa';
 import 'tachyons';
-
 
 export default () => (
   <StaticQuery
@@ -22,18 +21,20 @@ export default () => (
             facebook
             twitter
             youtube
-            github
+            instagram
           }
         }
-      } 
+      }
     `}
     render={data => (
-      <footer className="pa2 bg-dark-gray near-white pv5">
-        <div className="flex flex-wrap justify-around w-100 mw9 center mb5">
-          <div className="w-100 mw5 mb4">
-            <span className="display f2">{data.site.siteMetadata.siteTitle}</span>
+      <footer className="pa2 bg-dark-gray near-white pv2">
+        <div className="flex flex-wrap justify-around w-100 mw9 center mb2">
+          <div className="w-100 mw5 mt4 mb1">
+            <span className="display f2">
+              {data.site.siteMetadata.siteTitle}
+            </span>
             <hr />
-              <div className="w-100 flex justify-around items-center pv2">
+            <div className="w-100 flex justify-around items-center pv2">
               {data.site.siteMetadata.facebook && (
                 <a
                   className="near-white"
@@ -44,20 +45,17 @@ export default () => (
               )}
 
               {data.site.siteMetadata.youtube && (
-                <a
-                  className="near-white"
-                  href={data.site.siteMetadata.youtube}
-                >
+                <a className="near-white" href={data.site.siteMetadata.youtube}>
                   <FaYoutube />
                 </a>
               )}
 
-              {data.site.siteMetadata.github && (
+              {data.site.siteMetadata.instagram && (
                 <a
                   className="near-white"
-                  href={data.site.siteMetadata.github}
+                  href={data.site.siteMetadata.instagram}
                 >
-                  <FaGithub />
+                  <FaInstagram />
                 </a>
               )}
 
@@ -77,30 +75,20 @@ export default () => (
               )}
             </div>
           </div>
-          <div className="flex flex-column">
-            <span className="near-white sans-serif f5 tracked mb3 db">WRITING BY {data.site.siteMetadata.siteTitle}</span>
-            <Link to="/blog" className="near-white sans-serif f5 tracked pv1 db">ALL POSTS</Link>
-            <Link to="/rss.xml" className="near-white sans-serif f5 tracked pv1 db">RSS FEED</Link>
-          </div>
-          <div className="flex flex-column">
-            <span className="near-white sans-serif f5 tracked mb3 db">MORE ON {data.site.siteMetadata.siteTitle}</span>
-            <Link to="/about" className="near-white sans-serif f5 tracked pv1 db">ABOUT US</Link>
-            <a href={data.site.siteMetadata.mailChimpUrl} className="near-white sans-serif f5 tracked pv1 db">NEWS LETTER</a>
-          </div>
         </div>
-        <div className="w-100 mw9 center silver mb3">
-          <div className="w-100 bb b--mid-gray mv3"></div>
+        <div className="w-100 mw9 center silver mb1">
+          <div className="w-100 bb b--mid-gray mv3" />
           <div className="flex w-100 mw6 items-center justify-center justify-start-ns">
-            <a href="/sitemap.xml" className="silver sans-serif f5 tracked pv1 db mh1">SITEMAP</a>
-            <span className="mh1">|</span>
-            <Link to="/privacy" className="silver sans-serif f5 tracked pv1 db mh1">PRIVACY</Link>
-            <span className="mh1">|</span>
-            <a href="https://github.com/madelyneriksen/gatsby-starter-tyra" className="silver sans-serif f5 tracked pv1 db mh1">THEME</a>
+            <a
+              href="/sitemap.xml"
+              className="silver sans-serif f5 tracked pv1 db mh1"
+            >
+              SITEMAP
+            </a>
           </div>
         </div>
-        <div className="w-100 mw9 silver center sans-serif f6">
-          <p>Tyra Theme (C) 2018 by Madelyn Eriksen under terms of the "MIT" software license.</p>
-        </div>
+        <div className="w-100 mw9 silver center sans-serif f6" />
       </footer>
-    )} />
-)
+    )}
+  />
+);

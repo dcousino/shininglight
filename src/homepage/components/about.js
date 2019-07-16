@@ -5,10 +5,6 @@ import ContactForm from '../../common/components/contactForm';
 import Modal from 'react-responsive-modal';
 
 export default () => {
-  const [open, setIsOpen] = useState(false);
-  const onOpenModal = () => setIsOpen(true);
-  const onCloseModal = () => setIsOpen(false);
-
   return (
     <SectionContainer>
       <StaticQuery
@@ -30,16 +26,12 @@ export default () => {
             <p className="f5 serif mw7 mt1 lh-copy near-gray">
               {data.site.siteMetadata.homepageAbout}
             </p>
-            <button
-              onClick={onOpenModal}
+            <Link
+              to="/contact"
               className="mt2 db no-underline ph5 pv3 sans-serif near-white bg-dark-gray ttu tracked b hover-bg-mid-gray"
             >
               Contact Me
-            </button>
-            <ContactForm />
-            <Modal open={open} onClose={onCloseModal} center>
-              <ContactForm />
-            </Modal>
+            </Link>
           </div>
         )}
       />

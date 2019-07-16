@@ -14,10 +14,10 @@ module.exports = {
     mailChimpUrl: 'https://mailchimp.com',
     mailChimpToken: 'MAILCHIMP TOKEN HERE',
     youtube: '', // YOUR YOUTUBE PROFILE HERE
-    github: '', // YOUR GITHUB PROFILE HERE
+    twitter: 'asfsad', // YOUR GITHUB PROFILE HERE
     pinterest: '', // YOUR PINTEREST PROFILE HERE
-    facebook: '', // YOUR FACEBOOK PROFILE HERE
-    twitter: '' // YOUR TWITTER PROFILE HERE
+    facebook: 'https://shininglightmua.com', // YOUR FACEBOOK PROFILE HERE
+    instagram: 'https://shininglightmua.com' // YOUR TWITTER PROFILE HERE
   },
   plugins: [
     'gatsby-plugin-sitemap',

@@ -1,15 +1,39 @@
-import React from 'react';
 import styled from 'styled-components';
+const inputWidthsReg = 80;
+const inputWidthsSmall = 100;
 
-const Form = styled.form`
-  width: 300px;
+export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: ${props => props.theme.colors.secondaryVeryLight};
+  padding: 20px 0;
+`;
+export const Form = styled.form`
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: scale(1.1);
+  }
+  transition: all 0.4s ease-in-out;
+  border-radius: 10px;
+  margin: -40px auto;
+  position: relative;
+  padding: 20px;
+  background-color: ${props => props.theme.colors.primary};
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
-const Input = styled.input`
-  width: 300px;
+export const Input = styled.input`
+  width: ${inputWidthsReg}%;
   height: 35px;
   border: 1px solid #ccc;
   background-color: #fff;
@@ -18,25 +42,30 @@ const Input = styled.input`
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
   }
+  @media screen and (max-width: 768px) {
+    width: ${inputWidthsSmall}%;
+  }
 `;
 
-const Button = styled.button`
-  width: 300px;
-  height: 35px;
-  background-color: #5995ef;
-  color: #fff;
-  border-radius: 3px;
+export const Button = styled.button`
+  width: ${inputWidthsReg}%;
+
+  @media screen and (max-width: 768px) {
+    width: ${inputWidthsSmall}%;
+  }
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-family: 'Sacramento', sans-serif;
   font-weight: 600;
   color: #4d4d4d;
   font-size: 2.2em;
+  align-self: center;
+  margin: 0 auto;
 `;
 
-const TextArea = styled.textarea`
-  width: 300px;
+export const TextArea = styled.textarea`
+  width: ${inputWidthsReg}%;
   height: 150px;
   border: 1px solid #ccc;
   background-color: #fff;
@@ -45,25 +74,7 @@ const TextArea = styled.textarea`
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
   }
+  @media screen and (max-width: 768px) {
+    width: ${inputWidthsSmall}%;
+  }
 `;
-
-export default () => (
-  <div>
-    <Title>Contact Me</Title>
-    <Form
-      method="post"
-      action="#"
-      data-netlify="true"
-      data-netlify-recaptcha="true"
-      data-netlify-honeypot="bot-field"
-      name="contact-form"
-    >
-      <input type="hidden" name="contact-form" value="contact" />
-      <Input type="text" name="name" placeholder="Name" />
-      <Input type="email" name="email" placeholder="Email" />
-      <TextArea placeholder="Message" name="message" cols="30" rows="10" />
-      <div data-netlify-recaptcha="true" />
-      <Button type="submit">Submit</Button>
-    </Form>
-  </div>
-);

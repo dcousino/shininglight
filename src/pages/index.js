@@ -16,15 +16,6 @@ export default ({ data }) => {
       />
       <BackgroundSection img={data.heroImage.childImageSharp.fluid} />
       <Bio />
-      {/* <Hero
-        title={post.frontmatter.title}
-        image={data.heroImage.childImageSharp.fluid}
-        mobileImage={data.heroImagemobile.childImageSharp.fluid}
-        to={post.frontmatter.slug}
-        description={post.frontmatter.description}
-        logo={data.logo.childImageSharp.fluid}
-      /> */}
-
       <CarouselSection />
       <About />
       <BackgroundSection img={data.makeup.childImageSharp.fluid} />
@@ -34,28 +25,6 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    featuredPost: allMarkdownRemark(
-      limit: 1
-      sort: { order: DESC, fields: frontmatter___date }
-      filter: { frontmatter: { type: { eq: "post" } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description: metaDescription
-            slug
-            postImage {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     heroImage: file(relativePath: { eq: "img/becca.jpg" }) {
       childImageSharp {
         fluid(maxHeight: 1000, maxWidth: 1920) {
@@ -67,29 +36,6 @@ export const query = graphql`
       childImageSharp {
         fluid(maxHeight: 1300, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    cards: allMarkdownRemark(
-      skip: 1
-      limit: 3
-      sort: { order: DESC, fields: frontmatter___date }
-      filter: { frontmatter: { type: { eq: "post" } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description: metaDescription
-            slug
-            postImage {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
         }
       }
     }
