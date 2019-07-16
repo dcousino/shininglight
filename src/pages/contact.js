@@ -16,7 +16,7 @@ import BackgroundSection from '../common/components/backgroundImage';
 export default ({ data }) => (
   <Layout>
     <Seo
-      title={`About ${data.site.siteMetadata.title}`}
+      title={`Contact ${data.site.siteMetadata.title}`}
       description={data.markdownRemark.frontmatter.title}
     />
 
@@ -24,22 +24,22 @@ export default ({ data }) => (
 
     <FormContainer>
       <Form
-        method="post"
-        action="/"
-        data-netlify="true"
-        data-netlify-recaptcha="true"
-        data-netlify-honeypot="bot-field"
-        name="contact-form"
+        method='post'
+        action='/'
+        data-netlify='true'
+        data-netlify-recaptcha='true'
+        data-netlify-honeypot='bot-field'
+        name='contact-form'
       >
         <Title>Contact Me</Title>
-        <input type="hidden" name="contact-form" value="contact" />
-        <Input type="text" name="name" placeholder="Name" />
-        <Input type="email" name="email" placeholder="Email" />
-        <TextArea placeholder="Message" name="message" cols="30" rows="10" />
-        <div data-netlify-recaptcha="true" />
+        <input type='hidden' name='contact-form' value='contact' />
+        <Input type='text' name='name' placeholder='Name' />
+        <Input type='email' name='email' placeholder='Email' />
+        <TextArea placeholder='Message' name='message' cols='30' rows='10' />
+        <div data-netlify-recaptcha='true' />
         <Button
-          className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
-          type="submit"
+          className='db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray'
+          type='submit'
         >
           Submit
         </Button>
