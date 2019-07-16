@@ -11,7 +11,6 @@ import {
   TextArea
 } from '../common/components/contactForm';
 import Img from 'gatsby-image';
-import BackgroundSection from '../common/components/backgroundImage';
 
 export default ({ data }) => (
   <Layout>
@@ -20,7 +19,7 @@ export default ({ data }) => (
       description={data.markdownRemark.frontmatter.title}
     />
     <Img
-      style={{ height: '30vh' }}
+      style={{ height: '30vh', marginTop: '20px' }}
       fluid={data.banner.childImageSharp.fluid}
       alt={data.banner.name}
     />

@@ -6,7 +6,17 @@ import About from '../homepage/components/about';
 import Seo from '../common/seo';
 import BackgroundSection from '../common/components/backgroundImage';
 import CarouselSection from '../common/components/carouselSection';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 
+const BannerImage = styled(Img)`
+  height: auto;
+  width: 100%;
+`;
+const ContactImage = styled(Img)`
+  height: 40vh;
+  width: 100%;
+`;
 export default ({ data }) => {
   return (
     <Layout>
@@ -14,16 +24,20 @@ export default ({ data }) => {
         title={'Home Page'}
         description={data.site.siteMetadata.description}
       />
-      <BackgroundSection
+      <BannerImage
+        fluid={data.heroImage.childImageSharp.fluid}
+        alt={data.heroImage.name}
+      />
+      {/* <BackgroundSection
         height={'100'}
         img={data.heroImage.childImageSharp.fluid}
-      />
+      /> */}
       <Bio />
       <CarouselSection />
       <About />
-      <BackgroundSection
-        height={'100'}
-        img={data.makeup.childImageSharp.fluid}
+      <ContactImage
+        fluid={data.makeup.childImageSharp.fluid}
+        alt={data.makeup.name}
       />
     </Layout>
   );
