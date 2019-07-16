@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import {
   FaPinterestP,
   FaFacebookF,
@@ -27,17 +27,17 @@ export default () => (
       }
     `}
     render={data => (
-      <footer className="pa2 bg-dark-gray near-white pv2">
-        <div className="flex flex-wrap justify-around w-100 mw9 center mb2">
-          <div className="w-100 mw5 mt4 mb1">
-            <span className="display f2">
+      <footer className='pa2 bg-dark-gray near-white pv2'>
+        <div className='flex flex-wrap justify-around w-100 mw9 center mb2'>
+          <div className='w-100 mw5 mt4 mb1'>
+            <span className='display f2'>
               {data.site.siteMetadata.siteTitle}
             </span>
             <hr />
-            <div className="w-100 flex justify-around items-center pv2">
+            <div className='w-100 flex justify-around items-center pv2'>
               {data.site.siteMetadata.facebook && (
                 <a
-                  className="near-white"
+                  className='near-white'
                   href={data.site.siteMetadata.facebook}
                 >
                   <FaFacebookF />
@@ -45,14 +45,14 @@ export default () => (
               )}
 
               {data.site.siteMetadata.youtube && (
-                <a className="near-white" href={data.site.siteMetadata.youtube}>
+                <a className='near-white' href={data.site.siteMetadata.youtube}>
                   <FaYoutube />
                 </a>
               )}
 
               {data.site.siteMetadata.instagram && (
                 <a
-                  className="near-white"
+                  className='near-white'
                   href={data.site.siteMetadata.instagram}
                 >
                   <FaInstagram />
@@ -61,7 +61,7 @@ export default () => (
 
               {data.site.siteMetadata.pinterest && (
                 <a
-                  className="near-white"
+                  className='near-white'
                   href={data.site.siteMetadata.pinterest}
                 >
                   <FaPinterestP />
@@ -69,25 +69,25 @@ export default () => (
               )}
 
               {data.site.siteMetadata.twitter && (
-                <a className="near-white" href={data.site.siteMetadata.twitter}>
+                <a className='near-white' href={data.site.siteMetadata.twitter}>
                   <FaTwitter />
                 </a>
               )}
             </div>
           </div>
         </div>
-        <div className="w-100 mw9 center silver mb1">
-          <div className="w-100 bb b--mid-gray mv3" />
-          <div className="flex w-100 mw6 items-center justify-center justify-start-ns">
+        <div className='w-100 mw9 center silver mb1'>
+          <div className='w-100 bb b--mid-gray mv3' />
+          <div className='flex w-100 mw6 items-center justify-center justify-start-ns'>
             <a
-              href="/sitemap.xml"
-              className="silver sans-serif f5 tracked pv1 db mh1"
+              href='/sitemap.xml'
+              className='silver sans-serif f5 tracked pv1 db mh1'
             >
               SITEMAP
             </a>
           </div>
         </div>
-        <div className="w-100 mw9 silver center sans-serif f6" />
+        <div className='w-100 mw9 silver center sans-serif f6' />
       </footer>
     )}
   />

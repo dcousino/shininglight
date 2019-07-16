@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import Bio from '../homepage/components/bio';
 import About from '../homepage/components/about';
 import Seo from '../common/seo';
-import BackgroundSection from '../common/components/backgroundImage';
 import CarouselSection from '../common/components/carouselSection';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
@@ -44,7 +43,7 @@ export const query = graphql`
     heroImage: file(relativePath: { eq: "img/becca.jpg" }) {
       name
       childImageSharp {
-        fluid(maxHeight: 1080, maxWidth: 1920) {
+        fluid(maxHeight: 1080, maxWidth: 1920, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -52,7 +51,7 @@ export const query = graphql`
     makeup: file(relativePath: { eq: "img/makeup.jpg" }) {
       name
       childImageSharp {
-        fluid(maxHeight: 1080, maxWidth: 1920) {
+        fluid(maxHeight: 1080, maxWidth: 1920, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }

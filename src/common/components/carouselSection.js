@@ -34,7 +34,7 @@ export default () => {
               id
               name
               childImageSharp {
-                fluid {
+                fluid(quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
