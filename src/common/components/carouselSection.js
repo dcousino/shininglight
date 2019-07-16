@@ -5,9 +5,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 const CarouselSection = styled.div`
-  margin-left: 'auto !important';
-  margin-right: 'auto !important';
+  margin: 0 auto !important;
   overflow: hidden;
+  @media screen and (min-width: 1600px) {
+    width: 60%;
+  }
 `;
 
 const settings = {

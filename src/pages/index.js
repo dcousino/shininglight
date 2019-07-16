@@ -42,6 +42,7 @@ export default ({ data }) => {
 export const query = graphql`
   query {
     heroImage: file(relativePath: { eq: "img/becca.jpg" }) {
+      name
       childImageSharp {
         fluid(maxHeight: 1080, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
@@ -49,6 +50,7 @@ export const query = graphql`
       }
     }
     makeup: file(relativePath: { eq: "img/makeup.jpg" }) {
+      name
       childImageSharp {
         fluid(maxHeight: 1080, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
