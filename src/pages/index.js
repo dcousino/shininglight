@@ -28,10 +28,6 @@ export default ({ data }) => {
         fluid={data.heroImage.childImageSharp.fluid}
         alt={data.heroImage.name}
       />
-      {/* <BackgroundSection
-        height={'100'}
-        img={data.heroImage.childImageSharp.fluid}
-      /> */}
       <Bio />
       <CarouselSection />
       <About />
