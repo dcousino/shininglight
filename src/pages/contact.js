@@ -27,7 +27,6 @@ export default ({ data }) => (
     <FormContainer>
       <Form
         method='post'
-        action='/'
         data-netlify='true'
         data-netlify-recaptcha='true'
         data-netlify-honeypot='bot-field'
