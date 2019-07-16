@@ -15,13 +15,16 @@ export default ({ data }) => {
         description={data.site.siteMetadata.description}
       />
       <BackgroundSection
-        height={100}
+        height={'100'}
         img={data.heroImage.childImageSharp.fluid}
       />
       <Bio />
       <CarouselSection />
       <About />
-      <BackgroundSection height={100} img={data.makeup.childImageSharp.fluid} />
+      <BackgroundSection
+        height={'100'}
+        img={data.makeup.childImageSharp.fluid}
+      />
     </Layout>
   );
 };
