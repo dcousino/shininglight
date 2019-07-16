@@ -14,11 +14,14 @@ export default ({ data }) => {
         title={'Home Page'}
         description={data.site.siteMetadata.description}
       />
-      <BackgroundSection img={data.heroImage.childImageSharp.fluid} />
+      <BackgroundSection
+        height={100}
+        img={data.heroImage.childImageSharp.fluid}
+      />
       <Bio />
       <CarouselSection />
       <About />
-      <BackgroundSection img={data.makeup.childImageSharp.fluid} />
+      <BackgroundSection height={100} img={data.makeup.childImageSharp.fluid} />
     </Layout>
   );
 };
