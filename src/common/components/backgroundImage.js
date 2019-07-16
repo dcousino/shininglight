@@ -4,7 +4,7 @@ import BackgroundImage from 'gatsby-background-image';
 
 const BackgroundSection = props => (
   <BackgroundImage
-    Tag="section"
+    Tag='section'
     className={props.className}
     fluid={props.img}
   />
@@ -12,7 +12,7 @@ const BackgroundSection = props => (
 
 const StyledBackgroundSection = styled(BackgroundSection)`
   width: 100%;
-  height: ${props => props.height || '100'}vh;
+  height: 100vh;
   background-position: top center;
   background-repeat: repeat-x;
   background-size: cover;

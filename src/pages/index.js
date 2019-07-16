@@ -33,14 +33,14 @@ export const query = graphql`
   query {
     heroImage: file(relativePath: { eq: "img/becca.jpg" }) {
       childImageSharp {
-        fluid(maxHeight: 1000, maxWidth: 1920) {
+        fluid(maxHeight: 1080, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
         }
       }
     }
     makeup: file(relativePath: { eq: "img/makeup.jpg" }) {
       childImageSharp {
-        fluid(maxHeight: 1300, maxWidth: 1920) {
+        fluid(maxHeight: 1080, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
         }
       }

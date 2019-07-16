@@ -10,7 +10,7 @@ import {
   Button,
   TextArea
 } from '../common/components/contactForm';
-import styled from 'styled-components';
+import Img from 'gatsby-image';
 import BackgroundSection from '../common/components/backgroundImage';
 
 export default ({ data }) => (
@@ -19,8 +19,11 @@ export default ({ data }) => (
       title={`Contact ${data.site.siteMetadata.title}`}
       description={data.markdownRemark.frontmatter.title}
     />
-
-    <BackgroundSection height={'50'} img={data.banner.childImageSharp.fluid} />
+    <Img
+      style={{ height: '30vh' }}
+      fluid={data.banner.childImageSharp.fluid}
+      alt={data.banner.name}
+    />
 
     <FormContainer>
       <Form
