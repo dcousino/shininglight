@@ -3,6 +3,27 @@ import React from 'react';
 import SectionContainer from '../../common/components/sectionContainer';
 import ReactMarkdown from 'react-markdown';
 import markdownRender from '../../common/renders/markdownRender';
+import styled from 'styled-components';
+const Section = styled.div`
+  width: 100%;
+`;
+const ContactLink = styled(Link)`
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0.5rem auto 0 auto;
+  padding: 1rem 4rem;
+  background-color: #333;
+  color: #f4f4f4;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  display: block;
+  font-family: 'Cormorant', sans-serif;
+  width: 40%;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
+`;
 export default () => {
   return (
     <SectionContainer>
@@ -26,24 +47,14 @@ export default () => {
         `}
         render={data => {
           const { mainContent } = data.contentfulAbout;
-
           return (
-            <div className="flex flex-column justify-center items-center pa2 pv1">
+            <Section>
               <ReactMarkdown
-                className=""
                 source={mainContent.childMarkdownRemark.rawMarkdownBody}
                 renderers={markdownRender}
               />
-              {/* <p className="f5 serif mw7 mt1 lh-copy near-gray">
-              {data.site.siteMetadata.homepageAbout}
-            </p> */}
-              <Link
-                to="/contact"
-                className="mt2 db no-underline ph5 pv3 sans-serif near-white bg-dark-gray ttu tracked b hover-bg-mid-gray"
-              >
-                Contact Me
-              </Link>
-            </div>
+              <ContactLink to="/contact">Contact Me</ContactLink>
+            </Section>
           );
         }}
       />

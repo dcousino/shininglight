@@ -15,9 +15,7 @@ export default ({ props, data }) => {
       />
       <div className="relative">
         <Img fluid={data.banner.childImageSharp.fluid} />
-        <ReactMarkdown
-          source={mainContent.childMarkdownRemark.rawMarkdownBody}
-        />
+
         <h1
           className="fw1 tc f2 display absolute dn dib-ns"
           style={{
@@ -55,13 +53,6 @@ export const dataQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    contentfulAbout {
-      mainContent {
-        childMarkdownRemark {
-          rawMarkdownBody
-        }
       }
     }
     markdownRemark(frontmatter: { name: { eq: "about__bio" } }) {

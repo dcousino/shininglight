@@ -1,10 +1,18 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import 'tachyons';
 import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
 import SectionContainer from '../../common/components/sectionContainer';
+import ReactMarkdown from 'react-markdown';
+import markdownRender from '../../common/renders/markdownRender';
+import { css } from 'emotion';
+
+const divStyle = css`
+  margin: 2rem;
+  width: 100%;
+  max-width: 48rem;
+`;
 const Image = styled(Img)`
   transition: all 0.4s ease-in-out;
   &:hover {
@@ -13,6 +21,7 @@ const Image = styled(Img)`
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
     0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
+  margin: 0 2px;
   min-width: 450px;
   @media (max-width: 450px) {
     min-width: 320px;
@@ -34,6 +43,13 @@ export default () => (
               }
             }
           }
+          contentfulAbout {
+            onsiteBeautyDesign {
+              childMarkdownRemark {
+                rawMarkdownBody
+              }
+            }
+          }
           copy: markdownRemark(frontmatter: { name: { eq: "homepage__bio" } }) {
             html
             frontmatter {
@@ -42,29 +58,32 @@ export default () => (
           }
         }
       `}
-      render={data => (
-        <React.Fragment>
-          <Fade left>
-            <Image
-              fluid={data.image.childImageSharp.fluid}
-              alt="The Author"
-              className=""
-            />
-          </Fade>
+      render={data => {
+        const { onsiteBeautyDesign } = data.contentfulAbout;
 
-          <Fade right>
-            <div className="w-100 pa2 mw6 mv4">
-              <span className="db f2 display tc near-white">
-                {data.copy.frontmatter.title}
-              </span>
-              <div
-                className="lh-copy f5 serif mt2 near-gray"
-                dangerouslySetInnerHTML={{ __html: data.copy.html }}
+        return (
+          <React.Fragment>
+            <Fade left>
+              <Image
+                fluid={data.image.childImageSharp.fluid}
+                alt="The Author"
+                className=""
               />
-            </div>
-          </Fade>
-        </React.Fragment>
-      )}
+            </Fade>
+
+            <Fade right>
+              <div className={divStyle}>
+                <ReactMarkdown
+                  source={
+                    onsiteBeautyDesign.childMarkdownRemark.rawMarkdownBody
+                  }
+                  renderers={markdownRender}
+                />
+              </div>
+            </Fade>
+          </React.Fragment>
+        );
+      }}
     />
   </SectionContainer>
 );

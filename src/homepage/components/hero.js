@@ -2,7 +2,6 @@ import React from 'react';
 import '../../common/styles/custom.tachyons.css';
 import 'tachyons';
 import styled from 'styled-components';
-import BackgroundSection from '../../common/components/backgroundImage';
 import { Zoom } from 'react-reveal';
 import Img from 'gatsby-image';
 const ImgWrap = styled.div`

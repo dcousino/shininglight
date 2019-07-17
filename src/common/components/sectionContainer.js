@@ -14,7 +14,6 @@ const SectionContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 1.2rem 0.2rem;
-
   align-items: center;
   h1 {
     margin: 0.3em 0;
