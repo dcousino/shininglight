@@ -9,6 +9,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
+    "contentful": "^7.8.1",
     "gatsby": "^2.4.3",
     "gatsby-background-image": "^0.7.0",
     "gatsby-image": "^2.0.33",
@@ -20,6 +21,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-copy-linked-files": "^2.0.10",
     "gatsby-remark-images": "^3.0.9",
+    "gatsby-source-contentful": "^2.1.13",
     "gatsby-source-filesystem": "^2.0.26",
     "gatsby-transformer-remark": "^2.3.4",
     "gatsby-transformer-sharp": "^2.1.17",
@@ -27,8 +29,10 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.5.0",
+    "react-markdown": "^4.1.0",
     "react-responsive-modal": "^4.0.1",
     "react-reveal": "^1.2.2",
+    "react-scroll-section": "^1.3.0",
     "react-slick": "^0.24.0",
     "styled-components": "^4.2.0",
     "styled-media-query": "^2.1.1",
