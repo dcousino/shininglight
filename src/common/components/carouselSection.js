@@ -5,9 +5,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 const CarouselSection = styled.div`
-  margin-left: 'auto !important';
-  margin-right: 'auto !important';
+  margin: 0 auto !important;
   overflow: hidden;
+  @media screen and (min-width: 1600px) {
+    width: 60%;
+  }
 `;
 
 const settings = {
@@ -32,7 +34,7 @@ export default () => {
               id
               name
               childImageSharp {
-                fluid {
+                fluid(quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -42,14 +44,13 @@ export default () => {
       }
     `
   );
-  console.log(allFile);
 
   return (
     <CarouselSection>
       <Carousel {...settings}>
         {allFile.edges.map(({ node }) => (
           <Img
-            className="slick-image"
+            className='slick-image'
             sizes={{ ...node.childImageSharp.fluid, aspectRatio: 5.5 / 3 }}
             key={node.id}
             alt={node.name.replace(/-/g, ' ')}

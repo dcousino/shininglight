@@ -10,36 +10,37 @@ import {
   Button,
   TextArea
 } from '../common/components/contactForm';
-import styled from 'styled-components';
-import BackgroundSection from '../common/components/backgroundImage';
+import Img from 'gatsby-image';
 
 export default ({ data }) => (
   <Layout>
     <Seo
-      title={`About ${data.site.siteMetadata.title}`}
+      title={`Contact ${data.site.siteMetadata.title}`}
       description={data.markdownRemark.frontmatter.title}
     />
-
-    <BackgroundSection height={'50'} img={data.banner.childImageSharp.fluid} />
+    <Img
+      style={{ height: '30vh', marginTop: '20px' }}
+      fluid={data.banner.childImageSharp.fluid}
+      alt={data.banner.name}
+    />
 
     <FormContainer>
       <Form
-        method="post"
-        action="/"
-        data-netlify="true"
-        data-netlify-recaptcha="true"
-        data-netlify-honeypot="bot-field"
-        name="contact-form"
+        method='post'
+        data-netlify='true'
+        data-netlify-recaptcha='true'
+        data-netlify-honeypot='bot-field'
+        name='contact-form'
       >
         <Title>Contact Me</Title>
-        <input type="hidden" name="contact-form" value="contact" />
-        <Input type="text" name="name" placeholder="Name" />
-        <Input type="email" name="email" placeholder="Email" />
-        <TextArea placeholder="Message" name="message" cols="30" rows="10" />
-        <div data-netlify-recaptcha="true" />
+        <input type='hidden' name='contact-form' value='contact' />
+        <Input type='text' name='name' placeholder='Name' />
+        <Input type='email' name='email' placeholder='Email' />
+        <TextArea placeholder='Message' name='message' cols='30' rows='10' />
+        <div data-netlify-recaptcha='true' />
         <Button
-          className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
-          type="submit"
+          className='db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray'
+          type='submit'
         >
           Submit
         </Button>
@@ -63,7 +64,7 @@ export const dataQuery = graphql`
     }
     banner: file(relativePath: { eq: "img/makeup.jpg" }) {
       childImageSharp {
-        fluid(maxHeight: 720, maxWidth: 1920) {
+        fluid(maxHeight: 720, maxWidth: 1920, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
