@@ -74,7 +74,4 @@ export const TextArea = styled.textarea`
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
   }
-  @media screen and (max-width: 768px) {
-    width: ${inputWidthsSmall}%;
-  }
 `;
