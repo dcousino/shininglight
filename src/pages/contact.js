@@ -25,7 +25,13 @@ export default ({ data }) => (
     />
 
     <FormContainer>
-      <Form method="post" data-netlify="true" name="contact" action="#">
+      <Form
+        method="post"
+        data-netlify="true"
+        name="contact"
+        data-netlify-recaptcha="true"
+        action="#"
+      >
         <Title>Contact Me</Title>
         <Input type="hidden" name="form-name" value="contact" />
         <Input type="text" name="name" id="name" placeholder="Name" required />
@@ -36,7 +42,7 @@ export default ({ data }) => (
           placeholder="Email"
           required
         />
-        <textarea
+        <TextArea
           placeholder="Message"
           id="message"
           name="message"
