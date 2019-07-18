@@ -28,15 +28,15 @@ export default ({ data }) => (
       <Form method="post" data-netlify="true" name="contact" action="#">
         <Title>Contact Me</Title>
         <input type="hidden" name="form-name" value="contact" />
-        <Input type="text" name="name" id="name" placeholder="Name" required />
-        <Input
+        <input type="text" name="name" id="name" placeholder="Name" required />
+        <input
           type="text"
           name="email"
           id="email"
           placeholder="Email"
           required
         />
-        <TextArea
+        <textarea
           placeholder="Message"
           id="message"
           name="message"
@@ -45,12 +45,11 @@ export default ({ data }) => (
           required
         />
         <div data-netlify-recaptcha="true" />
-        <Button
+        <input
           type="submit"
           className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
-        >
-          Submit
-        </Button>
+          value="submit"
+        />
       </Form>
     </FormContainer>
   </Layout>
