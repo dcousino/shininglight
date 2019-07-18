@@ -19,7 +19,7 @@ export default ({ data }) => (
       description={data.markdownRemark.frontmatter.title}
     />
     <Img
-      style={{ height: '30vh', marginTop: '20px' }}
+      style={{ height: '50vh' }}
       fluid={data.banner.childImageSharp.fluid}
       alt={data.banner.name}
     />

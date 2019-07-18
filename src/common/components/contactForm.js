@@ -18,7 +18,7 @@ export const Form = styled.form`
   }
   transition: all 0.4s ease-in-out;
   border-radius: 10px;
-  margin: -40px auto;
+  margin: -100px auto;
   position: relative;
   padding: 20px;
   background-color: ${props => props.theme.colors.primary};
@@ -73,5 +73,8 @@ export const TextArea = styled.textarea`
   ::placeholder {
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
+  }
+  @media screen and (max-width: 768px) {
+    width: ${inputWidthsSmall}%;
   }
 `;
