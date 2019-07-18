@@ -25,9 +25,15 @@ export default ({ data }) => (
     />
 
     <FormContainer>
-      {/* <Form method="post" data-netlify="true" name="contact">
+      <Form
+        method="post"
+        data-netlify="true"
+        data-netlify-recaptcha="true"
+        data-netlify-honeypot="bot-field"
+        name="contact-form"
+      >
         <Title>Contact Me</Title>
-        <input type="hidden" name="contact" value="contact" />
+        <input type="hidden" name="form-name" value="contact-form" />
         <Input type="text" name="name" placeholder="Name" />
         <Input type="email" name="email" placeholder="Email" />
         <TextArea placeholder="Message" name="message" cols="30" rows="10" />
@@ -35,14 +41,7 @@ export default ({ data }) => (
         <Button className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray">
           Submit
         </Button>
-      </Form> */}
-      <form method="post" action="#" data-netlify="true" name="contact">
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="text" name="name" id="name" required />
-        <input type="text" name="email" id="email" required />
-        <textarea name="message" id="message" rows="4" required />
-        <input type="submit" value="Send Message" />
-      </form>
+      </Form>
     </FormContainer>
   </Layout>
 );
@@ -62,7 +61,7 @@ export const dataQuery = graphql`
     }
     banner: file(relativePath: { eq: "img/makeup.jpg" }) {
       childImageSharp {
-        fluid(maxHeight: 720, maxWidth: 1920) {
+        fluid(maxHeight: 720, maxWidth: 1920, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
