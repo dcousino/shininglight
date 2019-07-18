@@ -34,7 +34,7 @@ export default () => {
               id
               name
               childImageSharp {
-                fluid(quality: 100) {
+                fluid {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -50,7 +50,7 @@ export default () => {
       <Carousel {...settings}>
         {allFile.edges.map(({ node }) => (
           <Img
-            className='slick-image'
+            className="slick-image"
             sizes={{ ...node.childImageSharp.fluid, aspectRatio: 5.5 / 3 }}
             key={node.id}
             alt={node.name.replace(/-/g, ' ')}
