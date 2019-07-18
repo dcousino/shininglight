@@ -26,21 +26,21 @@ export default ({ data }) => (
 
     <FormContainer>
       <Form
-        method='post'
-        data-netlify='true'
-        data-netlify-recaptcha='true'
-        data-netlify-honeypot='bot-field'
-        name='contact-form'
+        method="post"
+        data-netlify="true"
+        data-netlify-recaptcha="true"
+        data-netlify-honeypot="bot-field"
+        name="contact-form"
       >
         <Title>Contact Me</Title>
-        <input type='hidden' name='contact-form' value='contact' />
-        <Input type='text' name='name' placeholder='Name' />
-        <Input type='email' name='email' placeholder='Email' />
-        <TextArea placeholder='Message' name='message' cols='30' rows='10' />
-        <div data-netlify-recaptcha='true' />
+        <input type="hidden" name="contact-form" value="contact-form" />
+        <Input type="text" name="name" placeholder="Name" />
+        <Input type="email" name="email" placeholder="Email" />
+        <TextArea placeholder="Message" name="message" cols="30" rows="10" />
+        <div data-netlify-recaptcha="true" />
         <Button
-          className='db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray'
-          type='submit'
+          className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
+          type="submit"
         >
           Submit
         </Button>

@@ -3,10 +3,8 @@ import Layout from '../common/layouts';
 import Img from 'gatsby-image';
 import { graphql, Link } from 'gatsby';
 import Seo from '../common/seo';
-import ReactMarkdown from 'react-markdown';
 
 export default ({ props, data }) => {
-  const { mainContent } = data.contentfulAbout;
   return (
     <Layout>
       <Seo
