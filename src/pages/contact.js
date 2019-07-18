@@ -38,10 +38,7 @@ export default ({ data }) => (
         <Input type="email" name="email" placeholder="Email" />
         <TextArea placeholder="Message" name="message" cols="30" rows="10" />
         <div data-netlify-recaptcha="true" />
-        <Button
-          className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
-          type="submit"
-        >
+        <Button className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray">
           Submit
         </Button>
       </Form>
