@@ -30,15 +30,32 @@ export default ({ data }) => (
         data-netlify="true"
         data-netlify-recaptcha="true"
         data-netlify-honeypot="bot-field"
-        name="contact-form"
+        name="contact"
+        action="#"
       >
         <Title>Contact Me</Title>
-        <input type="hidden" name="form-name" value="contact-form" />
-        <Input type="text" name="name" placeholder="Name" />
-        <Input type="email" name="email" placeholder="Email" />
-        <TextArea placeholder="Message" name="message" cols="30" rows="10" />
+        <input type="hidden" name="form-name" value="contact" />
+        <Input type="text" name="name" id="name" placeholder="Name" required />
+        <Input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+        <TextArea
+          placeholder="Message"
+          id="message"
+          name="message"
+          cols="30"
+          rows="10"
+          required
+        />
         <div data-netlify-recaptcha="true" />
-        <Button className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray">
+        <Button
+          type="submit"
+          className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
+        >
           Submit
         </Button>
       </Form>
