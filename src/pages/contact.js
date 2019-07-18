@@ -25,14 +25,7 @@ export default ({ data }) => (
     />
 
     <FormContainer>
-      <Form
-        method="post"
-        data-netlify="true"
-        data-netlify-recaptcha="true"
-        data-netlify-honeypot="bot-field"
-        name="contact"
-        action="#"
-      >
+      <Form method="post" data-netlify="true" name="contact" action="#">
         <Title>Contact Me</Title>
         <input type="hidden" name="form-name" value="contact" />
         <Input type="text" name="name" id="name" placeholder="Name" required />
