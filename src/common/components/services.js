@@ -4,6 +4,9 @@ import SectionContainer from './sectionContainer';
 import ReactMarkdown from 'react-markdown';
 import markdownRender from '../renders/markdownRender';
 import styled from 'styled-components';
+
+const mediaQueries = `@media (min-width: 1200px) {width: 70%;} @media (min-width: 1600px) {width: 50%;}`;
+
 const Section = styled.div`
   width: 100%;
 `;
@@ -26,7 +29,7 @@ const ContactLink = styled(Link)`
 `;
 export default () => {
   return (
-    <SectionContainer>
+    <SectionContainer mediaQueries={mediaQueries}>
       <StaticQuery
         query={graphql`
           query {
@@ -53,7 +56,7 @@ export default () => {
                 source={mainContent.childMarkdownRemark.rawMarkdownBody}
                 renderers={markdownRender}
               />
-              <ContactLink to="/contact">Contact Me</ContactLink>
+              <ContactLink to='/contact'>Contact Me</ContactLink>
             </Section>
           );
         }}

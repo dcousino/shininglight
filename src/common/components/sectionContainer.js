@@ -12,12 +12,11 @@ const SectionContainer = styled.div`
   display: flex;
   line-height: 1.5em;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   padding: 1.2rem 0.2rem;
   align-items: center;
-  h1 {
-    margin: 0.3em 0;
-  }
+
+  ${props => props.mediaQueries}
 `;
 
 export default SectionContainer;

@@ -28,7 +28,7 @@ export default ({ data }) => {
         alt={data.home.bannerImage.description}
       />
       <Bio />
-      <CarouselSection bucket="bts" />
+      <CarouselSection bucket='bts' />
       <About />
       <ContactImage
         fluid={data.home.contactImage.fluid}
@@ -45,12 +45,12 @@ export const query = graphql`
         description
       }
       bannerImage {
-        fluid {
+        fluid(maxWidth: 1920) {
           ...GatsbyContentfulFluid
         }
       }
       contactImage {
-        fluid {
+        fluid(maxWidth: 1920) {
           ...GatsbyContentfulFluid
         }
       }

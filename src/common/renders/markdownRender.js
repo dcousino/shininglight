@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MarkdownH1 = styled.h1`
-  margin: 0.3em 0;
+  margin: 0.3em auto;
   font-size: 2.25rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
   text-align: center;
   color: #f4f4f4;
   font-weight: 100;
-  display: block;
   font-family: 'Sacramento', serif;
 `;
 
@@ -33,6 +35,9 @@ const MarkdownH3 = styled.h3`
   font-weight: 100;
   display: block;
   font-family: 'Cormorant', serif;
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const MarkdownH5 = styled.h5`
