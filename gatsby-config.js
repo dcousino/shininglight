@@ -12,7 +12,7 @@ const siteMetadata = {
   navbarLinks: [
     { to: '/about', name: 'About' },
     { to: '/services', name: 'Services' },
-    { to: '/portfolio', name: 'Porfolio' },
+    { to: '/portfolio', name: 'Portfolio' },
     { to: '/contact', name: 'Contact' }
   ],
   title: 'Shining Light',
@@ -21,8 +21,8 @@ const siteMetadata = {
   homepageHeader: 'Beauty with Purpose',
   homepageAbout: 'Shining Light Beauty Designs by Amber Rose',
   facebook:
-    'https://www.facebook.com/Shining-Light-Beauty-Design-by-Amber-Rose-408992882872777/', // YOUR FACEBOOK PROFILE HERE
-  instagram: 'https://www.instagram.com/shininglight_mua/' // YOUR TWITTER PROFILE HERE
+    'https://www.facebook.com/Shining-Light-Beauty-Design-by-Amber-Rose-408992882872777/',
+  instagram: 'https://www.instagram.com/shininglight_mua/'
 };
 
 const plugins = [
@@ -67,8 +67,5 @@ const plugins = [
 ];
 
 module.exports = client.getEntries().then(() => {
-  return {
-    plugins,
-    siteMetadata
-  };
+  return { siteMetadata, plugins };
 });
