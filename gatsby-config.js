@@ -10,16 +10,16 @@ const client = contentful.createClient({
 
 const siteMetadata = {
   navbarLinks: [
+    { to: '/about', name: 'About' },
     { to: '/services', name: 'Services' },
     { to: '/portfolio', name: 'Porfolio' },
     { to: '/contact', name: 'Contact' }
   ],
   title: 'Shining Light',
-  description: 'Tyra is a fast, feminine, and chic Gatsby.js theme.',
+  description: 'Shining Light Beauty Designs by Amber Rose',
   siteUrl: 'https://shininglightmua.com',
   homepageHeader: 'Beauty with Purpose',
-  homepageAbout:
-    'Tyra is a modern, a and feminine Gatsby.js theme. Easily create a beautiful and fast blog and draw attention to your stellar content.',
+  homepageAbout: 'Shining Light Beauty Designs by Amber Rose',
   mailChimpUrl: 'https://mailchimp.com',
   mailChimpToken: 'MAILCHIMP TOKEN HERE',
   youtube: '', // YOUR YOUTUBE PROFILE HERE

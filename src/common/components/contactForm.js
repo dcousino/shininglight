@@ -18,7 +18,7 @@ export const Form = styled.form`
   }
   transition: all 0.4s ease-in-out;
   border-radius: 10px;
-  margin: -100px auto;
+  margin: -100px auto -40px auto;
   position: relative;
   padding: 20px;
   background-color: ${props => props.theme.colors.primary};
@@ -60,6 +60,7 @@ export const Title = styled.h1`
   font-weight: 600;
   color: #4d4d4d;
   font-size: 2.2em;
+  color: #fff;
   align-self: center;
   margin: 0 auto;
 `;

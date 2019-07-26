@@ -24,15 +24,15 @@ export default ({ data }) => {
         description={data.site.siteMetadata.description}
       />
       <BannerImage
-        fluid={data.heroImage.childImageSharp.fluid}
-        alt={data.heroImage.name}
+        fluid={data.home.bannerImage.fluid}
+        alt={data.home.bannerImage.description}
       />
       <Bio />
-      <CarouselSection />
+      <CarouselSection bucket="bts" />
       <About />
       <ContactImage
-        fluid={data.makeup.childImageSharp.fluid}
-        alt={data.makeup.name}
+        fluid={data.home.contactImage.fluid}
+        alt={data.home.contactImage.description}
       />
     </Layout>
   );
@@ -40,19 +40,18 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    heroImage: file(relativePath: { eq: "img/becca.jpg" }) {
-      name
-      childImageSharp {
-        fluid(maxHeight: 1080, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
+    home: contentfulHomePage {
+      description {
+        description
+      }
+      bannerImage {
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
-    }
-    makeup: file(relativePath: { eq: "img/makeup.jpg" }) {
-      name
-      childImageSharp {
-        fluid(maxHeight: 1080, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
+      contactImage {
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
     }

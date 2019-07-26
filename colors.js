@@ -1,7 +1,7 @@
 module.exports = {
   offwhite: '#fafafa',
   lightGray: '#b5b5b5',
-  background: '#FFFFFF',
+  background: '#fff0ed',
   backgroundDark: '#f0e6f6',
   navbar: '#f9e1f0',
   primary: '#82d8e5',

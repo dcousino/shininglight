@@ -12,11 +12,13 @@ const SubText = styled.span`
   color: #555;
 `;
 
+const MainText = styled.span``;
+
 const Nav = styled.div`
   height: 4em;
   position: relative;
   background: ${props => props.theme.colors.offwhite};
-  filter: alpha(opacity=80);
+  /* filter: alpha(opacity=80); */
   opacity: 0.8;
   position: sticky;
   top: 0;
@@ -84,7 +86,7 @@ export default class Navbar extends React.Component {
                   <FiMenu />
                 </ToggleButton>
                 <MainLink to="/" className=" f3 no-underline">
-                  {data.site.siteMetadata.siteTitle}
+                  <MainText>{data.site.siteMetadata.siteTitle}</MainText>
                   <br />
                   <SubText>Beauty Design</SubText>
                 </MainLink>

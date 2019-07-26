@@ -36,11 +36,9 @@ export default () => (
     <StaticQuery
       query={graphql`
         query {
-          image: file(relativePath: { eq: "img/onsite-service.jpg" }) {
-            childImageSharp {
-              fluid(maxWidth: 1080) {
-                ...GatsbyImageSharpFluid
-              }
+          image: contentfulAsset(title: { eq: "onsite-beauty-design" }) {
+            fluid {
+              ...GatsbyContentfulFluid
             }
           }
           contentfulAbout {
@@ -48,12 +46,6 @@ export default () => (
               childMarkdownRemark {
                 rawMarkdownBody
               }
-            }
-          }
-          copy: markdownRemark(frontmatter: { name: { eq: "homepage__bio" } }) {
-            html
-            frontmatter {
-              title
             }
           }
         }
@@ -64,11 +56,7 @@ export default () => (
         return (
           <React.Fragment>
             <Fade left>
-              <Image
-                fluid={data.image.childImageSharp.fluid}
-                alt="The Author"
-                className=""
-              />
+              <Image fluid={data.image.fluid} alt="The Author" className="" />
             </Fade>
 
             <Fade right>

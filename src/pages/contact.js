@@ -7,21 +7,20 @@ import {
   Form,
   FormContainer,
   Input,
-  Button,
   TextArea
 } from '../common/components/contactForm';
-import Img from 'gatsby-image';
+import OverlayImage from '../common/components/overlay';
 
 export default ({ data }) => (
   <Layout>
     <Seo
       title={`Contact ${data.site.siteMetadata.title}`}
-      description={data.markdownRemark.frontmatter.title}
+      description={data.site.siteMetadata.title}
     />
-    <Img
+    <OverlayImage
       style={{ height: '50vh' }}
-      fluid={data.banner.childImageSharp.fluid}
-      alt={data.banner.name}
+      fluid={data.banner.img.fluid}
+      alt={data.banner.description}
     />
 
     <FormContainer>
@@ -46,6 +45,7 @@ export default ({ data }) => (
         />
         <div data-netlify-recaptcha="true" />
         <input
+          style={{ border: 'none' }}
           type="submit"
           className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
           value="submit"
@@ -62,16 +62,11 @@ export const dataQuery = graphql`
         title
       }
     }
-    markdownRemark(frontmatter: { name: { eq: "about__bio" } }) {
-      html
-      frontmatter {
-        title
-      }
-    }
-    banner: file(relativePath: { eq: "img/makeup.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 720, maxWidth: 1920, quality: 100) {
-          ...GatsbyImageSharpFluid
+    banner: contentfulImage(title: { eq: "ContactBanner" }) {
+      title
+      img {
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
     }

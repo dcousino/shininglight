@@ -4,16 +4,10 @@ import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
 import config from 'react-reveal/globals';
 import colors from '../../../colors';
-import HoniladScript from './fonts/HoniladScript-Regular.ttf';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import 'tachyons';
 import '../styles/custom.tachyons.css';
-
 const GlobalStyle = createGlobalStyle`
- @font-face {
-    font-family: HoniladScript;
-    src: url(${HoniladScript});
-  }
 *,
 *::after,
 *::before {
@@ -28,6 +22,7 @@ body {
   font-family: 'Cormorant', sans-serif;
   min-height: 100%;
   color: #333333;
+  background-color: ${colors.background};
 }
 
 html {
@@ -58,7 +53,19 @@ const Layout = ({ children }) => (
     <GlobalStyle />
     <ThemeProvider config={{ config }} theme={{ colors }}>
       <div>
-        <Helmet />
+        <Helmet>
+          <link
+            rel="stylesheet"
+            type="text/css"
+            charset="UTF-8"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+          />
+        </Helmet>
         <Navbar />
         {children}
         <Footer />
