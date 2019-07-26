@@ -1,14 +1,18 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import {
-  FaPinterestP,
-  FaFacebookF,
-  FaTwitter,
-  FaYoutube,
-  FaInstagram
-} from 'react-icons/fa';
-import 'tachyons';
-
+  Footer,
+  InnerFooter,
+  FooterComponentContainer,
+  FooterTitle,
+  SocialLinks,
+  SocialLink,
+  SiteMap,
+  SiteMapContainer,
+  SiteMapDivider,
+  SiteMapLink
+} from './footerComponents';
 export default () => (
   <StaticQuery
     query={graphql`
@@ -16,79 +20,39 @@ export default () => (
         site {
           siteMetadata {
             siteTitle: title
-            mailChimpUrl
-            pinterest
             facebook
-            twitter
-            youtube
             instagram
           }
         }
       }
     `}
     render={data => (
-      <footer className='pa2 bg-dark-gray near-white pv2'>
-        <div className='flex flex-wrap justify-around w-100 mw9 center mb2'>
-          <div className='w-100 mw5 mt4 mb1'>
-            <span className='display f2'>
-              {data.site.siteMetadata.siteTitle}
-            </span>
+      <Footer>
+        <InnerFooter>
+          <FooterComponentContainer>
+            <FooterTitle>{data.site.siteMetadata.siteTitle}</FooterTitle>
             <hr />
-            <div className='w-100 flex justify-around items-center pv2'>
+            <SocialLinks>
               {data.site.siteMetadata.facebook && (
-                <a
-                  className='near-white'
-                  href={data.site.siteMetadata.facebook}
-                >
+                <SocialLink href={data.site.siteMetadata.facebook}>
                   <FaFacebookF />
-                </a>
+                </SocialLink>
               )}
-
-              {data.site.siteMetadata.youtube && (
-                <a className='near-white' href={data.site.siteMetadata.youtube}>
-                  <FaYoutube />
-                </a>
-              )}
-
               {data.site.siteMetadata.instagram && (
-                <a
-                  className='near-white'
-                  href={data.site.siteMetadata.instagram}
-                >
+                <SocialLink href={data.site.siteMetadata.instagram}>
                   <FaInstagram />
-                </a>
+                </SocialLink>
               )}
-
-              {data.site.siteMetadata.pinterest && (
-                <a
-                  className='near-white'
-                  href={data.site.siteMetadata.pinterest}
-                >
-                  <FaPinterestP />
-                </a>
-              )}
-
-              {data.site.siteMetadata.twitter && (
-                <a className='near-white' href={data.site.siteMetadata.twitter}>
-                  <FaTwitter />
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-        <div className='w-100 mw9 center silver mb1'>
-          <div className='w-100 bb b--mid-gray mv3' />
-          <div className='flex w-100 mw6 items-center justify-center justify-start-ns'>
-            <a
-              href='/sitemap.xml'
-              className='silver sans-serif f5 tracked pv1 db mh1'
-            >
-              SITEMAP
-            </a>
-          </div>
-        </div>
-        <div className='w-100 mw9 silver center sans-serif f6' />
-      </footer>
+            </SocialLinks>
+          </FooterComponentContainer>
+        </InnerFooter>
+        <SiteMapContainer>
+          <SiteMapDivider />
+          <SiteMap>
+            <SiteMapLink to="/sitemap.xml">SITEMAP</SiteMapLink>
+          </SiteMap>
+        </SiteMapContainer>
+      </Footer>
     )}
   />
 );

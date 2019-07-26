@@ -5,7 +5,7 @@ import Seo from '../common/seo';
 import { Parallax } from 'react-parallax';
 import CarouselSection from '../common/components/carouselSection';
 import styled from 'styled-components';
-import { device } from '../../device';
+import { deviceMax } from '../../device';
 import { InsideSection, Container } from '../common/components/parallax';
 
 const CarouselWrapper = styled.div`
@@ -13,25 +13,12 @@ const CarouselWrapper = styled.div`
   margin: 0 auto;
   padding: 30px 0;
 
-  @media ${device.tablet} {
+  @media ${deviceMax.tablet} {
     max-width: 95%;
   }
 `;
 
 export default ({ data }) => {
-  //   const photos = data.makeup.edges.map(({ node }) =>
-  //     node.carouselImages.map(x => ({
-  //       sizes: x.fluid.sizes,
-  //       caption: x.description,
-  //       src: x.fluid.src,
-  //       srcSet: x.fluid.srcSet,
-  //       height: 1,
-  //       width: 1
-  //     }))
-  //   );
-
-  //   console.log(photos[0]);
-
   return (
     <Layout>
       <Seo
@@ -45,8 +32,8 @@ export default ({ data }) => {
       >
         <Parallax
           blur={{ min: -15, max: 15 }}
-          bgImage={data.banner.childImageSharp.fluid.src}
-          bgImageAlt={data.banner.name}
+          bgImage={data.muBanner.img.fluid.src}
+          bgImageAlt={data.muBanner.description}
           strength={100}
           renderLayer={percentage => (
             <div>
@@ -72,8 +59,8 @@ export default ({ data }) => {
 
         <Parallax
           blur={{ min: -15, max: 15 }}
-          bgImage={data.banner.childImageSharp.fluid.src}
-          bgImageAlt={data.banner.name}
+          bgImage={data.btsBanner.img.fluid.src}
+          bgImageAlt={data.btsBanner.description}
           strength={100}
           renderLayer={percentage => (
             <div>
@@ -121,11 +108,19 @@ export const dataQuery = graphql`
         }
       }
     }
-    banner: file(relativePath: { eq: "img/makeup.jpg" }) {
-      name
-      childImageSharp {
-        fluid(maxHeight: 1080, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
+    muBanner: contentfulImage(title: { eq: "Portfolio-Makeup&Hair" }) {
+      title
+      img {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+    }
+    btsBanner: contentfulImage(title: { eq: "Portfolio-BehindTheScenes" }) {
+      title
+      img {
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
     }

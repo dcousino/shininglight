@@ -22,7 +22,7 @@ const Image = styled(Img)`
     0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   margin: 0 2px;
-  min-width: 450px;
+  min-width: 400px;
   @media (max-width: 450px) {
     min-width: 320px;
   }
@@ -58,7 +58,6 @@ export default () => (
             <Fade left>
               <Image fluid={data.image.fluid} alt="The Author" className="" />
             </Fade>
-
             <Fade right>
               <div className={divStyle}>
                 <ReactMarkdown

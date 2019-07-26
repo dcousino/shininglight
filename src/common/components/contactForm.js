@@ -42,17 +42,23 @@ export const Input = styled.input`
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
   }
+  font-size: 1.5rem;
   @media screen and (max-width: 768px) {
     width: ${inputWidthsSmall}%;
+    font-size: 1rem;
   }
 `;
 
-export const Button = styled.button`
-  width: ${inputWidthsReg}%;
-
-  @media screen and (max-width: 768px) {
-    width: ${inputWidthsSmall}%;
-  }
+export const Button = styled.input`
+  border: none;
+  font-family: 'Cormorant', sans-serif;
+  text-decoration: none;
+  padding: 1rem 4rem;
+  background-color: #333;
+  color: ${props => props.theme.colors.offwhite};
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-transform: uppercase;
 `;
 
 export const Title = styled.h1`
@@ -75,7 +81,9 @@ export const TextArea = styled.textarea`
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
   }
+  font-size: 1.5rem;
   @media screen and (max-width: 768px) {
     width: ${inputWidthsSmall}%;
+    font-size: 1rem;
   }
 `;

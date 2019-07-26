@@ -1,6 +1,6 @@
 const contentful = require('contentful');
 require('dotenv').config();
-
+const manifestConfig = require('./manifest.config');
 const { ACCESS_TOKEN, SPACE_ID } = process.env;
 
 const client = contentful.createClient({
@@ -20,13 +20,9 @@ const siteMetadata = {
   siteUrl: 'https://shininglightmua.com',
   homepageHeader: 'Beauty with Purpose',
   homepageAbout: 'Shining Light Beauty Designs by Amber Rose',
-  mailChimpUrl: 'https://mailchimp.com',
-  mailChimpToken: 'MAILCHIMP TOKEN HERE',
-  youtube: '', // YOUR YOUTUBE PROFILE HERE
-  twitter: 'asfsad', // YOUR GITHUB PROFILE HERE
-  pinterest: '', // YOUR PINTEREST PROFILE HERE
-  facebook: 'https://shininglightmua.com', // YOUR FACEBOOK PROFILE HERE
-  instagram: 'https://shininglightmua.com' // YOUR TWITTER PROFILE HERE
+  facebook:
+    'https://www.facebook.com/Shining-Light-Beauty-Design-by-Amber-Rose-408992882872777/', // YOUR FACEBOOK PROFILE HERE
+  instagram: 'https://www.instagram.com/shininglight_mua/' // YOUR TWITTER PROFILE HERE
 };
 
 const plugins = [
@@ -36,59 +32,8 @@ const plugins = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-sharp',
   {
-    resolve: 'gatsby-plugin-feed',
-    options: {
-      query: `
-        {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-              site_url: siteUrl
-            }
-          }
-        }
-      `,
-      feeds: [
-        {
-          serialize: ({ query: { site, allMarkdownRemark } }) => {
-            return allMarkdownRemark.edges.map(edge => {
-              return Object.assign({}, edge.node.frontmatter, {
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }]
-              });
-            });
-          },
-          query: `
-            {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
-                filter: {frontmatter: {type: {eq: "post"}}}
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    frontmatter {
-                      slug
-                      title
-                      date
-                    }
-                  }
-                }
-              }
-            }
-          `,
-          output: '/rss.xml',
-          title: 'Gatsby RSS Feed'
-        }
-      ]
-    }
+    resolve: 'gatsby-plugin-manifest',
+    options: manifestConfig
   },
   {
     resolve: 'gatsby-source-filesystem',
@@ -124,17 +69,6 @@ const plugins = [
       google: {
         families: ['Cormorant', 'Rochester', 'Sacramento']
       }
-    }
-  },
-  {
-    resolve: 'gatsby-plugin-google-analytics',
-    options: {
-      trackingId: '',
-      head: false,
-      anonymize: true,
-      respectDNT: true,
-      exclude: ['/success'],
-      cookieDomain: 'shininglightmua.com'
     }
   }
 ];

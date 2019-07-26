@@ -5,8 +5,7 @@ import Footer from '../components/footer.js';
 import config from 'react-reveal/globals';
 import colors from '../../../colors';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import 'tachyons';
-import '../styles/custom.tachyons.css';
+
 const GlobalStyle = createGlobalStyle`
 *,
 *::after,
@@ -44,6 +43,16 @@ h1, h2, h3 {
 .serif {
   font-family: 'Cormorant', serif !important;
 }
+
+.fadeIn {
+  animation: fadeIn 0.4s normal forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.2s normal forwards;
+}
+
+.dn { display: none; }
 `;
 
 config({ ssrFadeout: true });

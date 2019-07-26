@@ -7,9 +7,11 @@ import {
   Form,
   FormContainer,
   Input,
+  Button,
   TextArea
 } from '../common/components/contactForm';
-import OverlayImage from '../common/components/overlay';
+import { Parallax } from 'react-parallax';
+import { InsideSection, Container } from '../common/components/parallax';
 
 export default ({ data }) => (
   <Layout>
@@ -17,11 +19,29 @@ export default ({ data }) => (
       title={`Contact ${data.site.siteMetadata.title}`}
       description={data.site.siteMetadata.title}
     />
-    <OverlayImage
-      style={{ height: '50vh' }}
-      fluid={data.banner.img.fluid}
-      alt={data.banner.description}
-    />
+
+    <Parallax
+      blur={{ min: -15, max: 15 }}
+      bgImage={data.banner.img.fluid.src}
+      bgImageAlt={data.banner.description}
+      strength={100}
+      renderLayer={percentage => (
+        <div>
+          <div
+            style={{
+              position: 'absolute',
+              background: `hsla(0, 100%, 94%, 0.2)`,
+              width: '100%',
+              height: '100%'
+            }}
+          />
+        </div>
+      )}
+    >
+      <Container>
+        <InsideSection />
+      </Container>
+    </Parallax>
 
     <FormContainer>
       <Form method="post" data-netlify="true" name="contact" action="#">
@@ -44,12 +64,7 @@ export default ({ data }) => (
           required
         />
         <div data-netlify-recaptcha="true" />
-        <input
-          style={{ border: 'none' }}
-          type="submit"
-          className="db no-underline ph5 ttu pv3 sans-serif near-white bg-dark-gray tracked b hover-bg-mid-gray"
-          value="submit"
-        />
+        <Button style={{ border: 'none' }} type="submit" value="submit" />
       </Form>
     </FormContainer>
   </Layout>

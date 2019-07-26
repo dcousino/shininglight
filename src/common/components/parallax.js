@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { device } from '../../../device';
+import { deviceMax } from '../../../device';
 
 export const Container = styled.div`
   height: 500px;
 
-  @media screen and (max-width: 768px) {
+  @media ${deviceMax.tablet} {
     height: 300px;
   }
 `;
@@ -12,18 +12,18 @@ export const InsideSection = styled.div`
   background: transparent;
   font-family: 'Cormorant';
   padding: 20px;
-  color: ${props => props.theme.colors.primaryLight};
+  color: ${props => props.theme.colors.primary};
   font-size: 6rem;
-  text-shadow: 2px 5px 5px #535353;
+  text-shadow: 2px 2px 5px #555;
   white-space: nowrap;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @media ${device.tablet} {
+  @media ${deviceMax.tablet} {
     font-size: 4rem;
   }
-  @media ${device.mobileL} {
+  @media ${deviceMax.mobileL} {
     white-space: normal;
   }
 `;

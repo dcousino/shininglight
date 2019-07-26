@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../common/layouts';
 import Img from 'gatsby-image';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Seo from '../common/seo';
 
 export default ({ props, data }) => {
@@ -12,8 +12,6 @@ export default ({ props, data }) => {
         description={data.site.siteMetadata.title}
       />
       <div className="relative">
-        <Img fluid={data.banner.childImageSharp.fluid} />
-
         <h1
           className="fw1 tc f2 display absolute dn dib-ns"
           style={{
@@ -34,13 +32,6 @@ export const dataQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    banner: file(relativePath: { eq: "img/onsite-service.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 720, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
       }
     }
   }

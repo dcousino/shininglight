@@ -52,6 +52,8 @@ const MarkdownParagraph = styled.p`
 `;
 
 export default {
-  paragraph: props => <MarkdownParagraph {...props} />,
+  paragraph: props => {
+    return <MarkdownParagraph {...props} />;
+  },
   heading: props => <MarkdownHeading {...props} />
 };

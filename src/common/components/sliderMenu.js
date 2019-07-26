@@ -1,6 +1,31 @@
 import React from 'react';
 import { OtherLink } from './links';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
+import { deviceMin } from '../../../device';
+
+const Slider = styled.div`
+  transition: all 0.4s ease;
+  height: ${({ active }) => (active ? '100vh' : '0')};
+  z-index: 2147483647;
+  background-color: ${props => props.theme.colors.washedRed};
+  position: fixed;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+`;
+
+const TitleLink = styled(Link)`
+  font-family: 'Sacramento', serif;
+  font-size: 2.25rem;
+  text-decoration: none;
+  padding: 4rem 0;
+  color: ${props => props.theme.colors.midGray};
+  letter-spacing: 0.1em;
+`;
+
 const SliderMenu = props => {
   let extraClasses;
   if (props.active === null) {
@@ -9,35 +34,22 @@ const SliderMenu = props => {
     extraClasses = props.active ? ' fadeIn' : ' fadeOut';
   }
   return (
-    <div
-      className={
-        'flex flex-column justify-start items-center bg-washed-red fixed top z-max w-100 ease' +
-        (props.active ? ' vh-93' : ' h0')
-      }
-    >
-      <Link
-        to="/"
-        className={
-          'display tracked mid-gray f2 no-underline menu__item pv5' +
-          extraClasses
-        }
-      >
+    <Slider active={props.active}>
+      <TitleLink to="/" className={extraClasses}>
         {props.siteTitle}
-      </Link>
+      </TitleLink>
 
       {props.extraLinks.map(navLink => (
         <OtherLink
-          minmax="(min-width: 700px)"
+          minmax={deviceMin.tablet}
           key={navLink.to}
           to={navLink.to}
-          className={
-            'sans-serif ttu mid-gray f5 no-underline  pv3' + extraClasses
-          }
+          className={extraClasses}
         >
           {navLink.name}
         </OtherLink>
       ))}
-    </div>
+    </Slider>
   );
 };
 

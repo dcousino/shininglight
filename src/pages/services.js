@@ -5,11 +5,11 @@ import Seo from '../common/seo';
 import SectionContainer from '../common/components/sectionContainer';
 import ReactMarkdown from 'react-markdown';
 import markdownRender from '../common/renders/markdownRender';
-import OverlayImage from '../common/components/overlay';
 import { css } from 'emotion';
 import { Parallax } from 'react-parallax';
 import { InsideSection, Container } from '../common/components/parallax';
 import styled from 'styled-components';
+import breaks from 'remark-breaks';
 
 const divStyle = css`
   margin: 1.75rem;
@@ -18,22 +18,6 @@ const divStyle = css`
   h4: {
     color: red !important;
   }
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  text-align: center;
-  color: ${props => props.theme.colors.primary};
-`;
-
-const ImageText = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
 `;
 
 const ServicesIntro = styled.div`
@@ -47,17 +31,33 @@ export default ({ data }) => (
       title={`Services ${data.site.siteMetadata.title}`}
       description={data.service.name}
     />
-    <ImageContainer>
-      <OverlayImage
-        style={{ height: '50vh' }}
-        fluid={data.banner.img.fluid}
-        alt={data.banner.description}
-      />
-    </ImageContainer>
+    <Parallax
+      blur={{ min: -15, max: 15 }}
+      bgImage={data.banner.img.fluid.src}
+      bgImageAlt={data.banner.description}
+      strength={100}
+      renderLayer={percentage => (
+        <div>
+          <div
+            style={{
+              position: 'absolute',
+              background: `hsla(0, 100%, 94%, 0.2)`,
+              width: '100%',
+              height: '100%'
+            }}
+          />
+        </div>
+      )}
+    >
+      <Container>
+        <InsideSection />
+      </Container>
+    </Parallax>
     <ServicesIntro>
       <ReactMarkdown
         source={data.service.intro.childMarkdownRemark.rawMarkdownBody}
         renderers={markdownRender}
+        plugins={[breaks]}
       />
     </ServicesIntro>
     <SectionContainer>
@@ -65,6 +65,7 @@ export default ({ data }) => (
         <ReactMarkdown
           source={data.service.bridal.childMarkdownRemark.rawMarkdownBody}
           renderers={markdownRender}
+          plugins={[breaks]}
         />
       </div>
     </SectionContainer>
@@ -97,6 +98,7 @@ export default ({ data }) => (
             data.service.specialEvents.childMarkdownRemark.rawMarkdownBody
           }
           renderers={markdownRender}
+          plugins={[breaks]}
         />
       </div>
     </SectionContainer>
