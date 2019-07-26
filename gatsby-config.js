@@ -36,13 +36,6 @@ const plugins = [
     options: manifestConfig
   },
   {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      path: `${__dirname}/content`,
-      name: 'content'
-    }
-  },
-  {
     resolve: 'gatsby-source-contentful',
     options: {
       spaceId: SPACE_ID,
