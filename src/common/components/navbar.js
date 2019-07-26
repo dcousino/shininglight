@@ -54,16 +54,14 @@ export default class Navbar extends React.Component {
     };
     this.toggleMenu = this.toggleMenu.bind(this);
   }
-  componentWillMount() {
-    if (window) {
-      window.onresize = () => {
-        if (window.outerWidth >= 768) {
-          this.setState({
-            menuToggle: null
-          });
-        }
-      };
-    }
+  componentDidMount() {
+    window.onresize = () => {
+      if (window.outerWidth >= 768) {
+        this.setState({
+          menuToggle: null
+        });
+      }
+    };
   }
   toggleMenu(event) {
     this.setState({
