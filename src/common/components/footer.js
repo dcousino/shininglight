@@ -49,7 +49,7 @@ export default () => (
         <SiteMapContainer>
           <SiteMapDivider />
           <SiteMap>
-            <SiteMapLink to="/sitemap.xml">SITEMAP</SiteMapLink>
+            <SiteMapLink to="/sitemap-pages.xml">SITEMAP</SiteMapLink>
           </SiteMap>
         </SiteMapContainer>
       </Footer>
