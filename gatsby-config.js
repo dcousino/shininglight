@@ -31,6 +31,7 @@ const plugins = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-sharp',
   'gatsby-plugin-advanced-sitemap',
+  'gatsby-plugin-offline',
   {
     resolve: 'gatsby-plugin-manifest',
     options: manifestConfig
