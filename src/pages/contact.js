@@ -80,7 +80,7 @@ export const dataQuery = graphql`
     banner: contentfulImage(title: { eq: "ContactBanner" }) {
       title
       img {
-        fluid {
+        fluid(maxWidth: 1920) {
           ...GatsbyContentfulFluid
         }
       }
