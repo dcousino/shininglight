@@ -60,7 +60,7 @@ const plugins = [
     resolve: 'gatsby-plugin-web-font-loader',
     options: {
       google: {
-        families: ['Cormorant', 'Rochester', 'Sacramento']
+        families: ['Cormorant', 'Sacramento']
       }
     }
   },

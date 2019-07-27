@@ -35,9 +35,6 @@ h1, h2, h3 {
   font-family: 'HoniladScript', sans-serif;
 }
 
-.rochester {
-  font-family: 'Rochester', sans-serif;
-}
 
 .sans-serif {
   font-family: 'Cormorant', sans-serif !important;

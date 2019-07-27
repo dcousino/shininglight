@@ -52,12 +52,6 @@ export default () => (
             </SocialLinks>
           </FooterComponentContainer>
         </InnerFooter>
-        <SiteMapContainer>
-          <SiteMapDivider />
-          <SiteMap>
-            <SiteMapLink to="/sitemap-pages.xml">SITEMAP</SiteMapLink>
-          </SiteMap>
-        </SiteMapContainer>
       </Footer>
     )}
   />
