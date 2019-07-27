@@ -58,11 +58,16 @@ const plugins = [
     }
   },
   {
-    resolve: 'gatsby-plugin-web-font-loader',
+    resolve: `gatsby-plugin-prefetch-google-fonts`,
     options: {
-      google: {
-        families: ['Cormorant', 'Sacramento']
-      }
+      fonts: [
+        {
+          family: `Cormorant`
+        },
+        {
+          family: `Sacramento`
+        }
+      ]
     }
   },
   {
