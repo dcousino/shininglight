@@ -63,6 +63,12 @@ const plugins = [
         families: ['Cormorant', 'Rochester', 'Sacramento']
       }
     }
+  },
+  {
+    resolve: 'gatsby-plugin-html-attributes',
+    options: {
+      lang: 'en'
+    }
   }
 ];
 

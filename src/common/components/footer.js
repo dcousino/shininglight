@@ -34,12 +34,18 @@ export default () => (
             <hr />
             <SocialLinks>
               {data.site.siteMetadata.facebook && (
-                <SocialLink href={data.site.siteMetadata.facebook}>
+                <SocialLink
+                  aria-label="facebook"
+                  href={data.site.siteMetadata.facebook}
+                >
                   <FaFacebookF />
                 </SocialLink>
               )}
               {data.site.siteMetadata.instagram && (
-                <SocialLink href={data.site.siteMetadata.instagram}>
+                <SocialLink
+                  aria-label="instagram"
+                  href={data.site.siteMetadata.instagram}
+                >
                   <FaInstagram />
                 </SocialLink>
               )}
