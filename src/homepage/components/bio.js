@@ -37,7 +37,7 @@ export default () => (
       query={graphql`
         query {
           image: contentfulAsset(title: { eq: "onsite-beauty-design" }) {
-            fluid {
+            fluid(maxWidth: 800) {
               ...GatsbyContentfulFluid
             }
           }

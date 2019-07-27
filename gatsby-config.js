@@ -31,6 +31,7 @@ const plugins = [
   'gatsby-transformer-sharp',
   'gatsby-plugin-sharp',
   'gatsby-plugin-advanced-sitemap',
+  'gatsby-plugin-offline',
   {
     resolve: 'gatsby-plugin-manifest',
     options: manifestConfig
@@ -60,8 +61,14 @@ const plugins = [
     resolve: 'gatsby-plugin-web-font-loader',
     options: {
       google: {
-        families: ['Cormorant', 'Rochester', 'Sacramento']
+        families: ['Cormorant', 'Sacramento']
       }
+    }
+  },
+  {
+    resolve: 'gatsby-plugin-html-attributes',
+    options: {
+      lang: 'en'
     }
   }
 ];

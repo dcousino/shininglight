@@ -5,8 +5,11 @@ import Footer from '../components/footer.js';
 import config from 'react-reveal/globals';
 import colors from '../../../colors';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import '../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../node_modules/slick-carousel/slick/slick-theme.css';
 
 const GlobalStyle = createGlobalStyle`
+
 *,
 *::after,
 *::before {
@@ -32,9 +35,6 @@ h1, h2, h3 {
   font-family: 'HoniladScript', sans-serif;
 }
 
-.rochester {
-  font-family: 'Rochester', sans-serif;
-}
 
 .sans-serif {
   font-family: 'Cormorant', sans-serif !important;
@@ -62,19 +62,7 @@ const Layout = ({ children }) => (
     <GlobalStyle />
     <ThemeProvider config={{ config }} theme={{ colors }}>
       <div>
-        <Helmet>
-          <link
-            rel="stylesheet"
-            type="text/css"
-            charset="UTF-8"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          />
-        </Helmet>
+        <Helmet />
         <Navbar />
         {children}
         <Footer />

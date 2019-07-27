@@ -52,7 +52,6 @@ export default ({ data }) => {
             <InsideSection>Makeup & Hair</InsideSection>
           </Container>
         </Parallax>
-        {/* <Gallery photos={photos[0]} /> */}
         <CarouselWrapper>
           <CarouselSection bucket={'makeup'} />
         </CarouselWrapper>

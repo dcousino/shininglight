@@ -51,7 +51,7 @@ export default props => {
               carouselImages {
                 id
                 title
-                fluid(maxWidth: 1280) {
+                fluid(maxWidth: 800) {
                   ...GatsbyContentfulFluid
                 }
               }
@@ -67,7 +67,7 @@ export default props => {
               carouselImages {
                 id
                 title
-                fluid(maxWidth: 1280) {
+                fluid(maxWidth: 800) {
                   ...GatsbyContentfulFluid
                 }
               }
@@ -81,7 +81,7 @@ export default props => {
               carouselImages {
                 id
                 title
-                fluid(maxWidth: 1280) {
+                fluid(maxWidth: 800) {
                   ...GatsbyContentfulFluid
                 }
               }
