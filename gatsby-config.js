@@ -17,7 +17,7 @@ const siteMetadata = {
   ],
   title: 'Shining Light',
   description: 'Shining Light Beauty Designs by Amber Rose',
-  siteUrl: 'https://shininglightmua.com',
+  siteUrl: 'https://www.shininglightmua.com',
   homepageHeader: 'Beauty with Purpose',
   homepageAbout: 'Shining Light Beauty Designs by Amber Rose',
   facebook:
