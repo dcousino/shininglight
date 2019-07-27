@@ -42,6 +42,7 @@
     "react-scroll-section": "^1.3.0",
     "react-slick": "^0.24.0",
     "remark-breaks": "^1.0.3",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2",
     "styled-media-query": "^2.1.1"
   }
