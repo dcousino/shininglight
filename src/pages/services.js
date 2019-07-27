@@ -105,9 +105,7 @@ export default ({ data }) => (
         </div>
       )}
     >
-      <Container>
-        <InsideSection />
-      </Container>
+      <Container smHeight="200px" />
     </Parallax>
     <SectionContainer mediaQueries={mediaQueries}>
       <div className={divStyle}>

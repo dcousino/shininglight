@@ -17,7 +17,11 @@ const Slider = styled.div`
   display: flex;
 `;
 
+const SliderLink = styled(OtherLink)`
+  display: ${({ active }) => (active ? 'flex' : 'none')};
+`;
 const TitleLink = styled(Link)`
+  display: ${({ active }) => (active ? 'flex' : 'none')};
   font-family: 'Sacramento', serif;
   font-size: 2.25rem;
   text-decoration: none;
@@ -35,19 +39,20 @@ const SliderMenu = props => {
   }
   return (
     <Slider active={props.active}>
-      <TitleLink to="/" className={extraClasses}>
+      <TitleLink active={props.active} to="/" className={extraClasses}>
         {props.siteTitle}
       </TitleLink>
 
       {props.extraLinks.map(navLink => (
-        <OtherLink
+        <SliderLink
+          active={props.active}
           minmax={deviceMin.tablet}
           key={navLink.to}
           to={navLink.to}
           className={extraClasses}
         >
           {navLink.name}
-        </OtherLink>
+        </SliderLink>
       ))}
     </Slider>
   );

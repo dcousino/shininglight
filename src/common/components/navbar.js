@@ -58,7 +58,7 @@ export default class Navbar extends React.Component {
     window.onresize = () => {
       if (window.outerWidth >= 768) {
         this.setState({
-          menuToggle: null
+          menuToggle: false
         });
       }
     };

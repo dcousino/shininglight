@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { deviceMax } from '../../../device';
 
 export const Container = styled.div`
-  height: 500px;
+  height: ${props => props.height || '500px'};
 
   @media ${deviceMax.tablet} {
-    height: 300px;
+    height: ${props => props.smHeight || '300px'};
   }
 `;
 export const InsideSection = styled.div`
