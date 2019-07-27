@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const MarkdownH1 = styled.h1`
   margin: 0.3em auto;
   font-size: 2.25rem;
+  line-height: 2rem;
   display: flex;
   justify-content: center;
   align-self: center;
@@ -11,6 +12,7 @@ const MarkdownH1 = styled.h1`
   color: #f4f4f4;
   font-weight: 100;
   font-family: 'Sacramento', serif;
+  margin-bottom: 2rem;
 `;
 
 const MarkdownHeading = props => {

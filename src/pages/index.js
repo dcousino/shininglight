@@ -28,7 +28,7 @@ export default ({ data }) => {
         alt={data.home.bannerImage.description}
       />
       <Bio />
-      <CarouselSection bucket='bts' />
+      <CarouselSection bucket="home" />
       <About />
       <ContactImage
         fluid={data.home.contactImage.fluid}

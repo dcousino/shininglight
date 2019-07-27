@@ -4,6 +4,8 @@ import SectionContainer from '../../common/components/sectionContainer';
 import ReactMarkdown from 'react-markdown';
 import markdownRender from '../../common/renders/markdownRender';
 import styled from 'styled-components';
+import breaks from 'remark-breaks';
+
 const Section = styled.div`
   width: 100%;
 `;
@@ -52,6 +54,7 @@ export default () => {
               <ReactMarkdown
                 source={mainContent.childMarkdownRemark.rawMarkdownBody}
                 renderers={markdownRender}
+                plugins={[breaks]}
               />
               <ContactLink to="/contact">Contact Me</ContactLink>
             </Section>

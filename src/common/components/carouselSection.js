@@ -74,6 +74,20 @@ export default props => {
             }
           }
         }
+        home: allContentfulCarouselMedia(filter: { title: { eq: "Home" } }) {
+          edges {
+            node {
+              title
+              carouselImages {
+                id
+                title
+                fluid(maxWidth: 1280) {
+                  ...GatsbyContentfulFluid
+                }
+              }
+            }
+          }
+        }
       }
     `
   );

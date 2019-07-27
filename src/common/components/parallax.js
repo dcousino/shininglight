@@ -12,9 +12,10 @@ export const InsideSection = styled.div`
   background: transparent;
   font-family: 'Cormorant';
   padding: 20px;
-  color: ${props => props.theme.colors.primary};
+  color: #696969;
+  /* color: ${props => props.theme.colors.offwhite}; */
   font-size: 6rem;
-  text-shadow: 2px 2px 5px #555;
+  /* text-shadow: 2px 2px 5px #555; */
   white-space: nowrap;
   position: absolute;
   top: 50%;

@@ -5,8 +5,6 @@ import Seo from '../common/seo';
 import SectionContainer from '../common/components/sectionContainer';
 import ReactMarkdown from 'react-markdown';
 import markdownRender from '../common/renders/markdownRender';
-import { Parallax } from 'react-parallax';
-import { InsideSection, Container } from '../common/components/parallax';
 import breaks from 'remark-breaks';
 import { css } from 'emotion';
 import styled from 'styled-components';
