@@ -27,7 +27,6 @@ const TitleLink = styled(Link)`
   text-decoration: none;
   padding: 4rem 0;
   color: ${props => props.theme.colors.midGray};
-  letter-spacing: 0.1em;
 `;
 
 const SliderMenu = props => {

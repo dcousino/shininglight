@@ -7,11 +7,7 @@ import {
   FooterComponentContainer,
   FooterTitle,
   SocialLinks,
-  SocialLink,
-  SiteMap,
-  SiteMapContainer,
-  SiteMapDivider,
-  SiteMapLink
+  SocialLink
 } from './footerComponents';
 export default () => (
   <StaticQuery
