@@ -15,10 +15,7 @@ import { InsideSection, Container } from '../common/components/parallax';
 
 export default ({ data }) => (
   <Layout>
-    <Seo
-      title={`Contact ${data.site.siteMetadata.title}`}
-      description={data.site.siteMetadata.title}
-    />
+    <Seo title={`Contact`} description={data.site.siteMetadata.title} />
 
     <Parallax
       blur={{ min: -15, max: 15 }}

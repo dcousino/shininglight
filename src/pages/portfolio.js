@@ -21,10 +21,7 @@ const CarouselWrapper = styled.div`
 export default ({ data }) => {
   return (
     <Layout>
-      <Seo
-        title={`Portfolio ${data.site.siteMetadata.title}`}
-        description={data.site.siteMetadata.title}
-      />
+      <Seo title={`Portfolio`} description={data.site.siteMetadata.title} />
       <div
         style={{
           backgroundColor: '#fff0ed'
