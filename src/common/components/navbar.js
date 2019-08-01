@@ -98,10 +98,6 @@ export default class Navbar extends React.Component {
                   <br />
                   <SubText>Beauty Design</SubText>
                 </MainLink>
-
-                <OtherLink minmax={deviceMax.tablet} to="/">
-                  Home
-                </OtherLink>
                 {data.site.siteMetadata.navbarLinks.map(navLink => (
                   <OtherLink
                     minmax={deviceMax.tablet}
