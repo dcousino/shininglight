@@ -42,7 +42,10 @@ const ServicesIntro = styled.div`
 
 export default ({ data }) => (
   <Layout>
-    <Seo title={`Services`} description={data.service.name} />
+    <Seo
+      title={`Services`}
+      description={data.service.intro.childMarkdownRemark.headings[0].value}
+    />
     <Parallax
       bgImageSizes={data.banner.img.fluid.sizes}
       bgImage={data.banner.img.fluid.src}
@@ -124,16 +127,14 @@ export default ({ data }) => (
 
 export const dataQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     service: contentfulServices {
       name
       intro {
         childMarkdownRemark {
           rawMarkdownBody
+          headings {
+            value
+          }
         }
       }
       bridal {

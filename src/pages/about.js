@@ -23,7 +23,7 @@ const divStyle = css`
 export default ({ props, data }) => {
   return (
     <Layout>
-      <Seo title={`About`} description={data.site.siteMetadata.title} />
+      <Seo title={`About`} description={data.site.siteMetadata.description} />
       <BannerImage height={'60vh'} img={data.about.bannerImage.fluid.src} />
       <SectionContainer mediaQueries={mediaQueries}>
         <div className={divStyle}>
@@ -44,7 +44,7 @@ export const dataQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        description
       }
     }
     about: contentfulAboutPage {

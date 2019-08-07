@@ -17,12 +17,6 @@ export default () => {
       <StaticQuery
         query={graphql`
           query {
-            site {
-              siteMetadata {
-                homepageHeader
-                homepageAbout
-              }
-            }
             contentfulAbout {
               mainContent {
                 childMarkdownRemark {

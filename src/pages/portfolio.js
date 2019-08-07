@@ -21,7 +21,10 @@ const CarouselWrapper = styled.div`
 export default ({ data }) => {
   return (
     <Layout>
-      <Seo title={`Portfolio`} description={data.site.siteMetadata.title} />
+      <Seo
+        title={`Portfolio`}
+        description={data.site.siteMetadata.description}
+      />
       <div
         style={{
           backgroundColor: '#fff0ed'
@@ -87,7 +90,7 @@ export const dataQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        description
       }
     }
     makeup: allContentfulCarouselMedia(filter: { title: { eq: "Makeup" } }) {

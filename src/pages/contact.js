@@ -15,7 +15,7 @@ import { InsideSection, Container } from '../common/components/parallax';
 
 export default ({ data }) => (
   <Layout>
-    <Seo title={`Contact`} description={data.site.siteMetadata.title} />
+    <Seo title={`Contact`} description={data.site.siteMetadata.description} />
 
     <Parallax
       blur={{ min: -15, max: 15 }}
@@ -71,7 +71,7 @@ export const dataQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        description
       }
     }
     banner: contentfulImage(title: { eq: "ContactBanner" }) {

@@ -16,10 +16,9 @@ const siteMetadata = {
     { to: '/contact', name: 'Contact' }
   ],
   title: 'Shining Light',
-  description: 'Shining Light Beauty Designs by Amber Rose',
+  description:
+    'Shining Light Beauty Designs by Amber Rose, serving the greater Seattle area',
   siteUrl: 'https://www.shininglightmua.com',
-  homepageHeader: 'Beauty with Purpose',
-  homepageAbout: 'Shining Light Beauty Designs by Amber Rose',
   facebook:
     'https://www.facebook.com/Shining-Light-Beauty-Design-by-Amber-Rose-408992882872777/',
   instagram: 'https://www.instagram.com/shininglight_mua/'
