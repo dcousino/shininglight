@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import markdownRender from '../common/renders/markdownRender';
 import { css } from 'emotion';
 import { Parallax } from 'react-parallax';
-import { InsideSection, Container } from '../common/components/parallax';
+import { Container } from '../common/components/parallax';
 import styled from 'styled-components';
 import breaks from 'remark-breaks';
 
@@ -43,14 +43,17 @@ const ServicesIntro = styled.div`
 export default ({ data }) => (
   <Layout>
     <Seo
-      title={`Services ${data.site.siteMetadata.title}`}
-      description={data.service.name}
+      title={`Services`}
+      description={data.service.intro.childMarkdownRemark.headings[0].value}
     />
     <Parallax
       bgImageSizes={data.banner.img.fluid.sizes}
       bgImage={data.banner.img.fluid.src}
       bgImageSrcSet={data.banner.img.fluid.srcSet}
       bgImageAlt={data.banner.description}
+      bgImageStyle={{
+        backgroundSize: 'contain' /* <------ */
+      }}
       strength={100}
       renderLayer={() => (
         <div>
@@ -65,9 +68,7 @@ export default ({ data }) => (
         </div>
       )}
     >
-      <Container>
-        <InsideSection />
-      </Container>
+      <Container />
     </Parallax>
     <ServicesIntro>
       <ReactMarkdown
@@ -92,6 +93,9 @@ export default ({ data }) => (
       bgImageSrcSet={data.service.separator1.fluid.srcSet}
       bgImageAlt={data.service.separator1.description}
       strength={100}
+      bgImageStyle={{
+        backgroundSize: 'contain' /* <------ */
+      }}
       renderLayer={percentage => (
         <div>
           <div
@@ -123,16 +127,14 @@ export default ({ data }) => (
 
 export const dataQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     service: contentfulServices {
       name
       intro {
         childMarkdownRemark {
           rawMarkdownBody
+          headings {
+            value
+          }
         }
       }
       bridal {

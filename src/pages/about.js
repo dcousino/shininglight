@@ -7,21 +7,10 @@ import ReactMarkdown from 'react-markdown';
 import markdownRender from '../common/renders/markdownRender';
 import breaks from 'remark-breaks';
 import { css } from 'emotion';
-import styled from 'styled-components';
+import BannerImage from '../common/components/bannerImage';
+
 const mediaQueries = `@media (min-width: 900px) {width: 70%;} @media (min-width: 1200px) {width: 60%;} @media (min-width: 1600px) {width: 50%;}`;
-const CarouselImage = styled.div`
-  position: relative;
-  width: 100%;
-  height: 500px;
-  background-color: #fff;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-image: url(${props => props.img});
-  @media screen and (max-width: 768px) {
-    height: 300px;
-  }
-`;
+
 const divStyle = css`
   margin: 1.75rem;
   width: 100%;
@@ -34,11 +23,8 @@ const divStyle = css`
 export default ({ props, data }) => {
   return (
     <Layout>
-      <Seo
-        title={`About ${data.site.siteMetadata.title}`}
-        description={data.site.siteMetadata.title}
-      />
-      <CarouselImage img={data.about.bannerImage.fluid.src} />
+      <Seo title={`About`} description={data.site.siteMetadata.description} />
+      <BannerImage height={'60vh'} img={data.about.bannerImage.fluid.src} />
       <SectionContainer mediaQueries={mediaQueries}>
         <div className={divStyle}>
           <ReactMarkdown
@@ -58,7 +44,7 @@ export const dataQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        description
       }
     }
     about: contentfulAboutPage {

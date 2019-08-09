@@ -22,8 +22,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <Seo
-        title={`Portfolio ${data.site.siteMetadata.title}`}
-        description={data.site.siteMetadata.title}
+        title={`Portfolio`}
+        description={data.site.siteMetadata.description}
       />
       <div
         style={{
@@ -90,7 +90,7 @@ export const dataQuery = graphql`
   query {
     site {
       siteMetadata {
-        title
+        description
       }
     }
     makeup: allContentfulCarouselMedia(filter: { title: { eq: "Makeup" } }) {

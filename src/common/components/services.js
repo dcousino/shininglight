@@ -33,12 +33,6 @@ export default () => {
       <StaticQuery
         query={graphql`
           query {
-            site {
-              siteMetadata {
-                homepageHeader
-                homepageAbout
-              }
-            }
             contentfulAbout {
               mainContent {
                 childMarkdownRemark {
@@ -56,7 +50,7 @@ export default () => {
                 source={mainContent.childMarkdownRemark.rawMarkdownBody}
                 renderers={markdownRender}
               />
-              <ContactLink to='/contact'>Contact Me</ContactLink>
+              <ContactLink to="/contact">Contact Me</ContactLink>
             </Section>
           );
         }}

@@ -58,6 +58,7 @@ export const Button = styled.input`
   color: ${props => props.theme.colors.offwhite};
   letter-spacing: 0.1em;
   font-weight: bold;
+  font-size: 1rem;
   text-transform: uppercase;
 `;
 
