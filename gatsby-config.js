@@ -17,7 +17,7 @@ const siteMetadata = {
   ],
   title: 'Shining Light',
   description:
-    'Shining Light Beauty Designs by Amber Rose, serving the greater Seattle area',
+    'Shining Light Beauty Design by Amber Rose, serving the greater Seattle area',
   siteUrl: 'https://www.shininglightmua.com',
   facebook:
     'https://www.facebook.com/Shining-Light-Beauty-Design-by-Amber-Rose-408992882872777/',
