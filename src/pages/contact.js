@@ -8,11 +8,24 @@ import {
   FormContainer,
   Input,
   Button,
-  TextArea
+  TextArea,
+  Select
 } from '../common/components/contactForm';
 import { Parallax } from 'react-parallax';
 import { InsideSection, Container } from '../common/components/parallax';
+import { css } from 'emotion';
 
+const selectCss = css`
+  select,
+  select option {
+    color: #ccc;
+  }
+`;
+
+const handle = sel => {
+  sel.target.style.color = '#555555';
+  sel.target.style.fontFamily = 'sans';
+};
 export default ({ data }) => (
   <Layout>
     <Seo title={`Contact`} description={data.site.siteMetadata.description} />
@@ -52,6 +65,22 @@ export default ({ data }) => (
           placeholder="Email"
           required
         />
+        <Select
+          className={selectCss}
+          onChange={handle}
+          defaultValue="0"
+          name="foundBy"
+          id="foundBy"
+        >
+          <option value="0" disabled hidden>
+            How did you find us?
+          </option>
+          <option value="facebook">FaceBook</option>
+          <option value="instagram">Instagram</option>
+          <option value="instagram">Google</option>
+          <option value="instagram">Referred</option>
+          <option value="instagram">Other</option>
+        </Select>
         <TextArea
           placeholder="Message"
           id="message"

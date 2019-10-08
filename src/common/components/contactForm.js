@@ -42,7 +42,21 @@ export const Input = styled.input`
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
   }
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  @media screen and (max-width: 768px) {
+    width: ${inputWidthsSmall}%;
+    font-size: 1rem;
+  }
+`;
+export const Select = styled.select`
+  width: ${inputWidthsReg}%;
+  height: 35px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin: 7px 0;
+  font-family: 'Sacramento', sans-serif;
+  font-size: 1.2rem;
+  color: rgb(117, 117, 117);
   @media screen and (max-width: 768px) {
     width: ${inputWidthsSmall}%;
     font-size: 1rem;
@@ -82,7 +96,7 @@ export const TextArea = styled.textarea`
     font-family: 'Sacramento', sans-serif;
     padding: 5px;
   }
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   @media screen and (max-width: 768px) {
     width: ${inputWidthsSmall}%;
     font-size: 1rem;
