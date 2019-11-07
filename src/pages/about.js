@@ -15,9 +15,6 @@ const divStyle = css`
   margin: 1.75rem;
   width: 100%;
   max-width: 48rem;
-  h4: {
-    color: red !important;
-  }
 `;
 
 export default ({ props, data }) => {
