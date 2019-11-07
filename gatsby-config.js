@@ -13,7 +13,8 @@ const siteMetadata = {
     { to: '/about', name: 'About' },
     { to: '/services', name: 'Services' },
     { to: '/portfolio', name: 'Portfolio' },
-    { to: '/contact', name: 'Contact' }
+    { to: '/contact', name: 'Contact' },
+    { to: '/reviews', name: 'Applause' }
   ],
   title: 'Shining Light',
   description:
