@@ -93,7 +93,7 @@ export default ({ data }) => {
             type="tel"
             name="phone"
             id="phone"
-            placeholder="Phone Number (111) 111-1111"
+            placeholder="Phone Number"
           />
           <Select
             className={selectCss}
