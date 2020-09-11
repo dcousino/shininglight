@@ -8,7 +8,8 @@ import markdownRender from '../common/renders/markdownRender';
 import breaks from 'remark-breaks';
 import { css } from 'emotion';
 import BannerImage from '../common/components/bannerImage';
-
+import Fade from 'react-reveal/Fade';
+import { Image } from '../common/components/imageComponents';
 const mediaQueries = `@media (min-width: 900px) {width: 70%;} @media (min-width: 1200px) {width: 60%;} @media (min-width: 1600px) {width: 50%;}`;
 
 const divStyle = css`
@@ -23,15 +24,24 @@ export default ({ props, data }) => {
       <Seo title={`About`} description={data.site.siteMetadata.description} />
       <BannerImage height={'60vh'} img={data.about.bannerImage.fluid.src} />
       <SectionContainer mediaQueries={mediaQueries}>
-        <div className={divStyle}>
-          <ReactMarkdown
-            source={
-              data.about.aboutPageContent.childMarkdownRemark.rawMarkdownBody
-            }
-            renderers={markdownRender}
-            plugins={[breaks]}
+        <Fade left>
+          <div className={divStyle}>
+            <ReactMarkdown
+              source={
+                data.about.aboutPageContent.childMarkdownRemark.rawMarkdownBody
+              }
+              renderers={markdownRender}
+              plugins={[breaks]}
+            />
+          </div>
+        </Fade>
+        <Fade right>
+          <Image
+            fluid={data.about.aboutImage.fluid}
+            alt="The Author"
+            className=""
           />
-        </div>
+        </Fade>
       </SectionContainer>
     </Layout>
   );
@@ -51,6 +61,13 @@ export const dataQuery = graphql`
         }
       }
       bannerImage {
+        description
+        title
+        fluid(maxWidth: 1920) {
+          ...GatsbyContentfulFluid
+        }
+      }
+      aboutImage {
         description
         title
         fluid(maxWidth: 1920) {
