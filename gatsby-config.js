@@ -1,12 +1,6 @@
-const contentful = require('contentful');
 require('dotenv').config();
 const manifestConfig = require('./manifest.config');
 const { ACCESS_TOKEN, SPACE_ID } = process.env;
-
-const client = contentful.createClient({
-  space: SPACE_ID,
-  accessToken: ACCESS_TOKEN
-});
 
 const siteMetadata = {
   navbarLinks: [
@@ -14,7 +8,7 @@ const siteMetadata = {
     { to: '/services', name: 'Services' },
     { to: '/portfolio', name: 'Portfolio' },
     { to: '/contact', name: 'Contact' },
-    { to: '/reviews', name: 'Applause' }
+    { to: '/reviews', name: 'Applause' },
   ],
   title: 'Shining Light',
   description:
@@ -22,7 +16,7 @@ const siteMetadata = {
   siteUrl: 'https://www.shininglightmua.com',
   facebook:
     'https://www.facebook.com/Shining-Light-Beauty-Design-by-Amber-Rose-408992882872777/',
-  instagram: 'https://www.instagram.com/shininglight_mua/'
+  instagram: 'https://www.instagram.com/shininglight_mua/',
 };
 
 const plugins = [
@@ -34,14 +28,14 @@ const plugins = [
   'gatsby-plugin-offline',
   {
     resolve: 'gatsby-plugin-manifest',
-    options: manifestConfig
+    options: manifestConfig,
   },
   {
     resolve: 'gatsby-source-contentful',
     options: {
       spaceId: SPACE_ID,
-      accessToken: ACCESS_TOKEN
-    }
+      accessToken: ACCESS_TOKEN,
+    },
   },
   {
     resolve: 'gatsby-transformer-remark',
@@ -51,33 +45,31 @@ const plugins = [
         {
           resolve: 'gatsby-remark-images',
           options: {
-            maxWidth: 1400
-          }
-        }
-      ]
-    }
+            maxWidth: 1400,
+          },
+        },
+      ],
+    },
   },
   {
     resolve: `gatsby-plugin-prefetch-google-fonts`,
     options: {
       fonts: [
         {
-          family: `Cormorant`
+          family: `Cormorant`,
         },
         {
-          family: `Sacramento`
-        }
-      ]
-    }
+          family: `Sacramento`,
+        },
+      ],
+    },
   },
   {
     resolve: 'gatsby-plugin-html-attributes',
     options: {
-      lang: 'en'
-    }
-  }
+      lang: 'en',
+    },
+  },
 ];
 
-module.exports = client.getEntries().then(() => {
-  return { siteMetadata, plugins };
-});
+module.exports = { siteMetadata, plugins };

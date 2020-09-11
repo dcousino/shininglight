@@ -19,17 +19,11 @@ const divStyle = css`
   max-width: 48rem;
   padding: 1rem;
 `;
-const sortOrderNumber = (a, b) => {
-  if (a.order < b.order) return -1;
 
-  if (a.order > b.order) return 1;
-
-  return 0;
-};
 const Rating = styled.div`
   margin-bottom: 1.75rem;
   font-size: 1.1rem;
-  color: ${props => props.theme.colors.offwhite};
+  color: ${(props) => props.theme.colors.offwhite};
 `;
 const Ratings = styled.div`
   ${Rating}:last-child {
@@ -46,7 +40,7 @@ export default ({ data }) => (
       bgImageSrcSet={data.reviewPage.banner.fluid.srcSet}
       bgImageAlt={data.reviewPage.banner.description}
       bgImageStyle={{
-        backgroundSize: 'contain' /* <------ */
+        backgroundSize: 'contain' /* <------ */,
       }}
       strength={100}
       renderLayer={() => (
@@ -56,7 +50,7 @@ export default ({ data }) => (
               position: 'absolute',
               background: `hsla(0, 100%, 94%, 0.2)`,
               width: '100%',
-              height: '100%'
+              height: '100%',
             }}
           />
         </div>
@@ -65,7 +59,7 @@ export default ({ data }) => (
       <Container />
     </Parallax>
     <Ratings>
-      {data.reviews.nodes.map(review => {
+      {data.reviews.nodes.map((review) => {
         return (
           <Rating
             id={`${review.author}_${review.order}`}

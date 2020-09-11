@@ -1,8 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { Image } from '../../common/components/imageComponents';
 import Fade from 'react-reveal/Fade';
-import styled from 'styled-components';
 import SectionContainer from '../../common/components/sectionContainer';
 import ReactMarkdown from 'react-markdown';
 import markdownRender from '../../common/renders/markdownRender';
@@ -12,23 +11,6 @@ const divStyle = css`
   margin: 2rem;
   width: 100%;
   max-width: 48rem;
-`;
-const Image = styled(Img)`
-  transition: all 0.4s ease-in-out;
-  &:hover {
-    transform: scale(1.1);
-  }
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
-    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  margin: 0 2px;
-  min-width: 400px;
-  @media (max-width: 450px) {
-    min-width: 320px;
-  }
-  @media (max-width: 400px) {
-    min-width: 250px;
-  }
 `;
 
 export default () => (
@@ -50,7 +32,7 @@ export default () => (
           }
         }
       `}
-      render={data => {
+      render={(data) => {
         const { onsiteBeautyDesign } = data.contentfulAbout;
 
         return (
