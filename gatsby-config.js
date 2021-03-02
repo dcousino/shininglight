@@ -52,16 +52,10 @@ const plugins = [
     },
   },
   {
-    resolve: `gatsby-plugin-prefetch-google-fonts`,
+    resolve: `gatsby-plugin-google-fonts`,
     options: {
-      fonts: [
-        {
-          family: `Cormorant`,
-        },
-        {
-          family: `Sacramento`,
-        },
-      ],
+      fonts: [`Cormorant`, `Sacramento`],
+      display: 'swap',
     },
   },
   {

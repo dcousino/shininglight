@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
 body {
+  overflow-x: hidden;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
@@ -25,9 +26,11 @@ body {
   min-height: 100%;
   color: #333333;
   background-color: ${colors.background};
+  
 }
 
 html {
+  overflow-x: hidden;
   min-height: 100%;
 }
 
