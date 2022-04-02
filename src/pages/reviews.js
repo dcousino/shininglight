@@ -1,18 +1,18 @@
-import React from 'react';
-import Layout from '../common/layouts';
-import { graphql } from 'gatsby';
-import Seo from '../common/seo';
-import { css } from 'emotion';
-import { Parallax } from 'react-parallax';
-import SectionContainer from '../common/components/sectionContainer';
-import breaks from 'remark-breaks';
-import markdownRender from '../common/renders/markdownRender';
-import ReactMarkdown from 'react-markdown';
+import React from "react";
+import Layout from "../common/layouts";
+import { graphql } from "gatsby";
+import Seo from "../common/seo";
+import { css } from "emotion";
+import { Parallax } from "react-parallax";
+import SectionContainer from "../common/components/sectionContainer";
+import breaks from "remark-breaks";
+import markdownRender from "../common/renders/markdownRender";
+import ReactMarkdown from "react-markdown";
 
-import { Container } from '../common/components/parallax';
-import styled from 'styled-components';
-import { RatingSection, Stars } from '../common/components/rating';
-import 'font-awesome/css/font-awesome.min.css';
+import { Container } from "../common/components/parallax";
+import styled from "styled-components";
+import { RatingSection, Stars } from "../common/components/rating";
+import "font-awesome/css/font-awesome.min.css";
 const mediaQueries = `@media (min-width: 900px) {width: 70%;} @media (min-width: 1200px) {width: 60%;} @media (min-width: 1600px) {width: 50%;}`;
 const divStyle = css`
   width: 100%;
@@ -40,17 +40,17 @@ export default ({ data }) => (
       bgImageSrcSet={data.reviewPage.banner.fluid.srcSet}
       bgImageAlt={data.reviewPage.banner.description}
       bgImageStyle={{
-        backgroundSize: 'contain' /* <------ */,
+        backgroundSize: "contain" /* <------ */,
       }}
       strength={100}
       renderLayer={() => (
         <div>
           <div
             style={{
-              position: 'absolute',
+              position: "absolute",
               background: `hsla(0, 100%, 94%, 0.2)`,
-              width: '100%',
-              height: '100%',
+              width: "100%",
+              height: "100%",
             }}
           />
         </div>
@@ -59,30 +59,34 @@ export default ({ data }) => (
       <Container />
     </Parallax>
     <Ratings>
-      {data.reviews.nodes.map((review) => {
-        return (
-          <Rating
-            id={`${review.author}_${review.order}`}
-            key={`${review.author}_${review.order}`}
-          >
-            <SectionContainer mediaQueries={mediaQueries}>
-              <div className={divStyle}>
-                <ReactMarkdown
-                  source={review.reviewText.childMarkdownRemark.rawMarkdownBody}
-                  renderers={markdownRender}
-                  plugins={[breaks]}
-                />
-                <p>
-                  <strong>{review.author}</strong>
-                </p>
-                <RatingSection>
-                  <Stars width={review.rating}></Stars>
-                </RatingSection>
-              </div>
-            </SectionContainer>
-          </Rating>
-        );
-      })}
+      {data.reviews.nodes
+        .filter((review) => review.reviewText)
+        .map((review) => {
+          return (
+            <Rating
+              id={`${review.author}_${review.order}`}
+              key={`${review.author}_${review.order}`}
+            >
+              <SectionContainer mediaQueries={mediaQueries}>
+                <div className={divStyle}>
+                  <ReactMarkdown
+                    source={
+                      review.reviewText.childMarkdownRemark.rawMarkdownBody
+                    }
+                    renderers={markdownRender}
+                    plugins={[breaks]}
+                  />
+                  <p>
+                    <strong>{review.author}</strong>
+                  </p>
+                  <RatingSection>
+                    <Stars width={review.rating}></Stars>
+                  </RatingSection>
+                </div>
+              </SectionContainer>
+            </Rating>
+          );
+        })}
     </Ratings>
   </Layout>
 );
