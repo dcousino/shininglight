@@ -1,18 +1,19 @@
-import React from 'react';
-import Layout from '../common/layouts';
-import { graphql } from 'gatsby';
-import Seo from '../common/seo';
-import { css } from 'emotion';
-import { Parallax } from 'react-parallax';
-import SectionContainer from '../common/components/sectionContainer';
-import breaks from 'remark-breaks';
-import markdownRender from '../common/renders/markdownRender';
-import ReactMarkdown from 'react-markdown';
+import React from "react";
+import Layout from "../common/layouts";
+import { PageProps, graphql } from "gatsby";
+import Seo from "../common/seo";
+import { css } from "@emotion/css";
+import { Parallax } from "react-parallax";
+import SectionContainer from "../common/components/sectionContainer";
+import breaks from "remark-breaks";
+import markdownRender from "../common/renders/markdownRender";
+import ReactMarkdown from "react-markdown";
+import { Container } from "../common/components/parallax";
+import styled from "styled-components";
+import { RatingSection, Stars } from "../common/components/rating";
+import "font-awesome/css/font-awesome.min.css";
+import { ReviewsQuery } from "../types/queries";
 
-import { Container } from '../common/components/parallax';
-import styled from 'styled-components';
-import { RatingSection, Stars } from '../common/components/rating';
-import 'font-awesome/css/font-awesome.min.css';
 const mediaQueries = `@media (min-width: 900px) {width: 70%;} @media (min-width: 1200px) {width: 60%;} @media (min-width: 1600px) {width: 50%;}`;
 const divStyle = css`
   width: 100%;
@@ -31,26 +32,24 @@ const Ratings = styled.div`
   }
 `;
 
-export default ({ data }) => (
+const Reviews = ({ data }: PageProps<ReviewsQuery>) => (
   <Layout>
     <Seo title={data.reviewPage.title} description={data.reviewPage.title} />
     <Parallax
-      bgImageSizes={data.reviewPage.banner.fluid.sizes}
-      bgImage={data.reviewPage.banner.fluid.src}
-      bgImageSrcSet={data.reviewPage.banner.fluid.srcSet}
-      bgImageAlt={data.reviewPage.banner.description}
+      bgImage={data.reviewPage?.banner?.url || undefined}
+      bgImageAlt={data.reviewPage?.banner?.description || ""}
       bgImageStyle={{
-        backgroundSize: 'contain' /* <------ */,
+        backgroundSize: "contain",
       }}
       strength={100}
       renderLayer={() => (
         <div>
           <div
             style={{
-              position: 'absolute',
+              position: "absolute",
               background: `hsla(0, 100%, 94%, 0.2)`,
-              width: '100%',
-              height: '100%',
+              width: "100%",
+              height: "100%",
             }}
           />
         </div>
@@ -68,9 +67,12 @@ export default ({ data }) => (
             <SectionContainer mediaQueries={mediaQueries}>
               <div className={divStyle}>
                 <ReactMarkdown
-                  source={review.reviewText.childMarkdownRemark.rawMarkdownBody}
-                  renderers={markdownRender}
-                  plugins={[breaks]}
+                  children={
+                    review.reviewText?.childMarkdownRemark?.rawMarkdownBody ||
+                    ""
+                  }
+                  components={markdownRender}
+                  remarkPlugins={[breaks]}
                 />
                 <p>
                   <strong>{review.author}</strong>
@@ -87,19 +89,18 @@ export default ({ data }) => (
   </Layout>
 );
 
-export const dataQuery = graphql`
-  query {
+export default Reviews;
+export const query = graphql`
+  query Reviews {
     reviewPage: contentfulReviewPage {
       title
       banner {
         title
         description
-        fluid(maxWidth: 1920) {
-          ...GatsbyContentfulFluid
-        }
+        url
       }
     }
-    reviews: allContentfulReview(sort: { fields: [order] }) {
+    reviews: allContentfulReview(sort: { order: ASC }) {
       nodes {
         rating
         author
@@ -113,3 +114,4 @@ export const dataQuery = graphql`
     }
   }
 `;
+

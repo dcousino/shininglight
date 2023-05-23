@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const SectionContainer = styled.div`
+const SectionContainer = styled.div<{ mediaQueries?: string }>`
   z-index: 999;
   position: relative;
-  background: ${props => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.primary};
   width: 90%;
   border-radius: 6px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
@@ -16,7 +16,7 @@ const SectionContainer = styled.div`
   padding: 1.2rem 0.2rem;
   align-items: center;
 
-  ${props => props.mediaQueries}
+  ${(props) => props.mediaQueries}
 `;
 
 export default SectionContainer;

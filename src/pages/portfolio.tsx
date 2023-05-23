@@ -1,12 +1,13 @@
-import React from 'react';
-import Layout from '../common/layouts';
-import { graphql } from 'gatsby';
-import Seo from '../common/seo';
-import { Parallax } from 'react-parallax';
-import CarouselSection from '../common/components/carouselSection';
-import styled from 'styled-components';
-import { deviceMax } from '../../device';
-import { InsideSection, Container } from '../common/components/parallax';
+import React from "react";
+import Layout from "../common/layouts";
+import { PageProps, graphql } from "gatsby";
+import Seo from "../common/seo";
+import { Parallax } from "react-parallax";
+import CarouselSection from "../common/components/carouselSection";
+import styled from "styled-components";
+import { deviceMax } from "../../device";
+import { InsideSection, Container } from "../common/components/parallax";
+import { PortfolioQuery } from "../types/queries";
 
 const CarouselWrapper = styled.div`
   max-width: 70%;
@@ -18,7 +19,7 @@ const CarouselWrapper = styled.div`
   }
 `;
 
-export default ({ data }) => {
+const Portfolio = ({ data }: PageProps<PortfolioQuery>) => {
   return (
     <Layout>
       <Seo
@@ -27,22 +28,22 @@ export default ({ data }) => {
       />
       <div
         style={{
-          backgroundColor: '#fff0ed'
+          backgroundColor: "#fff0ed",
         }}
       >
         <Parallax
           blur={{ min: -15, max: 15 }}
-          bgImage={data.muBanner.img.fluid.src}
-          bgImageAlt={data.muBanner.description}
+          bgImage={data.muBanner.img.url}
+          bgImageAlt={data.muBanner.title}
           strength={100}
-          renderLayer={percentage => (
+          renderLayer={(percentage) => (
             <div>
               <div
                 style={{
-                  position: 'absolute',
+                  position: "absolute",
                   background: `hsla(0, 100%, 94%, 0.2)`,
-                  width: '100%',
-                  height: '100%'
+                  width: "100%",
+                  height: "100%",
                 }}
               />
             </div>
@@ -53,22 +54,22 @@ export default ({ data }) => {
           </Container>
         </Parallax>
         <CarouselWrapper>
-          <CarouselSection bucket={'makeup'} />
+          <CarouselSection bucket={"makeup"} />
         </CarouselWrapper>
 
         <Parallax
           blur={{ min: -15, max: 15 }}
-          bgImage={data.btsBanner.img.fluid.src}
-          bgImageAlt={data.btsBanner.description}
+          bgImage={data.btsBanner.img.url}
+          bgImageAlt={data.btsBanner.title}
           strength={100}
-          renderLayer={percentage => (
+          renderLayer={(_) => (
             <div>
               <div
                 style={{
-                  position: 'absolute',
+                  position: "absolute",
                   background: `hsla(0, 100%, 94%, 0.2)`,
-                  width: '100%',
-                  height: '100%'
+                  width: "100%",
+                  height: "100%",
                 }}
               />
             </div>
@@ -79,48 +80,32 @@ export default ({ data }) => {
           </Container>
         </Parallax>
         <CarouselWrapper>
-          <CarouselSection bucket={'bts'} />
+          <CarouselSection bucket={"bts"} />
         </CarouselWrapper>
       </div>
     </Layout>
   );
 };
 
-export const dataQuery = graphql`
-  query {
+export default Portfolio;
+
+export const query = graphql`
+  query Portfolio {
     site {
       siteMetadata {
         description
       }
     }
-    makeup: allContentfulCarouselMedia(filter: { title: { eq: "Makeup" } }) {
-      edges {
-        node {
-          title
-          carouselImages {
-            id
-            title
-            fluid(maxWidth: 1280) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    }
     muBanner: contentfulImage(title: { eq: "Portfolio-Makeup&Hair" }) {
       title
       img {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        url
       }
     }
     btsBanner: contentfulImage(title: { eq: "Portfolio-BehindTheScenes" }) {
       title
       img {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        url
       }
     }
   }

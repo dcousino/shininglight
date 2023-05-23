@@ -1,9 +1,10 @@
-import React from 'react';
-import Carousel from 'react-slick';
-import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import Carousel from "react-slick";
+import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
+import { CarouselQuery } from "../../types/queries";
 
-const CarouselImage = styled.div`
+const CarouselImage = styled.div<{ img: string }>`
   position: relative;
   float: left;
   width: 100%;
@@ -11,7 +12,7 @@ const CarouselImage = styled.div`
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url(${props => props.img});
+  background-image: url(${(props) => props.img});
   @media screen and (max-width: 768px) {
     width: 80%;
     height: 300px;
@@ -35,13 +36,13 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  adaptiveHeight: true
+  adaptiveHeight: true,
 };
 
-export default props => {
-  const bucket = useStaticQuery(
+const CarouselComp = (props: { bucket: "makeup" | "bts" | "home" }) => {
+  const bucket = useStaticQuery<CarouselQuery>(
     graphql`
-      query {
+      query CarouselQuery {
         makeup: allContentfulCarouselMedia(
           filter: { title: { eq: "Makeup" } }
         ) {
@@ -51,9 +52,7 @@ export default props => {
               carouselImages {
                 id
                 title
-                fluid(maxWidth: 800) {
-                  ...GatsbyContentfulFluid
-                }
+                url
               }
             }
           }
@@ -67,9 +66,7 @@ export default props => {
               carouselImages {
                 id
                 title
-                fluid(maxWidth: 800) {
-                  ...GatsbyContentfulFluid
-                }
+                url
               }
             }
           }
@@ -81,9 +78,7 @@ export default props => {
               carouselImages {
                 id
                 title
-                fluid(maxWidth: 800) {
-                  ...GatsbyContentfulFluid
-                }
+                url
               }
             }
           }
@@ -91,7 +86,9 @@ export default props => {
       }
     `
   );
+
   const _bucket = bucket[props.bucket];
+
   return (
     <CarouselSection>
       <Carousel {...settings}>
@@ -99,11 +96,12 @@ export default props => {
           _bucket.edges.map(
             ({ node }) =>
               node &&
-              node.carouselImages.map(img => (
-                <CarouselImage img={img.fluid.src} />
-              ))
+              node.carouselImages &&
+              node.carouselImages.map((img) => <CarouselImage img={img?.url} />)
           )}
       </Carousel>
     </CarouselSection>
   );
 };
+
+export default CarouselComp;

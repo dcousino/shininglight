@@ -1,12 +1,11 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import Navbar from '../components/navbar.js';
-import Footer from '../components/footer.js';
-import config from 'react-reveal/globals';
-import colors from '../../../colors';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import '../../../node_modules/slick-carousel/slick/slick.css';
-import '../../../node_modules/slick-carousel/slick/slick-theme.css';
+import React from "react";
+import Helmet from "react-helmet";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
+import colors from "../../../colors";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import "../../../node_modules/slick-carousel/slick/slick.css";
+import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -47,23 +46,13 @@ h1, h2, h3 {
   font-family: 'Cormorant', serif !important;
 }
 
-.fadeIn {
-  animation: fadeIn 0.4s normal forwards;
-}
-
-.fadeOut {
-  animation: fadeOut 0.2s normal forwards;
-}
-
 .dn { display: none; }
 `;
 
-config({ ssrFadeout: true });
-
-const Layout = ({ children }) => (
+const Layout = ({ children }: { children: React.ReactNode }) => (
   <React.Fragment>
     <GlobalStyle />
-    <ThemeProvider config={{ config }} theme={{ colors }}>
+    <ThemeProvider theme={{ colors }}>
       <div>
         <Helmet />
         <Navbar />
