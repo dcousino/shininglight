@@ -1,18 +1,12 @@
 require("dotenv").config();
 const manifestConfig = require("./manifest.config");
-const { ACCESS_TOKEN, SPACE_ID, IS_DEV } = process.env;
+const { ACCESS_TOKEN, SPACE_ID } = process.env;
 
 let contentfulConfig = {
   spaceId: SPACE_ID,
   accessToken: ACCESS_TOKEN,
 };
 
-if (IS_DEV) {
-  contentfulConfig = {
-    ...contentfulConfig,
-    host: "preview.contentful.com",
-  };
-}
 const siteMetadata = {
   navbarLinks: [
     { to: "/about", name: "About" },
@@ -32,18 +26,22 @@ const siteMetadata = {
 
 const plugins = [
   "gatsby-plugin-styled-components",
-  "gatsby-plugin-react-helmet",
   "gatsby-transformer-sharp",
   "gatsby-plugin-sharp",
-  "gatsby-plugin-advanced-sitemap",
   "gatsby-plugin-offline",
+  "gatsby-plugin-image",
   {
     resolve: "gatsby-plugin-manifest",
     options: manifestConfig,
   },
   {
     resolve: "gatsby-source-contentful",
-    options: contentfulConfig,
+    options: {
+      downloadLocal: true,
+      spaceId: SPACE_ID,
+      accessToken: ACCESS_TOKEN,
+      host: process.env.CONTENTFUL_HOST,
+    },
   },
   {
     resolve: "gatsby-transformer-remark",

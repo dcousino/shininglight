@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Img from 'gatsby-image';
+import styled from "styled-components";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export const ImageContainer = styled.div`
   position: relative;
@@ -17,7 +17,7 @@ export const ImageText = styled.div`
   border-radius: 10px;
 `;
 
-export const Image = styled(Img)`
+export const Image = styled(GatsbyImage)`
   transition: all 0.4s ease-in-out;
   &:hover {
     transform: scale(1.1);
@@ -26,11 +26,11 @@ export const Image = styled(Img)`
     0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   margin: 0 2px;
-  min-width: 400px;
+  width: 400px;
   @media (max-width: 450px) {
-    min-width: 320px;
+    width: 320px;
   }
   @media (max-width: 400px) {
-    min-width: 250px;
+    width: 250px;
   }
 `;

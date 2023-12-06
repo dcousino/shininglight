@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 const inputWidthsReg = 80;
 const inputWidthsSmall = 100;
 
@@ -7,7 +7,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.theme.colors.secondaryVeryLight};
+  background-color: ${(props) => props.theme.colors.secondaryVeryLight};
   padding: 20px 0;
 `;
 export const Form = styled.form`
@@ -21,7 +21,7 @@ export const Form = styled.form`
   margin: -100px auto -40px auto;
   position: relative;
   padding: 20px;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.primary};
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -39,7 +39,7 @@ export const Input = styled.input`
   background-color: #fff;
   margin: 7px 0;
   ::placeholder {
-    font-family: 'Sacramento', sans-serif;
+    font-family: "Sacramento", sans-serif;
     padding: 5px;
   }
   font-size: 1.2rem;
@@ -54,7 +54,10 @@ export const Select = styled.select`
   border: 1px solid #ccc;
   background-color: #fff;
   margin: 7px 0;
-  font-family: 'Sacramento', sans-serif;
+  font-family: "Sacramento", sans-serif;
+  option {
+    font-family: sans-serif;
+  }
   font-size: 1.2rem;
   color: rgb(117, 117, 117);
   @media screen and (max-width: 768px) {
@@ -65,11 +68,11 @@ export const Select = styled.select`
 
 export const Button = styled.input`
   border: none;
-  font-family: 'Cormorant', sans-serif;
+  font-family: "Cormorant", sans-serif;
   text-decoration: none;
   padding: 1rem 4rem;
   background-color: #333;
-  color: ${props => props.theme.colors.offwhite};
+  color: ${(props) => props.theme.colors.offwhite};
   letter-spacing: 0.1em;
   font-weight: bold;
   font-size: 1rem;
@@ -77,7 +80,7 @@ export const Button = styled.input`
 `;
 
 export const Title = styled.h1`
-  font-family: 'Sacramento', sans-serif;
+  font-family: "Sacramento", sans-serif;
   font-weight: 600;
   color: #4d4d4d;
   font-size: 2.2em;
@@ -93,7 +96,7 @@ export const TextArea = styled.textarea`
   background-color: #fff;
   margin: 10px 0;
   ::placeholder {
-    font-family: 'Sacramento', sans-serif;
+    font-family: "Sacramento", sans-serif;
     padding: 5px;
   }
   font-size: 1.2rem;

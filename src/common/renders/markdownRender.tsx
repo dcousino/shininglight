@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const MarkdownH1 = styled.h1`
   margin: 0.3em auto;
@@ -11,11 +11,12 @@ const MarkdownH1 = styled.h1`
   text-align: center;
   color: #f4f4f4;
   font-weight: 100;
-  font-family: 'Sacramento', serif;
+  font-family: "Sacramento", serif;
   margin-bottom: 2rem;
 `;
 
-const MarkdownHeading = props => {
+type HeadingProps = { children: React.ReactNode; level?: number };
+const MarkdownHeading = (props: HeadingProps) => {
   switch (props.level) {
     case 1:
       return <MarkdownH1>{props.children}</MarkdownH1>;
@@ -36,7 +37,7 @@ const MarkdownH3 = styled.h3`
   color: slategray;
   font-weight: 100;
   display: block;
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   @media (max-width: 768px) {
     font-size: 1.25rem;
   }
@@ -49,18 +50,23 @@ const MarkdownH5 = styled.h5`
   color: gray;
   font-weight: 100;
   display: block;
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
 `;
 
 const MarkdownParagraph = styled.p`
   text-align: left;
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   width: 100%;
 `;
 
 export default {
-  paragraph: props => {
+  p: (props: HeadingProps) => {
     return <MarkdownParagraph {...props} />;
   },
-  heading: props => <MarkdownHeading {...props} />
+  h1: (props: HeadingProps) => <MarkdownHeading {...props} />,
+  h2: (props: HeadingProps) => <MarkdownHeading {...props} />,
+  h3: (props: HeadingProps) => <MarkdownHeading {...props} />,
+  h4: (props: HeadingProps) => <MarkdownHeading {...props} />,
+  h5: (props: HeadingProps) => <MarkdownHeading {...props} />,
+  h6: (props: HeadingProps) => <MarkdownHeading {...props} />,
 };
