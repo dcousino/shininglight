@@ -86,6 +86,7 @@ const Navbar = () => {
     if (menuToggle) {
       document.body.style.position = "fixed";
     } else {
+      document.body.style.position = "unset";
     }
   }, [menuToggle]);
 
