@@ -19,7 +19,7 @@ const Bio = () => {
     graphql`
       query Bio {
         image: contentfulAsset(title: { eq: "onsite-beauty-design" }) {
-          gatsbyImageData(width: 325)
+          gatsbyImageData(width: 325, placeholder: BLURRED)
         }
         contentfulAbout {
           onsiteBeautyDesign {

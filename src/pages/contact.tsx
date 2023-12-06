@@ -14,6 +14,7 @@ import {
 import { Parallax } from "react-parallax";
 import { InsideSection, Container } from "../common/components/parallax";
 import { ContactPageQuery } from "../types/queries";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Contact = ({ data }: PageProps<ContactPageQuery>) => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -35,28 +36,13 @@ const Contact = ({ data }: PageProps<ContactPageQuery>) => {
   return (
     <Layout>
       <Seo title={`Contact`} description={data.site.siteMetadata.description} />
-      <Parallax
-        blur={{ min: -15, max: 15 }}
-        bgImage={data.banner.img.url}
-        bgImageAlt={data.banner.img.description}
-        strength={100}
-        renderLayer={(percentage) => (
-          <div>
-            <div
-              style={{
-                position: "absolute",
-                background: `hsla(0, 100%, 94%, 0.2)`,
-                width: "100%",
-                height: "100%",
-              }}
-            />
-          </div>
-        )}
-      >
-        <Container>
-          <InsideSection />
-        </Container>
-      </Parallax>
+      <GatsbyImage
+        style={{ height: "520px" }}
+        objectPosition="center top"
+        image={data.banner.img.gatsbyImageData}
+        alt="Services Banner"
+      />
+      <InsideSection />
 
       <FormContainer>
         <Form method="post" data-netlify="true" name="contact" action="#">
@@ -120,9 +106,8 @@ export const query = graphql`
     banner: contentfulImage(title: { eq: "ContactBanner" }) {
       title
       img {
-        title
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         description
-        url
       }
     }
   }

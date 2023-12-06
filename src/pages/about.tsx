@@ -7,10 +7,10 @@ import ReactMarkdown from "react-markdown";
 import markdownRender from "../common/renders/markdownRender";
 import breaks from "remark-breaks";
 import { css } from "@emotion/css";
-import BannerImage from "../common/components/bannerImage";
 import { Fade } from "react-awesome-reveal";
 import { Image } from "../common/components/imageComponents";
 import { AboutPageQuery } from "../types/queries";
+import { GatsbyImage } from "gatsby-plugin-image";
 const mediaQueries = `@media (min-width: 900px) {width: 70%;} @media (min-width: 1200px) {width: 60%;} @media (min-width: 1600px) {width: 50%;}`;
 
 const divStyle = css`
@@ -19,13 +19,29 @@ const divStyle = css`
   max-width: 48rem;
 `;
 
+const ImageStyle = css`
+  height: 520px;
+  width: 1080px;
+  margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    height: 200px;
+    width: unset;
+  }
+`;
+
 export default ({ data }: PageProps<AboutPageQuery>) => {
   return (
     <Layout>
       <Seo title={`About`} description={data.site.siteMetadata.description} />
-      <BannerImage height={"60vh"} img={data.about.bannerImage.url} />
+      <div style={{ width: "100%", background: "white" }}>
+        <GatsbyImage
+          className={ImageStyle}
+          image={data.about.bannerImage.gatsbyImageData}
+          alt={data.about.bannerImage.description}
+        />
+      </div>
       <SectionContainer mediaQueries={mediaQueries}>
-        <Fade triggerOnce direction="left">
+        <Fade style={{ display: "flex" }} triggerOnce direction="left">
           <div className={divStyle}>
             <ReactMarkdown
               children={
@@ -36,7 +52,7 @@ export default ({ data }: PageProps<AboutPageQuery>) => {
             />
           </div>
         </Fade>
-        <Fade triggerOnce direction="right">
+        <Fade style={{ display: "flex" }} triggerOnce direction="right">
           <Image
             image={data.about.aboutImage.gatsbyImageData}
             alt="The Author"
@@ -62,14 +78,12 @@ export const query = graphql`
         }
       }
       bannerImage {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         description
-        title
-        url
       }
       aboutImage {
         description
-        title
-        gatsbyImageData(width: 400)
+        gatsbyImageData(width: 400, placeholder: BLURRED)
       }
     }
   }

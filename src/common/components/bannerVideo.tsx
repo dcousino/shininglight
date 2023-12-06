@@ -20,32 +20,33 @@ const BannerVideo = ({
   mimeType: string;
 }) => {
   const handleUserKeyPress = useCallback((e: any) => {
-    console.log(e.target.currentTime);
-
-    e.target.currentTime = 0.1;
-    e.target.play();
-  }, []);
-  useEffect(() => {
     const video = document.getElementById("video") as HTMLVideoElement;
-
-    if (video) {
-      video.addEventListener("ended", handleUserKeyPress);
-
-      video.play();
-    }
-
-    return () => {
-      if (video) {
-        video.removeEventListener("ended", handleUserKeyPress);
-      }
-    };
+    video.currentTime = 0;
+    video.load();
   }, []);
+  // useEffect(() => {
+  //   const video = document.getElementById("video") as HTMLVideoElement;
+
+  //   if (video) {
+  //     video.addEventListener("ended", handleUserKeyPress);
+
+  //     video.play();
+  //   }
+
+  //   return () => {
+  //     if (video) {
+  //       video.removeEventListener("ended", handleUserKeyPress);
+  //     }
+  //   };
+  // }, []);
   return (
     <VideoWrapper>
       <video
         id="video"
         width="100%"
         height="100%"
+        autoPlay
+        loop
         muted
         style={{
           objectFit: "cover",

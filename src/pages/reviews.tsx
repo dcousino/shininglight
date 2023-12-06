@@ -13,6 +13,7 @@ import styled from "styled-components";
 import { RatingSection, Stars } from "../common/components/rating";
 import "font-awesome/css/font-awesome.min.css";
 import { ReviewsQuery } from "../types/queries";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const mediaQueries = `@media (min-width: 900px) {width: 70%;} @media (min-width: 1200px) {width: 60%;} @media (min-width: 1600px) {width: 50%;}`;
 const divStyle = css`
@@ -35,28 +36,12 @@ const Ratings = styled.div`
 const Reviews = ({ data }: PageProps<ReviewsQuery>) => (
   <Layout>
     <Seo title={data.reviewPage.title} description={data.reviewPage.title} />
-    <Parallax
-      bgImage={data.reviewPage?.banner?.url || undefined}
-      bgImageAlt={data.reviewPage?.banner?.description || ""}
-      bgImageStyle={{
-        backgroundSize: "contain",
-      }}
-      strength={100}
-      renderLayer={() => (
-        <div>
-          <div
-            style={{
-              position: "absolute",
-              background: `hsla(0, 100%, 94%, 0.2)`,
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </div>
-      )}
-    >
-      <Container />
-    </Parallax>
+    <GatsbyImage
+      style={{ height: "500px" }}
+      objectPosition="center top"
+      image={data.reviewPage.banner.gatsbyImageData}
+      alt="Services Banner"
+    />
     <Ratings>
       {data.reviews.nodes.map((review) => {
         return (
@@ -95,9 +80,8 @@ export const query = graphql`
     reviewPage: contentfulReviewPage {
       title
       banner {
-        title
         description
-        url
+        gatsbyImageData(width: 1920, placeholder: BLURRED)
       }
     }
     reviews: allContentfulReview(sort: { order: ASC }) {

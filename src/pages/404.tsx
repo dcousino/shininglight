@@ -36,8 +36,7 @@ const FourOhhFour = () => {
         about: contentfulAboutPage {
           bannerImage {
             description
-            title
-            url
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }
@@ -47,7 +46,7 @@ const FourOhhFour = () => {
   return (
     <Layout>
       <Seo title={`404`} description={data.site.siteMetadata.description} />
-      <BannerImage img={data.about.bannerImage.url}></BannerImage>
+      {/* <BannerImage img={data.about.bannerImage.gatsbyImageData}></BannerImage> */}
       <SectionContainer mediaQueries={mediaQueries}>
         <div style={{ width: "100%", textAlign: "center" }}>
           <Title>Page Not Found</Title>

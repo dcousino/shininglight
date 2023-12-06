@@ -46,11 +46,11 @@ export const query = graphql`
         description
       }
       bannerImage {
-        gatsbyImageData(width: 1920)
+        gatsbyImageData(width: 1920, placeholder: BLURRED)
         description
       }
       contactImage {
-        gatsbyImageData(width: 1920)
+        gatsbyImageData(width: 1920, placeholder: BLURRED)
         description
       }
       bannerVideo {

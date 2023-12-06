@@ -1,5 +1,12 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
+type Separator = ImageQuery;
+
+type MarkdownQuery = {
+  childMarkdownRemark: {
+    rawMarkdownBody: string;
+  };
+};
 export type ServicesQuery = {
   service: {
     name: string;
@@ -11,35 +18,22 @@ export type ServicesQuery = {
         }>;
       };
     };
-    bridal: {
-      childMarkdownRemark: {
-        rawMarkdownBody: string;
-      };
-    };
-    specialEvents: {
-      childMarkdownRemark: {
-        rawMarkdownBody: string;
-      };
-    };
-    separator1: {
-      description: string;
-      gatsbyImageData: IGatsbyImageData;
-    };
+    bridal: MarkdownQuery;
+    specialEvents: MarkdownQuery;
+    privateLessons: MarkdownQuery;
+    separator1: Separator;
+    separator2: Separator;
   };
   banner: {
     title: string;
-    img: { gatsbyImageData: IGatsbyImageData };
+    img: ImageQuery;
   };
 };
 
 export type ReviewsQuery = {
   reviewPage: {
     title: string;
-    banner: {
-      title: string;
-      description: string;
-      url: string;
-    };
+    banner: ImageQuery;
   };
   reviews: {
     nodes: Array<{
@@ -63,39 +57,25 @@ export type PortfolioQuery = {
     edges: Array<{
       node: {
         title: string;
-        carouselImages: Array<{
-          id: string;
-          title: string;
-          gatsbyImageData: IGatsbyImageData;
-        }>;
+        carouselImages: Array<ImageQuery>;
       };
     }>;
   };
   muBanner: {
     title: string;
-    img: {
-      url: string;
-    };
+    img: ImageQuery;
   };
   btsBanner: {
     title: string;
-    img: {
-      url: string;
-    };
+    img: ImageQuery;
   };
 };
 
 export type HomePageQuery = {
   home: {
     description: { description: string };
-    bannerImage: {
-      gatsbyImageData: import("gatsby-plugin-image").IGatsbyImageData;
-      description: string;
-    };
-    contactImage: {
-      gatsbyImageData: import("gatsby-plugin-image").IGatsbyImageData;
-      description: string;
-    };
+    bannerImage: ImageQuery;
+    contactImage: ImageQuery;
     bannerVideo: {
       placeholderUrl: string;
       url: string;
@@ -107,17 +87,17 @@ export type HomePageQuery = {
   };
 };
 
+type ImageQuery = {
+  gatsbyImageData: IGatsbyImageData;
+  description: string;
+};
 export type ContactPageQuery = {
   site: {
     siteMetadata: { description: string };
   };
   banner: {
     title: string;
-    img: {
-      title: string;
-      description: string;
-      url: string;
-    };
+    img: ImageQuery;
   };
 };
 
@@ -131,16 +111,8 @@ export type AboutPageQuery = {
         rawMarkdownBody: string;
       };
     };
-    bannerImage: {
-      description: string;
-      title: string;
-      url: string;
-    };
-    aboutImage: {
-      description: string;
-      title: string;
-      gatsbyImageData: IGatsbyImageData;
-    };
+    bannerImage: ImageQuery;
+    aboutImage: ImageQuery;
   };
 };
 
@@ -149,18 +121,12 @@ export type FourOohFourQuery = {
     siteMetadata: { description: string };
   };
   about: {
-    bannerImage: {
-      description: string;
-      title: string;
-      url: string;
-    };
+    bannerImage: ImageQuery;
   };
 };
 
 export type BioQuery = {
-  image: {
-    gatsbyImageData: IGatsbyImageData;
-  };
+  image: ImageQuery;
   contentfulAbout: {
     onsiteBeautyDesign: {
       childMarkdownRemark: { rawMarkdownBody: string };

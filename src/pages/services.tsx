@@ -6,8 +6,6 @@ import SectionContainer from "../common/components/sectionContainer";
 import ReactMarkdown from "react-markdown";
 import markdownRender from "../common/renders/markdownRender";
 import { css } from "@emotion/css";
-import { Parallax } from "react-parallax";
-import { Container, ParallaxSection } from "../common/components/parallax";
 import styled from "styled-components";
 import breaks from "remark-breaks";
 import { ServicesQuery } from "../types/queries";
@@ -70,8 +68,7 @@ const Services = ({ data }: PageProps<ServicesQuery>) => (
       </div>
     </SectionContainer>
     <GatsbyImage
-      style={{ height: "300px", display: "block", width: "100%" }}
-      objectFit="cover"
+      style={{ height: "300px" }}
       image={data.service.separator1.gatsbyImageData}
       alt="Services Banner"
     />
@@ -81,6 +78,23 @@ const Services = ({ data }: PageProps<ServicesQuery>) => (
         <ReactMarkdown
           children={
             data.service.specialEvents.childMarkdownRemark.rawMarkdownBody
+          }
+          components={markdownRender}
+          remarkPlugins={[breaks]}
+        />
+      </div>
+    </SectionContainer>
+    <GatsbyImage
+      style={{ height: "300px", display: "block", width: "100%" }}
+      objectFit="cover"
+      image={data.service.separator2.gatsbyImageData}
+      alt="Services Banner"
+    />
+    <SectionContainer mediaQueries={mediaQueries}>
+      <div className={divStyle}>
+        <ReactMarkdown
+          children={
+            data.service.privateLessons.childMarkdownRemark.rawMarkdownBody
           }
           components={markdownRender}
           remarkPlugins={[breaks]}
@@ -116,14 +130,23 @@ export const q = graphql`
       }
       separator1 {
         description
-        gatsbyImageData(width: 1920)
+        gatsbyImageData(width: 1920, placeholder: BLURRED)
+      }
+      separator2 {
+        description
+        gatsbyImageData(width: 1920, placeholder: BLURRED)
+      }
+      privateLessons {
+        childMarkdownRemark {
+          rawMarkdownBody
+        }
       }
     }
     banner: contentfulImage(title: { eq: "ServicesBanner" }) {
       title
       img {
         description
-        gatsbyImageData(width: 1920)
+        gatsbyImageData(width: 1920, placeholder: BLURRED)
       }
     }
   }

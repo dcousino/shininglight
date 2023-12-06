@@ -25,6 +25,7 @@ const Nav = styled.div<{ opacity: number }>`
   transition: opacity 0.6s ease-out;
   will-change: opacity;
   position: fixed;
+  overflow: hidden;
   top: 0;
   width: 100%;
   margin: 0;
@@ -50,7 +51,7 @@ const Navbar = () => {
 
   const headerRef = React.useRef<HTMLDivElement>(null);
   const [opacity, setOpacity] = React.useState(1);
-
+  const [selectedLink, setSelectedLink] = React.useState<string>();
   React.useEffect(() => {
     window.onresize = () => {
       if (window.outerWidth >= 768) {
@@ -77,12 +78,14 @@ const Navbar = () => {
       };
     }
   }, []);
+  React.useEffect(() => {
+    console.log(selectedLink);
+  }, [selectedLink]);
 
   React.useEffect(() => {
     if (menuToggle) {
       document.body.style.position = "fixed";
     } else {
-      document.body.style.position = "unset";
     }
   }, [menuToggle]);
 
@@ -107,7 +110,7 @@ const Navbar = () => {
   );
 
   return (
-    <div style={{ marginBottom: "4em" }}>
+    <div>
       <Nav ref={headerRef} opacity={opacity}>
         <InnerNav>
           <ToggleButton onClick={toggleMenu}>
@@ -122,7 +125,10 @@ const Navbar = () => {
             <OtherLink
               minmax={deviceMax.tablet}
               key={navLink.to}
+              style={{ overflowAnchor: "none" }}
               to={navLink.to}
+              onClick={() => navLink.to && setSelectedLink(navLink.to)}
+              active={navLink.to === selectedLink ? "true" : "false"}
             >
               {navLink.name}
             </OtherLink>
