@@ -15,7 +15,6 @@
     "contentful": "^9.3.5",
     "font-awesome": "^4.7.0",
     "gatsby": "^5.8.1",
-    "gatsby-image": "^2.11.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-html-attributes": "^1.0.5",
     "gatsby-plugin-image": "^3.8.0",
