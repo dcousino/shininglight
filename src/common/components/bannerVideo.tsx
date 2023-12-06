@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 
 const VideoWrapper = styled.div<{ height?: string }>`
   position: relative;
@@ -19,26 +19,6 @@ const BannerVideo = ({
   placeholderUrl: string;
   mimeType: string;
 }) => {
-  const handleUserKeyPress = useCallback((e: any) => {
-    const video = document.getElementById("video") as HTMLVideoElement;
-    video.currentTime = 0;
-    video.load();
-  }, []);
-  // useEffect(() => {
-  //   const video = document.getElementById("video") as HTMLVideoElement;
-
-  //   if (video) {
-  //     video.addEventListener("ended", handleUserKeyPress);
-
-  //     video.play();
-  //   }
-
-  //   return () => {
-  //     if (video) {
-  //       video.removeEventListener("ended", handleUserKeyPress);
-  //     }
-  //   };
-  // }, []);
   return (
     <VideoWrapper>
       <video
@@ -48,6 +28,7 @@ const BannerVideo = ({
         autoPlay
         loop
         muted
+        playsInline
         style={{
           objectFit: "cover",
         }}
